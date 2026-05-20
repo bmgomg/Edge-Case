@@ -82,7 +82,7 @@
 		box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 20px inset;
 		font-family: DMS;
 		color: rgb(244, 234, 214);
-		font-size: 17px;
+		font-size: 16.5px;
 		line-height: 1.65;
 		display: grid;
 		gap: 12px;
