@@ -1,5 +1,3 @@
-import { shuffle } from 'lodash-es';
-import { CARDS } from './Cards';
 import { APP_STATE, BANK, COST_PER_MIN, MAX_DEBT, TICK_MS } from './const';
 import { _sound } from './sound.svelte';
 import { post } from './utils';
@@ -64,10 +62,7 @@ export const loadGame = () => {
 const decode = card => ({ suite: Math.floor(card / 100), rank: card % 100 });
 
 export const isSolved = () => {
-    const keys = Object.keys(CARDS).map(k => +k);
-    const codes = ss.cells.filter(c => c.id > 13 && c.id < 66).map(c => c.code);
-
-    return JSON.stringify(keys) === JSON.stringify(codes);
+    return false;
 };
 
 export const rowCol = (i) => {
@@ -200,127 +195,6 @@ const pickSparse = (pool, scoreFn) => {
     return thin[Math.floor(Math.random() * thin.length)];
 };
 
-// Pre-populates n cards onto the table.
-// placed → cards sit at their target (solved) positions; a blob is grown from a random seed.
-//          false → cards are chosen from a shuffled deck and dropped at a random valid spot.
-// spread → prefer candidates/spots with the fewest existing neighbors, producing a more
-//          spread-out layout instead of a compact blob.
-// n can be anything from 0–52.
-// Returns a flat codes array (0 = empty) ready to be applied to ss.cells.
-const generateInitialSetup = (n, placed = true, spread = true) => {
-    const { cols, cellCount } = ss;
-    const codes = new Array(cellCount).fill(0);
-    const count = Math.max(0, Math.min(n, 52));
-    if (count === 0) return codes;
-
-    const allCodes = Object.keys(CARDS).map(k => +k);
-    const pick = (pool) => pool[Math.floor(Math.random() * pool.length)];
-
-    if (placed) {
-        // Target cell index for a card at its solved position
-        const targetIndex = code => {
-            const suite = Math.floor(code / 100);
-            const rank = code % 100;
-            return suite * cols + (rank - 1);
-        };
-
-        // Cards adjacent to a given card in the solved grid (same rank ± 1 suit, same suit ± 1 rank)
-        const gridNeighbors = code => {
-            const suite = Math.floor(code / 100);
-            const rank = code % 100;
-            const nb = [];
-            if (rank > 1) nb.push(suite * 100 + rank - 1);   // left  (same suit, lower rank)
-            if (rank < 13) nb.push(suite * 100 + rank + 1);   // right (same suit, higher rank)
-            if (suite > 1) nb.push((suite - 1) * 100 + rank); // up    (lower suit, same rank)
-            if (suite < 4) nb.push((suite + 1) * 100 + rank); // down  (higher suit, same rank)
-            return nb;
-        };
-
-        // Grow a connected set of `count` cards from a random seed
-        // eslint-disable-next-line svelte/prefer-svelte-reactivity
-        const selected = new Set();
-        // eslint-disable-next-line svelte/prefer-svelte-reactivity
-        const frontier = new Set();
-
-        const seed = allCodes[Math.floor(Math.random() * allCodes.length)];
-        selected.add(seed);
-        gridNeighbors(seed).forEach(nb => frontier.add(nb));
-
-        while (selected.size < count && frontier.size > 0) {
-            const pool = [...frontier];
-            // spread: prefer frontier cards that touch fewest already-selected cards
-            const chosen = spread
-                ? pickSparse(pool, code => gridNeighbors(code).filter(nb => selected.has(nb)).length)
-                : pick(pool);
-            frontier.delete(chosen);
-            selected.add(chosen);
-            gridNeighbors(chosen).forEach(nb => { if (!selected.has(nb)) frontier.add(nb); });
-        }
-
-        for (const code of selected) {
-            codes[targetIndex(code)] = code;
-        }
-    } else {
-        // Count occupied orthogonal neighbors of a cell index in the current codes array
-        const occupiedNeighbors = idx => {
-            const row = Math.floor(idx / cols);
-            let cnt = 0;
-            for (const offset of [-cols, cols, -1, 1]) {
-                const nIdx = idx + offset;
-                if (nIdx < 0 || nIdx >= cellCount) continue;
-                if (offset === 1 && Math.floor(nIdx / cols) !== row) continue;
-                if (offset === -1 && Math.floor(nIdx / cols) !== row) continue;
-                if (codes[nIdx]) cnt++;
-            }
-            return cnt;
-        };
-
-        // Place cards from a shuffled deck at valid spots
-        const deck = shuffle(allCodes);
-        let tally = 0;
-
-        for (let i = 0; i < deck.length && tally < count; i++) {
-            const code = deck[i];
-            const spots = targetsForCodes(codes, code, cols, cellCount);
-            if (!spots.length) continue;
-
-            // spread: prefer spots that touch fewest occupied cells
-            const spotIdx = spread ? pickSparse(spots, occupiedNeighbors) : pick(spots);
-            codes[spotIdx] = code;
-            tally++;
-        }
-    }
-
-    return codes;
-};
-
-export const deckCodes = () => Object.keys(CARDS).map(k => +k).filter(code => ss.trayCell?.code !== code && !ss.cells?.some(c => c.code === code));
-
-export const drawNext = () => {
-    const deck = shuffle(deckCodes());
-
-    if (!deck.length) {
-        return;
-    }
-
-    _sound.play('link1');
-
-    // delay for sound
-    post(() => {
-        const code = deck.find(c => getValidTargets(c, null).length);
-        ss.trayCell = { code: code || deck[0], id: -1 };
-
-        ss.slide = 'forward';
-
-        post(() => {
-            _sound.play('link2');
-            ss.slide = 'back';
-        }, 400);
-
-        post(() => delete ss.slide, 800);
-    }, 200);
-};
-
 const makePuzzle = () => {
     delete ss.from;
     delete ss.to;
@@ -337,36 +211,6 @@ const makePuzzle = () => {
 };
 
 export const onStart = () => {
-    const codes = generateInitialSetup(ss.preset);
-
-    ss.spread = 1;
-
-    post(() => {
-        codes.forEach((code, i) => {
-            if (code) {
-                ss.cells[i].code = code;
-            }
-        });
-
-        post(() => {
-            ss.spread = 2;
-
-            post(() => {
-                ss.spread = 3;  // flip half-way
-
-                post(() => {
-                    ss.spread = 4; // complete flip
-                    post(() => delete ss.spread, 500);
-                }, 500);
-
-                drawNext();
-            }, ss.preset ? 1000 : 0);
-        });
-
-        startTimer();
-    });
-
-    _sound.play('dice');
 };
 
 const onTick = () => {
@@ -405,10 +249,10 @@ export const onRestart = () => {
 
     ss.ticks = 0;
 
-    if (deckCodes().length === 52) {
-        newPuzzle();
-        return;
-    }
+    // if (deckCodes().length === 52) {
+    //     newPuzzle();
+    //     return;
+    // }
 
     ss.gather = 1;
 

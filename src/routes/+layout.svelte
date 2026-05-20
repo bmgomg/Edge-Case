@@ -37,7 +37,6 @@
 			--water: #082319; /* deck-counter readout (was navy) */
 			background: var(--background);
 			color: var(--bone);
-			background-image: url('$lib/images/Texture.webp');
 			background-size: 350px;
 			font-family: Cinzel;
 		}

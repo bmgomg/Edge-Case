@@ -28,8 +28,6 @@
 
 <style>
 	.stats {
-		grid-area: 1/1;
-		place-self: center end;
 		display: grid;
 		grid: auto / 70px 90px 90px 90px;
 		grid-auto-flow: column;

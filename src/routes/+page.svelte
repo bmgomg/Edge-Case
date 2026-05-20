@@ -1,5 +1,4 @@
 <script>
-	import { CARDS } from '../Cards';
 	import GamePage from '../Game Page.svelte';
 	import Home from '../Home.svelte';
 	import { ss } from '../shared.svelte';
@@ -47,7 +46,6 @@
 		};
 
 		onResize();
-		preloadCards();
 
 		window.addEventListener('contextmenu', disable);
 		window.addEventListener('dblclick', disable);
@@ -63,13 +61,6 @@
 			window.removeEventListener('focus', onFocus);
 		};
 	});
-
-	const preloadCards = () => {
-		Object.values(CARDS).forEach((src) => {
-			const img = new Image();
-			img.src = src;
-		});
-	};
 
 	let splash = $state(true);
 	post(() => (splash = false), 2000);
@@ -111,6 +102,7 @@
 	.grad {
 		position: absolute;
 		background: radial-gradient(ellipse at 50% 38%, #0e3a2c 0%, #082319 55%, #040e09 100%);
+		filter: hue-rotate(90deg);
 		height: 100dvh;
 		width: 100dvw;
 	}

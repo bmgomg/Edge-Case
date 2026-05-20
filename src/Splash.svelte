@@ -9,7 +9,7 @@
     };
 </script>
 
-<div class={classes} out:fade={{ duration: 300 }} onpointerdown={onPointerDown}>
+<div class={classes} out:fade={{ duration: 300 }} onpointerdown={onPointerDown} role="img">
     <div class="bmg"></div>
 </div>
 

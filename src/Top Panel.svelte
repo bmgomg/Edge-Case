@@ -13,14 +13,15 @@
 	.panel {
 		display: grid;
 		align-items: center;
+		grid-auto-flow: column;
+		place-content: center;
+		gap: 80px;
 		margin: 30px 40px 0 45px;
 		border: 0px solid rgba(160, 126, 54, 0.333);
 		border-bottom-width: 0.666667px;
 	}
 
 	.title {
-		grid-area: 1/1;
-		place-self: center start;
 		font-family: BMI;
 		font-style: italic;
 		font-size: 48px;

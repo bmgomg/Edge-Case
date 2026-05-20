@@ -1,11 +1,10 @@
 <script>
 	import MusicControl from './Music Control.svelte';
 	import SfxControl from './SFX Control.svelte';
-	import { deckCodes, onRestart, resetStats, ss, stats, stopTimer } from './shared.svelte';
+	import { onRestart, resetStats, ss, stats, stopTimer } from './shared.svelte';
 	import TextButton from './Text Button.svelte';
 
-	const codes = $derived(deckCodes());
-	const noHome = $derived(ss.to || ss.gather || ss.spread || ss.slide || (!ss.trayCell && codes.length && !ss.buy));
+	const noHome = $derived(false);
 	const noRestart = $derived(ss.buy || ss.over || noHome);
 
 	const onHome = () => {

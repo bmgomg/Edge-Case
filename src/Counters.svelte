@@ -13,8 +13,6 @@
 
 <style>
 	.counters {
-		grid-area: 1/1;
-		place-self: center;
 		display: grid;
 		place-content: center;
 		width: 200px;
