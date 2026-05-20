@@ -26,8 +26,7 @@
 		font-size: 48px;
 		line-height: 0.9;
 		color: rgb(214, 178, 100);
-		/* letter-spacing: -2px; */
 		margin-left: 20px;
-		text-shadow: rgba(0, 0, 0, 0.4) 0px 2px 0px;
+		text-shadow: 0 2px 0 #000;
 	}
 </style>

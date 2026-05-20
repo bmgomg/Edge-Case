@@ -38,7 +38,10 @@
 		padding: 0 10px;
 		align-items: center;
 		gap: 35px;
-		margin: 40px;
+		margin: 0 40px 40px;
+		padding-top: 20px;
+		border: 0px solid rgba(160, 126, 54, 0.333);
+		border-top-width: 0.666667px;
 	}
 
 	.buttons {

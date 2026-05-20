@@ -11,6 +11,7 @@ export const ss = $state({
 
 export const stats = $state({
     plays: 0,
+    solved: 0,
     total: 0,
     best: 0,
 });

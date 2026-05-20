@@ -10,6 +10,10 @@
 		<span class="label">PLAYS</span>
 		<div class="value"><NumberFlow value={stats.plays} /></div>
 	</div>
+	<div class="item">
+		<span class="label">SOLVED</span>
+		<div class="value"><NumberFlow value={stats.solved} /></div>
+	</div>
 	{#snippet score(label, value)}
 		<div class="item">
 			<span class="label">{label}</span>
@@ -27,7 +31,7 @@
 		grid-area: 1/1;
 		place-self: center end;
 		display: grid;
-		grid: auto / 90px 90px 90px;
+		grid: auto / 70px 90px 90px 90px;
 		grid-auto-flow: column;
 		align-items: baseline;
 		cursor: initial;

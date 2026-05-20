@@ -31,6 +31,7 @@
 		font-size: 44px;
 		letter-spacing: -0.5px;
 		color: var(--gold-dim);
+		text-shadow: 0 2px 0 #000;
 	}
 
 	.red {

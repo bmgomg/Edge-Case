@@ -20,7 +20,7 @@
 {#if ss.home}
 	<div class="home" in:fade={{ duration: 200 }}>
 		<div class="title-panel">
-			<div class="supertitle">what you don't know will cost you</div>
+			<div class="tagline">what you don't know will cost you</div>
 			<div class="title">Edge Case</div>
 		</div>
 		<div class="instructions">
@@ -28,7 +28,7 @@
 			<span class="item">Reveal a cell by buying an operator — the result of applying it to that row and column is shown.</span>
 			<span class="item">No two cells in the same row or column can share the same operator.</span>
 			<span class="item">When you've seen enough, enter your guesses for all eight edge numbers and hit Done.</span>
-			<span class="financial">You start with $14.00. Addition costs $2, subtraction $1, multiplication $4. Revealing the unused number costs $3. Finish in the black — or go into debt trying.</span>
+			<span class="financial">You start with $25.00. Multiplication costs $4, addition $2, difference $1. Revealing the unused number costs $3. Finish in the black — or break the bank trying.</span>
 		</div>
 		<div class='buttons'>
 		<TextButton id="tb-play" text={[ss.ticks && !ss.over ? 'Resume' : 'Play']} framed style="width: 150px;" onClick={onPlayOrResume} />
@@ -52,12 +52,13 @@
 		place-items: center;
 	}
 
-	.supertitle {
+	.tagline {
 		font-family: CG;
 		font-style: italic;
 		font-size: 12px;
 		letter-spacing: 0.18em;
-		color: rgb(191, 179, 154);
+		color: var(--bone-dim);
+		text-shadow: 0 2px 0 #000;
 		text-transform: uppercase;
 		margin-bottom: 14px;
 	}
@@ -70,7 +71,7 @@
 		line-height: 0.9;
 		color: rgb(214, 178, 100);
 		letter-spacing: -2px;
-		text-shadow: rgba(0, 0, 0, 0.4) 0px 2px 0px;
+		text-shadow: 0px 3px 0px #000;
 	}
 
 	.instructions {
@@ -84,7 +85,7 @@
 		font-family: DMS;
 		color: rgb(244, 234, 214);
 		font-size: 16.5px;
-		line-height: 1.65;
+		line-height: 1.6;
 		display: grid;
 		gap: 12px;
 	}
@@ -99,7 +100,7 @@
 		margin-top: 4px;
 		font-family: CG;
 		font-style: italic;
-		font-size: 18px;
+		font-size: 18.6px;
 		color: rgb(214, 178, 100);
 		letter-spacing: 0.3px;
 		line-height: initial;
