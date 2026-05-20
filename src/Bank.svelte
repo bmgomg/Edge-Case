@@ -30,6 +30,7 @@
 		font-family: BM;
 		font-size: 44px;
 		letter-spacing: -0.5px;
+		color: var(--gold-dim);
 	}
 
 	.red {

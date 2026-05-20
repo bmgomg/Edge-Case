@@ -124,7 +124,7 @@
 
 	.frame {
 		grid-area: 1/1;
-		border: 1px solid var(--supertitle);
+		border: 1px solid var(--gold-dim);
 		--off: 1em;
 		width: calc(1080px - 2 * var(--off));
 		height: calc(810px - 2 * var(--off));
@@ -133,7 +133,7 @@
 
 	.frame-inner {
 		grid-area: 1/1;
-		border: 0.5px solid var(--supertitle);
+		border: 0.5px solid var(--gold-dim);
 		--off: 1.5em;
 		width: calc(1080px - 2 * var(--off));
 		height: calc(810px - 2 * var(--off));
@@ -145,7 +145,7 @@
 		width: 0.85em;
 		aspect-ratio: 1;
 		rotate: 45deg;
-		background: var(--supertitle);
+		background: var(--gold-dim);
 	}
 
 	.tl {

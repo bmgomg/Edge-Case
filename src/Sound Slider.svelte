@@ -20,7 +20,7 @@
 <style>
 	.slider {
 		--value: 0%;
-		--fill: var(--supertitle);
+		--fill: var(--gold-dim);
 		--track: var(--slider-track);
 		-webkit-appearance: none;
 		appearance: none;
@@ -39,7 +39,7 @@
 		width: 13px;
 		height: 13px;
 		border-radius: 50%;
-		border: 2px solid var(--supertitle);
+		border: 2px solid var(--gold-dim);
 		background: var(--preset-background);
 		transition: transform 0.15s;
 	}

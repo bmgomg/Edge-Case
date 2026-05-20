@@ -234,7 +234,7 @@
 
 	.card {
 		place-content: center;
-		background: var(--ow);
+		background: var(--bone);
 		display: grid;
 	}
 

@@ -55,7 +55,7 @@
 	.supertitle {
 		font-family: CG;
 		font-style: italic;
-		font-size: 14px;
+		font-size: 12px;
 		letter-spacing: 0.18em;
 		color: rgb(191, 179, 154);
 		text-transform: uppercase;
@@ -63,9 +63,10 @@
 	}
 
 	.title {
-		font-family: initial;
+		font-family: BMI;
 		font-style: italic;
-		font-size: 90px;
+		font-weight: 500;
+		font-size: 75px;
 		line-height: 0.9;
 		color: rgb(214, 178, 100);
 		letter-spacing: -2px;

@@ -17,14 +17,12 @@
 			padding: 0;
 			height: 100dvh;
 			width: 100%;
-			--ow: #f4ead6; /* bone / card faces / instruction text */
+			--bone: #f4ead6; /* bone / card faces / instruction text */
 			--bone-dim: #bfb39a; /* new — sub-emphasis body text */
-			--supertitle: #d6b264; /* was light green; now gold */
 			--dash: #a07e36;
 			--subtitle: #a07e36;
 			--preset-background: #082319; /* deeper felt for panels */
 			--separator: #6a5424; /* now a faded-gold rule */
-			--card-price: #a07e36;
 			--button-background: linear-gradient(180deg, #f3d27a 0%, #d6b264 50%, #a07e36 100%);
 			--button-color: #051710; /* new — text on the brass button */
 			--background: #0e3a2c;
@@ -34,10 +32,11 @@
 			--darkred: #7d2222;
 			--instr-text: #f4ead6; /* was minty; now bone */
 			--gold: #f3d27a;
+			--gold-dim: #d6b264; /* was light green; now gold */
 			--gold-deep: #a07e36; /* new — frame inset, label color */
 			--water: #082319; /* deck-counter readout (was navy) */
 			background: var(--background);
-			color: var(--ow);
+			color: var(--bone);
 			background-image: url('$lib/images/Texture.webp');
 			background-size: 350px;
 			font-family: Cinzel;
@@ -72,6 +71,11 @@
 		@font-face {
 			font-family: BM;
 			src: url('$lib/fonts/Bodoni Moda.ttf');
+		}
+
+		@font-face {
+			font-family: BMI;
+			src: url('$lib/fonts/Bodoni Moda Italic.ttf');
 		}
 
 		@font-face {
