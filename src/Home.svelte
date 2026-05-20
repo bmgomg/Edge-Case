@@ -30,7 +30,7 @@
 			<span class="financial">You start with $14.00. Addition costs $2, subtraction $1, multiplication $4. Revealing the unused number costs $3. Finish in the black — or go into debt trying.</span>
 		</div>
 		<div class='buttons'>
-		<TextButton id="tb-play" text={[ss.ticks && !ss.over ? 'Resume' : 'Play']} framed style="width: 200px;" onClick={onPlayOrResume} />
+		<TextButton id="tb-play" text={[ss.ticks && !ss.over ? 'Resume' : 'Play']} framed style="width: 150px;" onClick={onPlayOrResume} />
 		</div>
 	</div>
 {/if}
@@ -47,8 +47,8 @@
 	}
 
 	.title-panel {
-		text-align: center;
-		/* margin-bottom: 2.5rem; */
+		display: grid;
+		place-items: center;
 	}
 
 	.supertitle {
@@ -62,7 +62,7 @@
 	}
 
 	.title {
-		font-family: BM;
+		font-family: CR;
 		font-style: italic;
 		font-size: 90px;
 		font-weight: 500;
@@ -73,7 +73,7 @@
 	}
 
 	.instructions {
-		margin-top: 28px;
+		margin-top: 32px;
 		padding: 24px 32px;
 		max-width: 470px;
 		background: linear-gradient(rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.55) 100%);
@@ -105,6 +105,6 @@
 	}
 
 	.buttons {
-		margin-top: 22px;
+		margin-top: 32px;
 	}
 </style>

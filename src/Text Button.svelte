@@ -45,7 +45,7 @@
 	};
 </script>
 
-<div {id} class={classes} onpointerdown={onPointerDown} style={_style}>
+<div {id} class={classes} onpointerdown={onPointerDown} style={_style} role="button" tabindex={disabled ? -1 : 0}>
 	{#each text as line, i (i)}
 		<div>{line}</div>
 	{/each}
@@ -63,29 +63,50 @@
 			filter 0.2s;
 		cursor: pointer;
 		box-sizing: border-box;
+		white-space: nowrap;
+	}
+
+	.text-only {
+		font-family: 'Cinzel', serif;
+		font-size: 12px;
+		letter-spacing: 0.22em;
+		text-transform: uppercase;
+		color: var(--gold);
+		opacity: 0.85;
 	}
 
 	.text-only:hover {
-		filter: sepia(1);
+		opacity: 1;
+		filter: none; /* drop the sepia hover — looks dated next to brass */
 	}
 
 	.framed {
 		box-sizing: border-box;
 		border-radius: 8px;
-		font-size: 17px;
-		padding: 0.75rem 2rem;
-		letter-spacing: 0.04em;
+		font-family: 'Cinzel', serif;
+		font-size: 14px;
+		font-weight: 600;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		padding: 0.5rem 2rem;
+		color: var(--button-color);
 		background: var(--button-background);
+		border: 1px solid var(--gold-deep);
+		box-shadow:
+			0 2px 6px rgba(0, 0, 0, 0.5),
+			inset 0 1px 0 rgba(244, 234, 214, 0.45),
+			inset 0 -2px 4px rgba(106, 84, 36, 0.55);
 	}
 
 	.framed:hover {
-		filter: brightness(1.1);
+		filter: brightness(1.08);
 	}
 
 	.disabled {
 		cursor: initial;
 		pointer-events: none;
-		color: #ffffff50;
+		color: rgba(244, 234, 214, 0.4);
+		filter: grayscale(0.6) brightness(0.7);
 	}
 
 	.button:focus {
