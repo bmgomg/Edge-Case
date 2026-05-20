@@ -1,0 +1,114 @@
+<script>
+	import favicon from '$lib/images/favicon.png';
+
+	let { children } = $props();
+</script>
+
+<svelte:head>
+	<link rel="icon" href={favicon} />
+</svelte:head>
+
+{@render children()}
+
+<style>
+	:global {
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100dvh;
+			width: 100%;
+			--ow: #f4ead6; /* bone / card faces / instruction text */
+			--bone-dim: #bfb39a; /* new — sub-emphasis body text */
+			--supertitle: #d6b264; /* was light green; now gold */
+			--dash: #a07e36;
+			--subtitle: #a07e36;
+			--preset-background: #082319; /* deeper felt for panels */
+			--separator: #6a5424; /* now a faded-gold rule */
+			--card-price: #a07e36;
+			--button-background: linear-gradient(180deg, #f3d27a 0%, #d6b264 50%, #a07e36 100%);
+			--button-color: #051710; /* new — text on the brass button */
+			--background: #0e3a2c;
+			--slider-track: #0a1f17;
+			--card-glow: #f3d27a; /* brighter gold halo on solved cards */
+			--red: #c1302a;
+			--darkred: #7d2222;
+			--instr-text: #f4ead6; /* was minty; now bone */
+			--gold: #f3d27a;
+			--gold-deep: #a07e36; /* new — frame inset, label color */
+			--water: #082319; /* deck-counter readout (was navy) */
+			background: var(--background);
+			color: var(--ow);
+			background-image: url('$lib/images/Texture.webp');
+			background-size: 350px;
+			font-family: Cinzel;
+		}
+
+		.button-base {
+			box-sizing: border-box;
+			display: grid;
+			place-content: center;
+			transition: transform 0.1s;
+			cursor: pointer;
+		}
+
+		.button-base:focus {
+			outline: none !important;
+		}
+
+		.no-highlight {
+			-webkit-tap-highlight-color: transparent;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+
+		.nope {
+			pointer-events: none;
+		}
+
+		@font-face {
+			font-family: BM;
+			src: url('$lib/fonts/Bodoni Moda.ttf');
+		}
+
+		@font-face {
+			font-family: Cinzel;
+			src: url('$lib/fonts/Cinzel.ttf');
+		}
+
+		@font-face {
+			font-family: CG;
+			src: url('$lib/fonts/Cormorant Garamond.ttf');
+		}
+
+		@font-face {
+			font-family: DMS;
+			src: url('$lib/fonts/DMSans.ttf');
+			font-weight: 100 900;
+		}
+
+		@font-face {
+			font-family: Florentina;
+			src: url('$lib/fonts/Florentina.ttf');
+		}
+
+		@font-face {
+			font-family: Roboto;
+			src: url('$lib/fonts/Roboto-Regular.ttf');
+		}
+
+		@font-face {
+			font-family: RC;
+			src: url('$lib/fonts/Roboto Condensed.ttf');
+		}
+
+		@font-face {
+			font-family: CP;
+			src: url('$lib/fonts/CrimsonPro.ttf');
+			font-weight: 100 900;
+		}
+	}
+</style>
