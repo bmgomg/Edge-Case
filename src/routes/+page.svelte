@@ -80,6 +80,8 @@
 		<Splash />
 	{:else}
 		<div class="grad"></div>
+		<div class="frame"></div>
+		<div class="frame-inner"></div>
 		<div class="content" style="scale: {ss.scale};">
 			<GamePage />
 			<Home />
@@ -101,10 +103,36 @@
 	}
 
 	.grad {
-        position: absolute;
+		position: absolute;
 		background: radial-gradient(ellipse at 50% 38%, #0e3a2c 0%, #082319 55%, #040e09 100%);
 		height: 100dvh;
 		width: 100dvw;
+	}
+
+	.frame {
+		border: 1px solid var(--supertitle);
+		position: absolute;
+		--off: 1em;
+		left: var(--off);
+		top: var(--off);
+		right: var(--off);
+		bottom: var(--off);
+		height: calc(100dvh - 2 * var(--off));
+		width: calc(100dvw - 2 * var(--off));
+		opacity: 0.7;
+	}
+
+	.frame-inner {
+		border: 0.5px solid var(--supertitle);
+		position: absolute;
+		--off: 1.5em;
+		left: var(--off);
+		top: var(--off);
+		right: var(--off);
+		bottom: var(--off);
+		height: calc(100dvh - 2 * var(--off));
+		width: calc(100dvw - 2 * var(--off));
+		opacity: 0.5;
 	}
 
 	.content {
