@@ -24,8 +24,9 @@
 			<div class="title">Edge Case</div>
 		</div>
 		<div class="instructions">
-			<span class="item">Eight numbers are hidden along the edges of a grid. A ninth number is set aside, unused.</span>
-			<span class="item">Reveal a cell by buying an operator — the result of applying it to that row and column is shown. Up to 12 operators total, three of each kind.</span>
+			<span class="item">Eight numbers between 1 and 9 are hidden along the edges of a grid. A ninth number is set aside, unused.</span>
+			<span class="item">Reveal a cell by buying an operator — the result of applying it to that row and column is shown.</span>
+			<span class="item">No two cells in the same row or column can share the same operator.</span>
 			<span class="item">When you've seen enough, enter your guesses for all eight edge numbers and hit Done.</span>
 			<span class="financial">You start with $14.00. Addition costs $2, subtraction $1, multiplication $4. Revealing the unused number costs $3. Finish in the black — or go into debt trying.</span>
 		</div>
@@ -75,7 +76,7 @@
 	.instructions {
 		margin-top: 32px;
 		padding: 24px 32px;
-		max-width: 470px;
+		max-width: 540px;
 		background: linear-gradient(rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.55) 100%);
 		border: 1px solid rgba(160, 126, 54, 0.533);
 		border-radius: 4px;
