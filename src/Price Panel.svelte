@@ -9,7 +9,6 @@
 	.price-panel {
 		display: grid;
 		width: 300px;
-		/* background: #ffffff80; */
 		padding: 15px 40px 15px 15px;
 		border: 1px dotted gray;
 	}
