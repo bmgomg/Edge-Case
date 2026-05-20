@@ -27,7 +27,7 @@
 		grid-area: 1/1;
 		place-self: center end;
 		display: grid;
-		grid: auto / 85px 85px 85px;
+		grid: auto / 90px 90px 90px;
 		grid-auto-flow: column;
 		align-items: baseline;
 		cursor: initial;
@@ -41,10 +41,12 @@
 
 	.label {
 		color: var(--subtitle);
+		letter-spacing: 0.22em;
 		font-size: 13px;
 	}
 
 	.value {
+		font-family: BM;
 		font-size: 17px;
 		opacity: 0.6;
 	}

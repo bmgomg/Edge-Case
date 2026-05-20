@@ -63,10 +63,9 @@
 	}
 
 	.title {
-		font-family: CR;
+		font-family: initial;
 		font-style: italic;
 		font-size: 90px;
-		font-weight: 500;
 		line-height: 0.9;
 		color: rgb(214, 178, 100);
 		letter-spacing: -2px;

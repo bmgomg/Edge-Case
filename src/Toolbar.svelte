@@ -20,9 +20,9 @@
 
 <div class="toolbar">
 	<div class="buttons">
-		<TextButton id="tb-home" text={['Home']} disabled={noHome} onClick={onHome} />
-		<TextButton id="tb-restart" text={['Start over']} disabled={noRestart} onClick={onRestart} />
-		<TextButton id="tb-stats" text={['Reset stats']} disabled={stats.plays === 0} onClick={resetStats} />
+		<TextButton id="tb-home" text={['home']} disabled={noHome} onClick={onHome} />
+		<TextButton id="tb-restart" text={['give up']} disabled={noRestart} onClick={onRestart} />
+		<TextButton id="tb-stats" text={['reset stats']} disabled={stats.plays === 0} onClick={resetStats} />
 	</div>
 	<div class="sound-controls">
 		<MusicControl />
@@ -38,6 +38,7 @@
 		padding: 0 10px;
 		align-items: center;
 		gap: 35px;
+		margin: 40px;
 	}
 
 	.buttons {
@@ -45,7 +46,7 @@
 		justify-self: start;
 		display: grid;
 		grid-auto-flow: column;
-		gap: 35px;
+		gap: 30px;
 	}
 
 	.sound-controls {
@@ -55,6 +56,6 @@
 		display: grid;
 		grid-auto-flow: column;
 		gap: 20px;
-		color: var(--subtitle);
+		color: var(--gold-deep);
 	}
 </style>

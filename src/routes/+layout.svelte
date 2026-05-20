@@ -28,7 +28,7 @@
 			--button-background: linear-gradient(180deg, #f3d27a 0%, #d6b264 50%, #a07e36 100%);
 			--button-color: #051710; /* new — text on the brass button */
 			--background: #0e3a2c;
-			--slider-track: #0a1f17;
+			--slider-track: #a07e3680;
 			--card-glow: #f3d27a; /* brighter gold halo on solved cards */
 			--red: #c1302a;
 			--darkred: #7d2222;
@@ -108,7 +108,7 @@
 		@font-face {
 			font-family: CP;
 			src: url('$lib/fonts/CrimsonPro.ttf');
-			font-weight: 100 900;
+			/* font-weight: 100 900; */
 		}
 	}
 </style>

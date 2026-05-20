@@ -67,8 +67,7 @@
 	}
 
 	.text-only {
-		font-family: 'Cinzel', serif;
-		font-size: 12px;
+		font-size: 14px;
 		letter-spacing: 0.22em;
 		text-transform: uppercase;
 		color: var(--gold);

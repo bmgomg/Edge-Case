@@ -27,4 +27,9 @@
 		align-items: center;
 		translate: 60px 0;
 	}
+
+	.label {
+		font-size: 14px;
+		letter-spacing: 0.22em;
+	}
 </style>

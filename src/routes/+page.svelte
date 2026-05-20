@@ -80,12 +80,14 @@
 		<Splash />
 	{:else}
 		<div class="grad"></div>
-		<div class="frame"></div>
-		<div class="frame-inner"></div>
-		<div class="corner tl"></div>
-		<div class="corner tr"></div>
-		<div class="corner br"></div>
-		<div class="corner bl"></div>
+		<div class="frame-box" style="scale: {ss.scale};">
+			<div class="frame"></div>
+			<div class="frame-inner"></div>
+			<div class="corner tl"></div>
+			<div class="corner tr"></div>
+			<div class="corner br"></div>
+			<div class="corner bl"></div>
+		</div>
 		<div class="content" style="scale: {ss.scale};">
 			<GamePage />
 			<Home />
@@ -113,35 +115,33 @@
 		width: 100dvw;
 	}
 
+	.frame-box {
+		grid-area: 1/1;
+		place-self: center;
+		place-items: center;
+		display: grid;
+	}
+
 	.frame {
+		grid-area: 1/1;
 		border: 1px solid var(--supertitle);
-		position: absolute;
 		--off: 1em;
-		left: var(--off);
-		top: var(--off);
-		right: var(--off);
-		bottom: var(--off);
-		height: calc(100dvh - 2 * var(--off));
-		width: calc(100dvw - 2 * var(--off));
+		width: calc(1080px - 2 * var(--off));
+		height: calc(810px - 2 * var(--off));
 		opacity: 0.7;
 	}
 
 	.frame-inner {
+		grid-area: 1/1;
 		border: 0.5px solid var(--supertitle);
-		position: absolute;
 		--off: 1.5em;
-		left: var(--off);
-		top: var(--off);
-		right: var(--off);
-		bottom: var(--off);
-		height: calc(100dvh - 2 * var(--off));
-		width: calc(100dvw - 2 * var(--off));
+		width: calc(1080px - 2 * var(--off));
+		height: calc(810px - 2 * var(--off));
 		opacity: 0.5;
 	}
 
 	.corner {
-		position: absolute;
-		--off: 0.75em;
+		--off: 0.15em;
 		width: 0.85em;
 		aspect-ratio: 1;
 		rotate: 45deg;
@@ -149,29 +149,32 @@
 	}
 
 	.tl {
-		left: var(--off);
-		top: var(--off);
+		grid-area: 1/1;
+		place-self: start;
+		translate: calc(-1 * var(--off)) calc(-1 * var(--off));
 	}
 
 	.tr {
-		right: var(--off);
-		top: var(--off);
+		grid-area: 1/1;
+		place-self: start end;
+		translate: var(--off) calc(-1 * var(--off));
 	}
 
 	.br {
-		right: var(--off);
-		bottom: var(--off);
+		grid-area: 1/1;
+		place-self: end;
+		translate: var(--off) var(--off);
 	}
 
 	.bl {
-		left: var(--off);
-		bottom: var(--off);
+		grid-area: 1/1;
+		place-self: end start;
+		translate: calc(-1 * var(--off)) var(--off);
 	}
 
 	.content {
 		grid-area: 1/1;
 		place-self: center;
-		place-content: center;
 		display: grid;
 		touch-action: none;
 		box-sizing: border-box;

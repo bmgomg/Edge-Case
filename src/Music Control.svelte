@@ -13,7 +13,7 @@
 
 <div class="selector no-highlight">
 	<div class="label">MUSIC</div>
-	<SoundSlider max={3} value={_sound.music} {onInput}/>
+	<SoundSlider max={3} value={_sound.music} {onInput} />
 </div>
 
 <style>
@@ -23,5 +23,10 @@
 		gap: 12px;
 		align-items: center;
 		translate: 60px 0;
+	}
+
+	.label {
+		font-size: 14px;
+		letter-spacing: 0.22em;
 	}
 </style>

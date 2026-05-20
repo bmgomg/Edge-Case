@@ -20,14 +20,14 @@
 	}
 
 	.label {
-		letter-spacing: 0.12em;
+		letter-spacing: 0.22em;
 		color: var(--subtitle);
 		text-transform: uppercase;
 		translate: 0 10px;
 	}
 
 	.value {
-		font-family: CP;
+		font-family: BM;
 		font-size: 44px;
 		letter-spacing: -0.5px;
 	}
