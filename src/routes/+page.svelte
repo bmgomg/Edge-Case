@@ -82,6 +82,10 @@
 		<div class="grad"></div>
 		<div class="frame"></div>
 		<div class="frame-inner"></div>
+		<div class="corner tl"></div>
+		<div class="corner tr"></div>
+		<div class="corner br"></div>
+		<div class="corner bl"></div>
 		<div class="content" style="scale: {ss.scale};">
 			<GamePage />
 			<Home />
@@ -133,6 +137,35 @@
 		height: calc(100dvh - 2 * var(--off));
 		width: calc(100dvw - 2 * var(--off));
 		opacity: 0.5;
+	}
+
+	.corner {
+		position: absolute;
+		--off: 0.75em;
+		width: 0.85em;
+		aspect-ratio: 1;
+		rotate: 45deg;
+		background: var(--supertitle);
+	}
+
+	.tl {
+		left: var(--off);
+		top: var(--off);
+	}
+
+	.tr {
+		right: var(--off);
+		top: var(--off);
+	}
+
+	.br {
+		right: var(--off);
+		bottom: var(--off);
+	}
+
+	.bl {
+		left: var(--off);
+		bottom: var(--off);
 	}
 
 	.content {
