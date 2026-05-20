@@ -82,8 +82,8 @@
 
 	.framed {
 		box-sizing: border-box;
-		border-radius: 8px;
-		font-family: 'Cinzel', serif;
+		/* border-radius: 8px; */
+		font-family: Cinzel;
 		font-size: 14px;
 		font-weight: 600;
 		letter-spacing: 0.2em;
