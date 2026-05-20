@@ -1,5 +1,5 @@
 <script>
-	import Prompt from './Prompt.svelte';
+	import MidPanel from './Mid Panel.svelte';
 	import { ss } from './shared.svelte';
 	import Toolbar from './Toolbar.svelte';
 	import TopPanel from './Top Panel.svelte';
@@ -9,7 +9,7 @@
 
 <div class="game-page {hidden ? 'hidden' : ''}">
 	<TopPanel />
-	<Prompt />
+	<MidPanel />
 	<Toolbar />
 </div>
 

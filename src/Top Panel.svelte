@@ -3,14 +3,14 @@
 	import Stats from './Stats.svelte';
 </script>
 
-<div class="panel">
+<div class="top-panel">
 	<div class="title">Edge Case</div>
 	<Counters />
 	<Stats />
 </div>
 
 <style>
-	.panel {
+	.top-panel {
 		display: grid;
 		align-items: center;
 		grid-auto-flow: column;
