@@ -28,7 +28,7 @@
 			<span class="item">Reveal a cell by buying an operator — the result of applying it to that row and column is shown.</span>
 			<span class="item">No two cells in the same row or column can share the same operator.</span>
 			<span class="item">When you've seen enough, enter your guesses for all eight edge numbers and hit Done.</span>
-			<span class="financial">You start with $25.00. Multiplication costs $4, addition $2, difference $1. Revealing the unused number costs $3. Finish in the black — or break the bank trying.</span>
+			<span class="financial">You start with $25.00. Multiplication costs $4, addition $2, difference (delta) $1. Revealing the unused number costs $3. Finish in the black — or break the bank trying.</span>
 		</div>
 		<div class='buttons'>
 		<TextButton id="tb-play" text={[ss.ticks && !ss.over ? 'Resume' : 'Play']} framed style="width: 150px;" onClick={onPlayOrResume} />
@@ -77,7 +77,7 @@
 	.instructions {
 		margin-top: 32px;
 		padding: 24px 32px;
-		max-width: 540px;
+		max-width: 530px;
 		background: linear-gradient(rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.55) 100%);
 		border: 1px solid rgba(160, 126, 54, 0.533);
 		border-radius: 4px;
