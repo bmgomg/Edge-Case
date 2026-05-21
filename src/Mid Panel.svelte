@@ -6,7 +6,7 @@
 
 <div class="mid-panel">
     <Playground/>
-    <PricePanel/>
+    <!-- <PricePanel/> -->
 </div>
 
 <style>
