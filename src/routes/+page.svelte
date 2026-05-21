@@ -101,7 +101,7 @@
 
 	.grad {
 		position: absolute;
-		background: radial-gradient(ellipse at 50% 38%, #0e3a2c 0%, #082319 55%, #040e09 100%);
+		background: radial-gradient(ellipse at 50% 50%, #0e3a2c 0%, #082319 55%, #040e09 100%);
 		filter: hue-rotate(90deg);
 		height: 100dvh;
 		width: 100dvw;

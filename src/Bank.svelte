@@ -23,12 +23,12 @@
 		letter-spacing: 0.22em;
 		color: var(--subtitle);
 		text-transform: uppercase;
-		translate: 0 10px;
+		translate: 0 5px;
 	}
 
 	.value {
 		font-family: BM;
-		font-size: 44px;
+		font-size: 40px;
 		letter-spacing: -0.5px;
 		color: var(--gold-dim);
 		text-shadow: 0 2px 0 #000;
