@@ -60,8 +60,9 @@
 	{#if edge}
 		{#if guess}
 			<span class="number" in:fade>{guess}</span>
-		{:else}
-			<div in:fade>
+		{/if}
+		{#if true}
+			<div class='guess {guess ? 'hidden' : ''}' in:fade>
 				<TextButton id={bid} text={['guess', 'number']} style={edgeStyle} onClick={onGuess} />
 			</div>
 		{/if}
@@ -97,7 +98,18 @@
 		border: none;
 	}
 
+	.guess {
+		grid-area: 1/1;
+		transition: opacity 0.5s;
+	}
+
+	.hidden {
+		opacity: 0;
+	}
+
 	.number {
+		grid-area: 1/1;
+		place-self: center;
 		font-family: BM;
 		font-size: 32px;
 		font-weight: bold;

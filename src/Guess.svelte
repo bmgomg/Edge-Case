@@ -10,6 +10,7 @@
 	};
 
 	const onClearValue = () => {
+		delete ss.cells[ss.guess - 1].guess;
 		delete ss.guess;
 	};
 </script>
@@ -33,7 +34,7 @@
 		grid-area: 1/1;
 		place-self: end center;
 		display: grid;
-		gap: 10px;
+		gap: 8px;
 		margin: 10px 0;
 	}
 </style>
