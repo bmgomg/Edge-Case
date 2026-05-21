@@ -7,14 +7,16 @@
 	const { row, col } = $derived(rowCol(id - 1));
 	const unused = $derived(row === 1 && col === 1);
 	const edge = $derived(!unused && (row === 1 || col === 1));
-    const edgeStyle = 'font-family: RC; color: var(--water);';
+    const buttonStyle = 'height: 78px; aspect-ratio: 1;';
+    const edgeStyle = `${buttonStyle} font-family: RC; color: var(--water);`;
     const unusedStyle = `${edgeStyle}`;
-    const opStyle = 'font-family: RC; letter-spacing: 0; color: var(--gold-dim);';
+    const opStyle = `${buttonStyle} font-family: RC; letter-spacing: 0; color: var(--gold-dim);`;
 </script>
 
 <div class="cell {edge || unused ? 'edge' : ''}" style="grid-area: {row}/{col}">
 	{#if edge}
         <TextButton id={bid} text={['guess', 'number']} style={edgeStyle}/>
+        <!-- <span class='number'>{id}</span> -->
 	{:else if unused}
         <TextButton id={bid}  text={['reveal', 'unused', 'number']} style={unusedStyle}/>
 	{:else}
@@ -39,4 +41,11 @@
 		background: var(--button-background);
         border: none;
 	}
+
+    .number {
+        font-family: BM;
+        font-size: 32px;
+        font-weight: bold;
+        color: var(--water);
+    }
 </style>
