@@ -4,30 +4,59 @@
 	import TextButton from './Text Button.svelte';
 
 	const { cell } = $props();
-	const { id, row, col, value, guess } = $derived(cell);
+	const { id, row, col, value, guess, op } = $derived(cell);
 	const bid = $derived('tb-cell-' + id);
 	const unused = $derived(row === 1 && col === 1);
 	const edge = $derived(!unused && (row === 1 || col === 1));
+	const opCell = $derived(!unused && !edge);
 	const buttonStyle = 'height: 78px; aspect-ratio: 1;';
 	const edgeStyle = `${buttonStyle} font-family: RC; color: var(--water);`;
 	const unusedStyle = `${edgeStyle}`;
 	const opStyle = `${buttonStyle} font-family: RC; letter-spacing: 0; color: var(--gold-dim);`;
-	const clases = $derived(`cell ${edge || unused ? 'edge' : ''} ${unused && (ss.showUnused || ss.buyUnused) ? 'nope' : ''}`);
+	const pulse = $derived((unused && ss.buyUnused) || ss.guess === id || ss.buyOp === id);
+
+	const classes = $derived(
+		`cell ${edge || unused ? 'edge' : ''} ${ss.over || (unused && ss.showUnused) || (opCell && op) ? 'nope' : ''} ${pulse ? 'pulse' : ''}`
+	);
 
 	const onBuyUnused = () => {
+		if (ss.buyUnused) {
+			delete ss.buyUnused;
+			return;
+		}
+
+		delete ss.guess;
+		delete ss.buyOp;
+
 		ss.buyUnused = true;
 	};
 
 	const onGuess = () => {
-		ss.guess = true;
+		if (ss.guess === id) {
+			delete ss.guess;
+			return;
+		}
+
+		delete ss.buyUnused;
+		delete ss.buyOp;
+
+		ss.guess = id;
 	};
 
 	const onBuyOp = () => {
-		ss.buyOp = true;
+		if (ss.buyOpp === id) {
+			delete ss.buyOp;
+			return;
+		}
+
+		delete ss.buyUnused;
+		delete ss.guess;
+
+		ss.buyOp = id;
 	};
 </script>
 
-<div class={clases} style="grid-area: {row}/{col}">
+<div class={classes} style="grid-area: {row}/{col}">
 	{#if edge}
 		{#if guess}
 			<span class="number" in:fade>{guess}</span>
@@ -41,7 +70,7 @@
 			<span class="number nope" in:fade>{value}</span>
 		{:else}
 			<div in:fade>
-				<TextButton id={bid} text={['reveal', 'unused', 'number']} style={unusedStyle} onClick={onBuyUnused}/>
+				<TextButton id={bid} text={['reveal', 'unused', 'number']} style={unusedStyle} onClick={onBuyUnused} />
 			</div>
 		{/if}
 	{:else}
@@ -73,5 +102,18 @@
 		font-size: 32px;
 		font-weight: bold;
 		color: var(--water);
+	}
+
+	.pulse {
+		animation: pulse 0.2s alternate infinite ease-in-out;
+	}
+
+	@keyframes pulse {
+		from {
+			transform: scale(1);
+		}
+		to {
+			transform: scale(0.9);
+		}
 	}
 </style>
