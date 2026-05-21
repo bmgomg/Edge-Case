@@ -13,7 +13,6 @@
 	.board {
 		grid-area: 1/1;
 		display: grid;
-		/* border: 1px solid red; */
 		place-content: center;
 	}
 </style>

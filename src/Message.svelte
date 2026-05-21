@@ -40,7 +40,7 @@
 		font-size: 20px;
 		padding: 0.75rem 2rem;
 		letter-spacing: 0.04em;
-		background: var(--purple-deep);
+		background: var(--deep-purple);
 		border-radius: 10px;
 		border: 1px solid #f5f0e080;
 		opacity: 0.95;

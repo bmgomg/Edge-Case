@@ -68,7 +68,7 @@
 
 	.text-only {
 		font-size: 14px;
-		letter-spacing: 0.22em;
+		letter-spacing: 0.12em;
 		text-transform: uppercase;
 		color: var(--gold);
 		opacity: 0.85;

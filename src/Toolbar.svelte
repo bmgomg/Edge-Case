@@ -14,6 +14,8 @@
 
 		ss.home = true;
 	};
+
+	const onClear = () => {};
 </script>
 
 <div class="toolbar">
@@ -21,6 +23,7 @@
 		<TextButton id="tb-home" text={['home']} disabled={noHome} onClick={onHome} />
 		<TextButton id="tb-restart" text={['give up']} disabled={noRestart} onClick={onRestart} />
 		<TextButton id="tb-stats" text={['reset stats']} disabled={stats.plays === 0} onClick={resetStats} />
+		<TextButton id="tb-clear" text={['clear all guesses']} disabled={false} onClick={onClear} />
 	</div>
 	<div class="sound-controls">
 		<MusicControl />
