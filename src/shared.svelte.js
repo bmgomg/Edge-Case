@@ -62,7 +62,7 @@ export const isSolved = () => {
     return false;
 };
 
-const rowCol = (i) => {
+export const rowCol = (i) => {
     const row = Math.floor(i / 5) + 1;
     const col = (i % 5) + 1;
     return { row, col };
