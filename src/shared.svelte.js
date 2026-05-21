@@ -85,6 +85,8 @@ const makePuzzle = () => {
     delete ss.over;
     delete ss.buyUnused;
     delete ss.showUnused;
+    delete ss.guess;
+    delete ss.buyOp;
 
     const nums = _range(1, 9);
     shuffleInPlace(nums);

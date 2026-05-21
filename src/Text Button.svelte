@@ -82,7 +82,7 @@
 	.framed {
 		box-sizing: border-box;
 		font-family: Cinzel;
-		font-size: 14px;
+		font-size: 18px;
 		font-weight: 600;
 		letter-spacing: 0.2em;
 		text-transform: uppercase;

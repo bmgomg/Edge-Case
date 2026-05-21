@@ -14,9 +14,9 @@
 	};
 </script>
 
-{#if ss.buyUnused}
+{#if ss.buyUnused && !ss.over}
 	<div class="prompt" transition:fade={{ duration: 150 }}>
-		<TextButton id="tb-buy-unused" text={[`Pay $${COST_UNUSED}?`]} framed onClick={onBuy} style="letter-spacing: 0.12em;;" />
+		<TextButton id="tb-buy-unused" text={[`Pay $${COST_UNUSED}?`]} framed onClick={onBuy} style="letter-spacing: 0.12em;" />
 		<TextButton id="tb-no" text={['No']} framed onClick={onCancel} />
 	</div>
 {/if}
@@ -29,6 +29,5 @@
 		grid-auto-flow: column;
 		gap: 20px;
 		margin: 30px 0;
-		font-size: 20px;
 	}
 </style>

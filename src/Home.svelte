@@ -43,7 +43,6 @@
 		display: grid;
 		justify-items: center;
 		user-select: none;
-		scale: 1.2;
 		font-family: DMS;
 	}
 
@@ -55,7 +54,7 @@
 	.tagline {
 		font-family: CG;
 		font-style: italic;
-		font-size: 12px;
+		font-size: 14px;
 		letter-spacing: 0.18em;
 		color: var(--bone-dim);
 		text-shadow: 0 2px 0 #000;
@@ -67,7 +66,7 @@
 		font-family: BMI;
 		font-style: italic;
 		font-weight: 500;
-		font-size: 75px;
+		font-size: 85px;
 		line-height: 0.9;
 		color: rgb(214, 178, 100);
 		letter-spacing: -2px;
@@ -75,16 +74,16 @@
 	}
 
 	.instructions {
-		margin-top: 32px;
+		margin: 50px 0 15px;
 		padding: 24px 32px;
-		max-width: 550px;
+		max-width: 610px;
 		background: linear-gradient(rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.55) 100%);
 		border: 1px solid rgba(160, 126, 54, 0.533);
 		border-radius: 4px;
 		box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 20px inset;
 		font-family: DMS;
 		color: rgb(244, 234, 214);
-		font-size: 17px;
+		font-size: 19px;
 		line-height: 1.6;
 		display: grid;
 		gap: 12px;
@@ -96,11 +95,11 @@
 
 	.financial {
 		border-top: 0.5px solid rgb(106, 84, 36);
-		padding-top: 14px;
-		margin-top: 4px;
+		margin-top: 10px;
+		padding-top: 20px;
 		font-family: CG;
 		font-style: italic;
-		font-size: 18.5px;
+		font-size: 20px;
 		color: rgb(214, 178, 100);
 		letter-spacing: 0.3px;
 		line-height: initial;

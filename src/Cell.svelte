@@ -1,9 +1,10 @@
 <script>
+	import { fade } from 'svelte/transition';
 	import { ss } from './shared.svelte';
 	import TextButton from './Text Button.svelte';
 
 	const { cell } = $props();
-	const { id, row, col, value, guess, op } = $derived(cell);
+	const { id, row, col, value, guess } = $derived(cell);
 	const bid = $derived('tb-cell-' + id);
 	const unused = $derived(row === 1 && col === 1);
 	const edge = $derived(!unused && (row === 1 || col === 1));
@@ -29,18 +30,22 @@
 <div class={clases} style="grid-area: {row}/{col}">
 	{#if edge}
 		{#if guess}
-			<span class="number">{guess}</span>
+			<span class="number" in:fade>{guess}</span>
 		{:else}
-			<TextButton id={bid} text={['guess', 'number']} style={edgeStyle} onClick={onGuess}/>
+			<div in:fade>
+				<TextButton id={bid} text={['guess', 'number']} style={edgeStyle} onClick={onGuess} />
+			</div>
 		{/if}
 	{:else if unused}
 		{#if ss.showUnused}
-			<span class="number nope">{value}</span>
+			<span class="number nope" in:fade>{value}</span>
 		{:else}
-			<TextButton id={bid} text={['reveal', 'unused', 'number']} style={unusedStyle} onClick={onBuyUnused}/>
+			<div in:fade>
+				<TextButton id={bid} text={['reveal', 'unused', 'number']} style={unusedStyle} onClick={onBuyUnused} />
+			</div>
 		{/if}
 	{:else}
-		<TextButton id={bid} text={['buy', 'operator']} style={opStyle} onClick={onBuyOp}/>
+		<TextButton id={bid} text={['buy', 'operator']} style={opStyle} onClick={onBuyOp} />
 	{/if}
 </div>
 
@@ -59,6 +64,7 @@
 
 	.edge {
 		background: var(--button-background);
+		filter: hue-rotate(-150deg) saturate(0.5);
 		border: none;
 	}
 
