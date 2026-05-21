@@ -12,7 +12,7 @@
 	const edgeStyle = `${buttonStyle} font-family: RC; color: var(--water);`;
 	const unusedStyle = `${edgeStyle}`;
 	const opStyle = `${buttonStyle} font-family: RC; letter-spacing: 0; color: var(--gold-dim);`;
-	const clases = $derived(`cell ${edge || unused ? 'edge' : ''} ${unused && ss.showUnused ? 'nope' : ''}`);
+	const clases = $derived(`cell ${edge || unused ? 'edge' : ''} ${unused && (ss.showUnused || ss.buyUnused) ? 'nope' : ''}`);
 
 	const onBuyUnused = () => {
 		ss.buyUnused = true;
@@ -41,7 +41,7 @@
 			<span class="number nope" in:fade>{value}</span>
 		{:else}
 			<div in:fade>
-				<TextButton id={bid} text={['reveal', 'unused', 'number']} style={unusedStyle} onClick={onBuyUnused} />
+				<TextButton id={bid} text={['reveal', 'unused', 'number']} style={unusedStyle} onClick={onBuyUnused}/>
 			</div>
 		{/if}
 	{:else}

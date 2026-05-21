@@ -7,7 +7,7 @@
 	let scale = $state(1);
 	let timer = $state(false);
 
-	const classes = $derived(['button-base no-highlight button ' + (framed ? 'framed' : 'text-only'), { disabled }]);
+	const classes = $derived(['button-base no-highlight button ' + (framed ? 'framed' : 'text-only') + (onClick ? '' : 'nope'), { disabled }]);
 	const _style = $derived(`${style}; transform: scale(${scale})`);
 
 	$effect(() => {

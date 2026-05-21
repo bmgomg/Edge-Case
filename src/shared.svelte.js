@@ -88,9 +88,7 @@ const makePuzzle = () => {
     delete ss.guess;
     delete ss.buyOp;
 
-    const nums = _range(1, 9);
-    shuffleInPlace(nums);
-
+    const nums = shuffleInPlace(_range(1, 9));
     ss.cells = Array(25).fill(null).map((_, i) => makeCell(i, nums));
 };
 
