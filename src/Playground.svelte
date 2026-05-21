@@ -1,16 +1,16 @@
 <script>
+	import Board from './Board.svelte';
 	import Prompt from './Prompt.svelte';
 </script>
 
 <div class="playground">
-	<div></div>
-	<div></div>
+	<Board/>
 	<Prompt />
 </div>
 
 <style>
 	.playground {
 		display: grid;
-		grid: auto 1fr auto / auto;
+		margin-left: 40px;
 	}
 </style>

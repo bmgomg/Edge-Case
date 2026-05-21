@@ -1,7 +1,7 @@
 <script>
 	import MusicControl from './Music Control.svelte';
 	import SfxControl from './SFX Control.svelte';
-	import { onRestart, resetStats, ss, stats, stopTimer } from './shared.svelte';
+	import { onRestart, resetStats, ss, stats } from './shared.svelte';
 	import TextButton from './Text Button.svelte';
 
 	const noHome = $derived(false);
@@ -12,7 +12,6 @@
 		delete ss.to;
 		delete ss.targets;
 
-		stopTimer();
 		ss.home = true;
 	};
 </script>

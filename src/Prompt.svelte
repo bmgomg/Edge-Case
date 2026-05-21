@@ -4,7 +4,7 @@
 	import { onRestart, ss } from './shared.svelte';
 </script>
 
-{#if true}
+{#if false}
 	<div class="prompt" in:fade={{ delay: 1000 }}>
 		<TextButton id="tb-play-again" text={['Play again?']} framed onClick={onRestart} />
 	</div>
@@ -12,10 +12,10 @@
 
 <style>
 	.prompt {
-		grid-area: 2/1;
+		grid-area: 1/1;
 		place-self: end center;
 		display: grid;
-		padding: 30px 0;
+		margin: 30px 0;
 		font-size: 20px;
 	}
 </style>
