@@ -75,7 +75,7 @@ const makeCell = (i, nums) => {
     const cell = { id, row, col };
 
     if (row === 1 || col === 1) {
-        cell.secret = nums.shift();
+        cell.value = nums.shift();
     }
 
     return cell;

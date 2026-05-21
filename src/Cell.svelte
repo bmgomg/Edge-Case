@@ -3,7 +3,7 @@
 	import TextButton from './Text Button.svelte';
 
 	const { cell } = $props();
-	const { id, row, col, secret, guess } = $derived(cell);
+	const { id, row, col, value, guess, op } = $derived(cell);
 	const bid = $derived('tb-cell-' + id);
 	const unused = $derived(row === 1 && col === 1);
 	const edge = $derived(!unused && (row === 1 || col === 1));
@@ -22,7 +22,7 @@
 		{/if}
 	{:else if unused}
 		{#if ss.showUnused}
-			<span class="number nope">{secret}</span>
+			<span class="number nope">{value}</span>
 		{:else}
 			<TextButton id={bid} text={['reveal', 'unused', 'number']} style={unusedStyle} />
 		{/if}
