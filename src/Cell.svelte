@@ -11,23 +11,36 @@
 	const edgeStyle = `${buttonStyle} font-family: RC; color: var(--water);`;
 	const unusedStyle = `${edgeStyle}`;
 	const opStyle = `${buttonStyle} font-family: RC; letter-spacing: 0; color: var(--gold-dim);`;
+	const clases = $derived(`cell ${edge || unused ? 'edge' : ''} ${unused && ss.showUnused ? 'nope' : ''}`);
+
+	const onBuyUnused = () => {
+		ss.buyUnused = true;
+	};
+
+	const onGuess = () => {
+		ss.guess = true;
+	};
+
+	const onBuyOp = () => {
+		ss.buyOp = true;
+	};
 </script>
 
-<div class="cell {edge || unused ? 'edge' : ''} {unused && ss.showUnused ? 'nope' :''}" style="grid-area: {row}/{col}">
+<div class={clases} style="grid-area: {row}/{col}">
 	{#if edge}
 		{#if guess}
 			<span class="number">{guess}</span>
 		{:else}
-			<TextButton id={bid} text={['guess', 'number']} style={edgeStyle} />
+			<TextButton id={bid} text={['guess', 'number']} style={edgeStyle} onClick={onGuess}/>
 		{/if}
 	{:else if unused}
 		{#if ss.showUnused}
 			<span class="number nope">{value}</span>
 		{:else}
-			<TextButton id={bid} text={['reveal', 'unused', 'number']} style={unusedStyle} />
+			<TextButton id={bid} text={['reveal', 'unused', 'number']} style={unusedStyle} onClick={onBuyUnused}/>
 		{/if}
 	{:else}
-		<TextButton id={bid} text={['buy', 'operator']} style={opStyle} />
+		<TextButton id={bid} text={['buy', 'operator']} style={opStyle} onClick={onBuyOp}/>
 	{/if}
 </div>
 

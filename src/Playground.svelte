@@ -1,11 +1,13 @@
 <script>
 	import Board from './Board.svelte';
-	import Prompt from './Prompt.svelte';
+	import BuyUnused from './Buy Unused.svelte';
+	import PlayAgain from './Play Again.svelte';
 </script>
 
 <div class="playground">
 	<Board/>
-	<Prompt />
+	<BuyUnused/>
+	<PlayAgain />
 </div>
 
 <style>

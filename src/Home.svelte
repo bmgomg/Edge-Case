@@ -3,7 +3,7 @@
 	import { loadCommon, loadGame, onPlayOrResume, ss } from './shared.svelte';
 	import TextButton from './Text Button.svelte';
 	import { onMount } from 'svelte';
-	import { APP_STATE } from './const';
+	import { APP_STATE, BANK, COST_ADD, COST_MULTIPLY, COST_SUBTRACT, COST_UNUSED } from './const';
 
 	onMount(() => {
 		ss.appKey = `${APP_STATE} • EASY`;
@@ -28,7 +28,7 @@
 			<span class="item">Reveal a cell by buying an operator — the result of applying it to that row and column is shown.</span>
 			<span class="item">No two cells in the same row or column can share the same operator.</span>
 			<span class="item">When you've seen enough, enter your guesses for all eight edge numbers and hit Call.</span>
-			<span class="financial">You start with $25.00. Multiplication costs $4, addition $2, subtraction $1. Revealing the unused number costs $3. Finish in the black — or break the bank trying.</span>
+			<span class="financial">{`You start with $${BANK}. Multiplication costs $${COST_MULTIPLY}, addition $${COST_ADD}, subtraction $${COST_SUBTRACT}. Revealing the unused number costs $${COST_UNUSED}. Finish in the black — or break the bank trying.`}</span>
 		</div>
 		<div class='buttons'>
 		<TextButton id="tb-play" text={[ss.ticks && !ss.over ? 'Resume' : 'Play']} framed style="width: 150px;" onClick={onPlayOrResume} />

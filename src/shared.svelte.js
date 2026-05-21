@@ -83,6 +83,8 @@ const makeCell = (i, nums) => {
 
 const makePuzzle = () => {
     delete ss.over;
+    delete ss.buyUnused;
+    delete ss.showUnused;
 
     const nums = _range(1, 9);
     shuffleInPlace(nums);
