@@ -1,6 +1,6 @@
 import { APP_STATE, BANK } from './const';
 import { _sound } from './sound.svelte';
-import { post } from './utils';
+import { _range, post, shuffleInPlace } from './utils';
 
 export const ss = $state({
     home: true,
@@ -62,16 +62,32 @@ export const isSolved = () => {
     return false;
 };
 
-export const rowCol = (i) => {
+const rowCol = (i) => {
     const row = Math.floor(i / 5) + 1;
     const col = (i % 5) + 1;
     return { row, col };
 };
 
+const makeCell = (i, nums) => {
+    const id = i + 1;
+    const { row, col } = rowCol(i);
+
+    const cell = { id, row, col };
+
+    if (row === 1 || col === 1) {
+        cell.secret = nums.shift();
+    }
+
+    return cell;
+};
+
 const makePuzzle = () => {
     delete ss.over;
 
-    ss.cells = Array(25).fill(null).map((_, index) => ({ code: 0, id: index + 1 }));
+    const nums = _range(1, 9);
+    shuffleInPlace(nums);
+
+    ss.cells = Array(25).fill(null).map((_, i) => makeCell(i, nums));
 };
 
 export const onStart = () => {

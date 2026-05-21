@@ -1,11 +1,11 @@
 <script>
 	import Cell from './Cell.svelte';
-	import { _range } from './utils';
+	import { ss } from './shared.svelte';
 </script>
 
 <div class="board">
-	{#each _range(1, 25) as id (id)}
-		<Cell {id} />
+	{#each ss.cells as cell, i (cell.id)}
+		<Cell bind:cell={ss.cells[i]} />
 	{/each}
 </div>
 
