@@ -24,11 +24,11 @@
 			<div class="title">Edge Case</div>
 		</div>
 		<div class="instructions">
-			<span class="item">Eight numbers between 1 and 9 are hidden along the edges of a grid. A ninth number is set aside, unused.</span>
+			<span class="item">Eight unique numbers between 1 and 9 are hidden along the edges of a grid. A ninth number is set aside, unused.</span>
 			<span class="item">Reveal a cell by buying an operator — the result of applying it to that row and column is shown.</span>
 			<span class="item">No two cells in the same row or column can share the same operator.</span>
-			<span class="item">When you've seen enough, enter your guesses for all eight edge numbers and hit Done.</span>
-			<span class="financial">You start with $25.00. Multiplication costs $4, addition $2, difference (delta) $1. Revealing the unused number costs $3. Finish in the black — or break the bank trying.</span>
+			<span class="item">When you've seen enough, enter your guesses for all eight edge numbers and hit Call.</span>
+			<span class="financial">You start with $25.00. Multiplication costs $4, addition $2, subtraction $1. Revealing the unused number costs $3. Finish in the black — or break the bank trying.</span>
 		</div>
 		<div class='buttons'>
 		<TextButton id="tb-play" text={[ss.ticks && !ss.over ? 'Resume' : 'Play']} framed style="width: 150px;" onClick={onPlayOrResume} />
@@ -77,14 +77,14 @@
 	.instructions {
 		margin-top: 32px;
 		padding: 24px 32px;
-		max-width: 530px;
+		max-width: 550px;
 		background: linear-gradient(rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.55) 100%);
 		border: 1px solid rgba(160, 126, 54, 0.533);
 		border-radius: 4px;
 		box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 20px inset;
 		font-family: DMS;
 		color: rgb(244, 234, 214);
-		font-size: 16.5px;
+		font-size: 17px;
 		line-height: 1.6;
 		display: grid;
 		gap: 12px;
@@ -100,7 +100,7 @@
 		margin-top: 4px;
 		font-family: CG;
 		font-style: italic;
-		font-size: 18.6px;
+		font-size: 18.5px;
 		color: rgb(214, 178, 100);
 		letter-spacing: 0.3px;
 		line-height: initial;

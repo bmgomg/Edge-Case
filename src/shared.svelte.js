@@ -4,7 +4,6 @@ import { post } from './utils';
 
 export const ss = $state({
     home: true,
-    preset: 10,
 });
 
 export const stats = $state({
@@ -22,7 +21,7 @@ export const persistCommon = () => {
 };
 
 export const persist = () => {
-    const json = JSON.stringify({ ...stats, preset: ss.preset, cells: ss.cells, trayCell: ss.trayCell, ticks: ss.ticks, over: ss.over });
+    const json = JSON.stringify({ ...stats, cells: ss.cells, over: ss.over });
     localStorage.setItem(ss.appKey, json);
 };
 
@@ -45,15 +44,15 @@ export const loadGame = () => {
 
     if (job) {
         stats.plays = job.plays;
+        stats.solved = job.solved;
         stats.total = job.total;
         stats.best = job.best;
 
-        ss.preset = job.preset;
         ss.cells = job.over ? null : job.cells;
-        ss.trayCell = job.over ? null : job.trayCell;
         ss.ticks = job.over ? 0 : job.ticks;
     } else {
         stats.plays = 0;
+        stats.solved = 0;
         stats.total = 0;
         stats.best = 0;
     }
@@ -69,30 +68,14 @@ export const rowCol = (i) => {
     return { row, col };
 };
 
-export const cellCode = (id) => {
-    if (id < 14 || id > 65) {
-        return 0;
-    }
-
-    const { row, col } = rowCol(id - 1);
-    return (row - 1) * 100 + col;
-};
-
 const makePuzzle = () => {
-    delete ss.from;
-    delete ss.to;
-    delete ss.targets;
     delete ss.over;
 
-    ss.ticks = 0;
-
-    ss.cells = Array(ss.cellCount).fill(null).map((_, index) => ({ code: 0, id: index + 1 }));
-    ss.buy = true;
-
-    delete ss.trayCell;
+    ss.cells = Array(25).fill(null).map((_, index) => ({ code: 0, id: index + 1 }));
 };
 
 export const onStart = () => {
+    //
 };
 
 export const resetStats = () => {
@@ -107,37 +90,7 @@ export const onRestart = () => {
         resetStats();
     }
 
-    const newPuzzle = () => {
-        for (const cell of ss.cells) {
-            cell.code = 0;
-        }
-
-        post(makePuzzle);
-    };
-
-    ss.ticks = 0;
-
-    // if (deckCodes().length === 52) {
-    //     newPuzzle();
-    //     return;
-    // }
-
-    ss.gather = 1;
-
-    post(() => {
-        ss.gather = 2;
-
-        post(() => _sound.play('link2', { rate: 0.5 }), 200);
-
-        post(() => {
-            ss.gather = 3;
-
-            post(() => {
-                delete ss.gather;
-                newPuzzle();
-            }, 1000);
-        }, 500);
-    }, 500);
+    makePuzzle();
 };
 
 export const onOver = (over) => {
