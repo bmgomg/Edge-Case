@@ -51,6 +51,7 @@
 		font-family: BM;
 		font-size: 17px;
 		opacity: 0.6;
+		color: var(--gold-dim);
 	}
 
 	.red {

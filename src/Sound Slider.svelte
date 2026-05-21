@@ -40,7 +40,7 @@
 		height: 13px;
 		border-radius: 50%;
 		border: 2px solid var(--gold-dim);
-		background: var(--preset-background);
+		background: var(--purple-deep);
 		transition: transform 0.15s;
 	}
 
@@ -51,7 +51,7 @@
 	.slider::-moz-range-thumb {
 		width: 13px;
 		height: 13px;
-		background: var(--preset-background);
+		background: var(--purple-deep);
 		cursor: pointer;
 	}
 </style>

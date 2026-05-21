@@ -21,7 +21,7 @@
 			--bone-dim: #bfb39a; /* new — sub-emphasis body text */
 			--dash: #a07e36;
 			--subtitle: #a07e36;
-			--preset-background: #082319; /* deeper felt for panels */
+			--purple-deep: #191b31; /* deeper felt for panels */
 			--separator: #6a5424; /* now a faded-gold rule */
 			--button-background: linear-gradient(180deg, #f3d27a 0%, #d6b264 50%, #a07e36 100%);
 			--button-color: #051710; /* new — text on the brass button */
