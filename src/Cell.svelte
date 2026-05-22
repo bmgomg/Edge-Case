@@ -8,16 +8,33 @@
 	const bid = $derived('tb-cell-' + id);
 	const unused = $derived(row === 1 && col === 1);
 	const edge = $derived(!unused && (row === 1 || col === 1));
-	const opCell = $derived(!unused && !edge);
 	const buttonStyle = 'height: 78px; aspect-ratio: 1;';
 	const edgeStyle = `${buttonStyle} font-family: RC; color: var(--water);`;
 	const unusedStyle = `${edgeStyle}`;
 	const opStyle = `${buttonStyle} font-family: RC; letter-spacing: 0; color: var(--gold-dim);`;
 	const pulse = $derived((unused && ss.buyUnused) || ss.guess === id || ss.buyOp === id);
 
-	const classes = $derived(
-		`cell ${edge || unused ? 'edge' : ''} ${ss.over || (unused && ss.showUnused) || (opCell && op) ? 'nope' : ''} ${pulse ? 'pulse' : ''}`
-	);
+	const classes = $derived.by(() => {
+		let cls = 'cell';
+
+		if (edge || unused ? 'edge' : '') {
+			cls += ' edge';
+		}
+
+		if (ss.over || (unused && ss.showUnused) || op) {
+			cls += ' nope';
+		}
+
+		if (pulse) {
+			cls += ' pulse';
+		}
+
+		if (op) {
+			cls += ' op ' + op;
+		}
+
+		return cls;
+	});
 
 	const onBuyUnused = () => {
 		if (ss.buyUnused) {
@@ -62,18 +79,23 @@
 			<span class="number" in:fade>{guess}</span>
 		{/if}
 		{#if true}
-			<div class='guess {guess ? 'hidden' : ''}' in:fade>
+			<div class="guess {guess ? 'hidden' : ''}" in:fade>
 				<TextButton id={bid} text={['guess', 'number']} style={edgeStyle} onClick={onGuess} />
 			</div>
 		{/if}
 	{:else if unused}
 		{#if ss.showUnused}
-			<span class="number nope" in:fade>{value}</span>
+			<span class="number" in:fade>{value}</span>
 		{:else}
 			<div in:fade>
 				<TextButton id={bid} text={['reveal', 'unused', 'number']} style={unusedStyle} onClick={onBuyUnused} />
 			</div>
 		{/if}
+	{:else if op}
+		<div class="op-container" in:fade>
+			<span class="number">{42}</span>
+			<span>{op}</span>
+		</div>
 	{:else}
 		<TextButton id={bid} text={['buy', 'operator']} style={opStyle} onClick={onBuyOp} />
 	{/if}
@@ -114,6 +136,30 @@
 		font-size: 32px;
 		font-weight: bold;
 		color: var(--water);
+	}
+
+	.op-container {
+		display: grid;
+		place-items: center;
+	}
+
+	.op {
+		background: var(--button-background);
+		color: var(--water);
+		font-size: 12px;
+		font-weight: 500;
+	}
+
+	.product {
+		filter: hue-rotate(-60deg);
+	}
+
+	.sum {
+		filter: hue-rotate(60deg);
+	}
+
+	.delta {
+		filter: hue-rotate(150deg);
 	}
 
 	.pulse {
