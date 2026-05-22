@@ -44,7 +44,7 @@
 	};
 
 	const onBuyOp = () => {
-		if (ss.buyOpp === id) {
+		if (ss.buyOp === id) {
 			delete ss.buyOp;
 			return;
 		}

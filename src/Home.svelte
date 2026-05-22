@@ -64,7 +64,6 @@
 
 	.title {
 		font-family: LBI;
-		font-style: italic;
 		font-weight: 500;
 		font-size: 85px;
 		line-height: 0.9;

@@ -23,7 +23,6 @@
 
 	.title {
 		font-family: LBI;
-		font-style: italic;
 		font-size: 48px;
 		line-height: 0.9;
 		color: rgb(214, 178, 100);
