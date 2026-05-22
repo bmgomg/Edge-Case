@@ -57,20 +57,20 @@
 		font-size: 14px;
 		letter-spacing: 0.18em;
 		color: var(--bone-dim);
-		text-shadow: 0 2px 0 #000;
+		text-shadow: 0 3px 0 #000;
 		text-transform: uppercase;
 		margin-bottom: 14px;
 	}
 
 	.title {
-		font-family: BMI;
+		font-family: LBI;
 		font-style: italic;
 		font-weight: 500;
 		font-size: 85px;
 		line-height: 0.9;
 		color: rgb(214, 178, 100);
 		letter-spacing: -2px;
-		text-shadow: 0px 3px 0px #000;
+		text-shadow: 0px 5px 0px #000;
 	}
 
 	.instructions {

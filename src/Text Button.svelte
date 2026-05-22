@@ -7,7 +7,10 @@
 	let scale = $state(1);
 	let timer = $state(false);
 
-	const classes = $derived(['button-base no-highlight button ' + (framed ? 'framed' : 'text-only') + (onClick ? '' : 'nope'), { disabled }]);
+	const classes = $derived(
+		`button-base no-highlight button ' ${framed ? 'framed' : 'text-only'} ${onClick ? '' : 'nope'} ${disabled ? (framed ? 'disabled' : 'text-only-disabled') : ''}`
+	);
+
 	const _style = $derived(`${style}; transform: scale(${scale})`);
 
 	$effect(() => {
@@ -79,6 +82,13 @@
 		filter: none; /* drop the sepia hover — looks dated next to brass */
 	}
 
+	.text-only-disabled {
+		cursor: initial;
+		pointer-events: none;
+		color: rgba(244, 234, 214, 0.4);
+		filter: grayscale(0.6) brightness(0.7);
+	}
+
 	.framed {
 		box-sizing: border-box;
 		font-family: Cinzel;
@@ -101,10 +111,11 @@
 	}
 
 	.disabled {
-		cursor: initial;
 		pointer-events: none;
-		color: rgba(244, 234, 214, 0.4);
-		filter: grayscale(0.6) brightness(0.7);
+		background: #0000;
+		color: #bfb39a60;
+		border: 1px solid #bfb39a60;
+		box-shadow: none;
 	}
 
 	.button:focus {

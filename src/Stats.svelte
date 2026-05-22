@@ -48,7 +48,7 @@
 	}
 
 	.value {
-		font-family: BM;
+		font-family: LB;
 		font-size: 17px;
 		opacity: 0.6;
 		color: var(--gold-dim);

@@ -68,13 +68,13 @@
 		}
 
 		@font-face {
-			font-family: BM;
-			src: url('$lib/fonts/Bodoni Moda.ttf');
+			font-family: LB;
+			src: url('$lib/fonts/Libre Bodoni.ttf');
 		}
 
 		@font-face {
-			font-family: BMI;
-			src: url('$lib/fonts/Bodoni Moda Italic.ttf');
+			font-family: LBI;
+			src: url('$lib/fonts/Libre Bodoni Italic.ttf');
 		}
 
 		@font-face {
@@ -91,11 +91,6 @@
 			font-family: DMS;
 			src: url('$lib/fonts/DMSans.ttf');
 			font-weight: 100 900;
-		}
-
-		@font-face {
-			font-family: Florentina;
-			src: url('$lib/fonts/Florentina.ttf');
 		}
 
 		@font-face {

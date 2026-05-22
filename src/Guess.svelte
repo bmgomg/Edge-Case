@@ -19,12 +19,12 @@
 	<div class="prompt" transition:fade={{ duration: 150 }}>
 		{#each _range(1, 9) as n (n)}
 			{@const { row, col } = rowCol(n - 1)}
-			{@const style = `grid-area: ${row}/${col}; font-family: BM; width: 70px; height: 35px;`}
+			{@const style = `grid-area: ${row}/${col}; font-family: LB; width: 70px; height: 35px;`}
 			<TextButton id={'tb-n' + n} text={[n]} framed onClick={() => onSelectValue(n)} {style} />
 		{/each}
 		{#if true}
 			{@const style = 'width: 70px; height: 35px; font-size: 12px; letter-spacing: 0.12em;'}
-			<TextButton id="tb-clear" text={['Clear']} framed onClick={onClearValue} {style} />
+			<TextButton id="tb-clear" text={['Clear']} framed onClick={onClearValue} {style} disabled={!ss.cells[ss.guess - 1].guess}/>
 		{/if}
 	</div>
 {/if}

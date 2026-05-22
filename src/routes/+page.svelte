@@ -172,6 +172,6 @@
 		box-sizing: border-box;
 		width: 1080px;
 		height: 810px;
-		border: 1px dotted #ffffff40;
+		/* border: 1px dotted #ffffff40; */
 	}
 </style>

@@ -22,12 +22,12 @@
 	}
 
 	.title {
-		font-family: BMI;
+		font-family: LBI;
 		font-style: italic;
 		font-size: 48px;
 		line-height: 0.9;
 		color: rgb(214, 178, 100);
 		margin-left: 20px;
-		text-shadow: 0 2px 0 #000;
+		text-shadow: 0 3px 0 #000;
 	}
 </style>

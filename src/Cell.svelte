@@ -110,7 +110,7 @@
 	.number {
 		grid-area: 1/1;
 		place-self: center;
-		font-family: BM;
+		font-family: LB;
 		font-size: 32px;
 		font-weight: bold;
 		color: var(--water);
