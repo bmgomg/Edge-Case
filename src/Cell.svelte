@@ -77,6 +77,10 @@
 	};
 
 	const canBuyOp = () => {
+		if (ss.over) {
+			return false;
+		}
+
 		const cells1 = ss.cells.filter((c) => c.row === row && c.col > 1 && c.col !== col);
 		const cells2 = ss.cells.filter((c) => c.col === col && c.row > 1 && c.row !== row);
 		const cells = [...cells1, ...cells2].filter((c) => c.op);
@@ -98,7 +102,7 @@
 		{/if}
 	{:else if unused}
 		{#if ss.showUnused || ss.over}
-			{#if ss.over !== 'draw'}
+			{#if ss.over !== 'surrender'}
 				<span class="cost" in:fade>{'$' + COST_UNUSED}</span>
 			{/if}
 			<span class="number" in:fade>{value}</span>

@@ -8,7 +8,7 @@
 		ss.balance = -PENALTY;
 		delete ss.showPenalty;
 
-		onOver('draw');
+		onOver('surrender');
 	};
 
 	const onCancel = () => {

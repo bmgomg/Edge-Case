@@ -115,7 +115,7 @@ export const onRestart = () => {
 };
 
 export const onOver = (over) => {
-    post(() => _sound.play(over), 400);
+    post(() => _sound.play(over === 'surrender' ? 'draw' : over), 400);
     ss.over = over;
 
     if (over === 'lost') {
