@@ -3,9 +3,9 @@
 	import { ss } from './shared.svelte';
 </script>
 
-<div class="bank {ss.balance < 0 ? 'red' : ''}">
+<div class="bank">
 	<div class="label">balance</div>
-	<div class="value"><Money value={ss.balance} /></div>
+	<div class="value {ss.balance < 0 ? 'red' : ''}"><Money value={ss.balance} /></div>
 </div>
 
 <style>

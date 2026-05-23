@@ -8,3 +8,4 @@ export const COST_MULTIPLY = 4;
 export const COST_ADD = 2;
 export const COST_SUBTRACT = 1;
 export const COST_UNUSED = 3;
+export const PENALTY = 10;

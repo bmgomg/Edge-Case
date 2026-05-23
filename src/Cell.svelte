@@ -45,6 +45,7 @@
 
 		delete ss.guess;
 		delete ss.buyOp;
+		delete ss.showPenalty;
 
 		ss.buyUnused = true;
 	};
@@ -57,6 +58,7 @@
 
 		delete ss.buyUnused;
 		delete ss.buyOp;
+		delete ss.showPenalty;
 
 		ss.guess = id;
 	};
@@ -69,6 +71,7 @@
 
 		delete ss.buyUnused;
 		delete ss.guess;
+		delete ss.showPenalty;
 
 		ss.buyOp = id;
 	};
@@ -85,19 +88,21 @@
 
 <div class={classes} style="grid-area: {row}/{col}">
 	{#if edge}
-		{#if guess}
-			<span class="number" in:fade>{guess}</span>
+		{#if guess || ss.over}
+			<span class="number" in:fade>{ss.over ? value : guess}</span>
 		{/if}
-		{#if true}
+		{#if !ss.over}
 			<div class="guess {guess ? 'hidden' : ''}" in:fade>
 				<TextButton id={bid} text={['guess', 'number']} style={edgeStyle} onClick={onGuess} />
 			</div>
 		{/if}
 	{:else if unused}
-		{#if ss.showUnused}
-			<span class="cost" in:fade>{'$' + COST_UNUSED}</span>
+		{#if ss.showUnused || ss.over}
+			{#if ss.over !== 'draw'}
+				<span class="cost" in:fade>{'$' + COST_UNUSED}</span>
+			{/if}
 			<span class="number" in:fade>{value}</span>
-		{:else}
+		{:else if !ss.over}
 			<div in:fade>
 				<TextButton id={bid} text={['reveal', 'unused', 'number']} style={unusedStyle} onClick={onBuyUnused} />
 			</div>

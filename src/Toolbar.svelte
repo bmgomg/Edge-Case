@@ -1,11 +1,10 @@
 <script>
 	import MusicControl from './Music Control.svelte';
 	import SfxControl from './SFX Control.svelte';
-	import { onRestart, resetStats, ss, stats } from './shared.svelte';
+	import { resetStats, ss, stats } from './shared.svelte';
 	import TextButton from './Text Button.svelte';
 
-	const noHome = $derived(false);
-	const noRestart = $derived(ss.buy || ss.over || noHome);
+	const noRestart = $derived(ss.buy || ss.over || ss.showPenalty);
 
 	const onHome = () => {
 		delete ss.from;
@@ -18,12 +17,20 @@
 	const onClear = () => {
 		ss.cells.forEach((c) => delete c.guess);
 	};
+
+	const onGiveUp = () => {
+		ss.showPenalty = true;
+
+		delete ss.buyUnused;
+		delete ss.buyOp;
+		delete ss.guess;
+	};
 </script>
 
 <div class="toolbar">
 	<div class="buttons">
-		<TextButton id="tb-home" text={['home']} disabled={noHome} onClick={onHome} />
-		<TextButton id="tb-restart" text={['give up']} disabled={noRestart} onClick={onRestart} />
+		<TextButton id="tb-home" text={['home']} onClick={onHome} />
+		<TextButton id="tb-restart" text={['give up']} disabled={noRestart} onClick={onGiveUp} />
 		<TextButton id="tb-stats" text={['reset stats']} disabled={stats.plays === 0} onClick={resetStats} />
 		<TextButton id="tb-clear" text={['clear all guesses']} disabled={ss.cells?.every((c) => !c.guess)} onClick={onClear} />
 	</div>

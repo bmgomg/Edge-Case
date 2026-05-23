@@ -4,6 +4,7 @@ import { _range, post, shuffleInPlace } from './utils';
 
 export const ss = $state({
     home: true,
+    balance: 0
 });
 
 export const stats = $state({
@@ -86,8 +87,9 @@ const makePuzzle = () => {
     delete ss.showUnused;
     delete ss.guess;
     delete ss.buyOp;
+    delete ss.showPenalty;
 
-ss.balance = BANK;
+    ss.balance = BANK;
 
     const nums = shuffleInPlace(_range(1, 9));
     ss.cells = Array(25).fill(null).map((_, i) => makeCell(i, nums));
