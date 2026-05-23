@@ -116,6 +116,7 @@
 		color: #bfb39a60;
 		border: 1px solid #bfb39a60;
 		box-shadow: none;
+		filter: grayscale(1);
 	}
 
 	.button:focus {

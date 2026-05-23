@@ -22,7 +22,7 @@
 			cls += ' edge';
 		}
 
-		if (ss.over || (unused && ss.showUnused) || op || !canOp()) {
+		if (ss.over || (unused && ss.showUnused) || op || (!unused && !edge && !canOp())) {
 			cls += ' nope';
 		}
 

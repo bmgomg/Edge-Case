@@ -5,6 +5,7 @@
 	import { opCost, ss } from './shared.svelte';
 
 	const cell = $derived(ss.cells[ss.buyOp - 1]);
+	const { row, col } = $derived(cell);
 
 	const onApply = (op) => {
 		cell.op = op;
@@ -18,19 +19,38 @@
 		delete ss.buyOp;
 	};
 
+	const canOp = (op) => {
+		const cells = ss.cells.filter((c) => c !== cell && (c.row === row || c.col === col));
+		return cells.every((c) => c.op !== op);
+	};
+
 	const style = 'font-family: LB; width: 130px; height: 35px; font-size: 12px; letter-spacing: 0.12em;';
 </script>
 
 {#if ss.buyOp && !ss.over}
 	<div class="selector" transition:fade={{ duration: 150 }}>
 		<div class="multiply">
-			<TextButton id="tb-multiply" text={[`Multiply   $${COST_MULTIPLY}`]} framed onClick={() => onApply(OP_MULTIPLY)} {style} />
+			<TextButton
+				id="tb-multiply"
+				text={[`Multiply   $${COST_MULTIPLY}`]}
+				onClick={() => onApply(OP_MULTIPLY)}
+				disabled={!canOp(OP_MULTIPLY)}
+				framed
+				{style}
+			/>
 		</div>
 		<div class="add">
-			<TextButton id="tb-add" text={[`Add   $${COST_ADD}`]} framed onClick={() => onApply(OP_ADD)} {style} />
+			<TextButton id="tb-add" text={[`Add   $${COST_ADD}`]} onClick={() => onApply(OP_ADD)} disabled={!canOp(OP_ADD)} framed {style} />
 		</div>
 		<div class="subtract">
-			<TextButton id="tb-subtract" text={[`Subtract   $${COST_SUBTRACT}`]} framed onClick={() => onApply(OP_SUBTRACT)} {style} />
+			<TextButton
+				id="tb-subtract"
+				text={[`Subtract   $${COST_SUBTRACT}`]}
+				onClick={() => onApply(OP_SUBTRACT)}
+				disabled={!canOp(OP_SUBTRACT)}
+				framed
+				{style}
+			/>
 		</div>
 	</div>
 {/if}
