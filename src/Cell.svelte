@@ -157,8 +157,8 @@
 		font-family: LB;
 		font-size: 18px;
 		font-weight: bold;
-		color: var(--red);
-		filter: hue-rotate(150deg);
+		color: firebrick;
+		filter: hue-rotate(150deg) saturate(2);
 		translate: -23px -23px;
 	}
 

@@ -1,18 +1,18 @@
 <script>
 	import Money from './Money.svelte';
-	import { ss } from './shared.svelte';
+
+	const { label, value } = $props();
 </script>
 
-<div class="bank">
-	<div class="label">balance</div>
-	<div class="value {ss.balance < 0 ? 'red' : ''}"><Money value={ss.balance} /></div>
+<div class="article">
+	<div class="label">{label}</div>
+	<div class="value {value < 0 ? 'red' : ''}"><Money value={value} /></div>
 </div>
 
 <style>
-	.bank {
-		grid-area: 1/1;
+	.article {
 		display: grid;
-		width: 200px;
+		/* width: 200px; */
 		place-content: center;
 		place-items: center;
 	}

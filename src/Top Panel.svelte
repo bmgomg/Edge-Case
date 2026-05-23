@@ -1,11 +1,14 @@
 <script>
-	import Counters from './Counters.svelte';
+	import Article from './Article.svelte';
+	import { BANK } from './const';
+	import { ss } from './shared.svelte';
 	import Stats from './Stats.svelte';
 </script>
 
 <div class="top-panel">
-	<div class="title">Edge Case</div>
-	<Counters />
+	<Article label="Bank" value={BANK} />
+	<Article label="Cost" value={BANK - ss.balance} />
+	<Article label="Balance" value={ss.balance} />
 	<Stats />
 </div>
 
