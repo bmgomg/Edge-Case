@@ -12,7 +12,7 @@
 <style>
 	.article {
 		display: grid;
-		/* width: 200px; */
+		width: 101px;
 		place-content: center;
 		place-items: center;
 	}

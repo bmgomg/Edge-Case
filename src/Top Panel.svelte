@@ -1,14 +1,10 @@
 <script>
-	import Article from './Article.svelte';
-	import { BANK } from './const';
-	import { ss } from './shared.svelte';
+	import Finances from './Finances.svelte';
 	import Stats from './Stats.svelte';
 </script>
 
 <div class="top-panel">
-	<Article label="Bank" value={BANK} />
-	<Article label="Cost" value={BANK - ss.balance} />
-	<Article label="Balance" value={ss.balance} />
+	<Finances />
 	<Stats />
 </div>
 
@@ -22,14 +18,5 @@
 		margin: 30px 40px 0 45px;
 		border: 0px solid rgba(160, 126, 54, 0.333);
 		border-bottom-width: 0.666667px;
-	}
-
-	.title {
-		font-family: LBI;
-		font-size: 48px;
-		line-height: 0.9;
-		color: rgb(214, 178, 100);
-		margin-left: 20px;
-		text-shadow: 0 3px 0 #000;
 	}
 </style>
