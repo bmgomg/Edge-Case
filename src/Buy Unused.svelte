@@ -6,12 +6,10 @@
 
 	const onBuy = () => {
 		ss.showUnused = true;
+		ss.balance -= COST_UNUSED;
+
 		delete ss.buyUnused;
 	};
-
-	// const onCancel = () => {
-	// 	delete ss.buyUnused;
-	// };
 
 	const style = 'letter-spacing: 0.12em;';
 </script>
@@ -19,7 +17,6 @@
 {#if ss.buyUnused && !ss.over}
 	<div class="prompt" transition:fade={{ duration: 150 }}>
 		<TextButton id="tb-buy-unused" text={[`Pay $${COST_UNUSED}?`]} framed onClick={onBuy} {style} />
-		<!-- <TextButton id="tb-no" text={['No']} framed onClick={onCancel} {style}/> -->
 	</div>
 {/if}
 

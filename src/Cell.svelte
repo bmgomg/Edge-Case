@@ -22,7 +22,7 @@
 			cls += ' edge';
 		}
 
-		if (ss.over || (unused && ss.showUnused) || op || (!unused && !edge && !canOp())) {
+		if (ss.over || (unused && ss.showUnused) || op || (!unused && !edge && !canBuyOp())) {
 			cls += ' nope';
 		}
 
@@ -73,22 +73,13 @@
 		ss.buyOp = id;
 	};
 
-	const canOp = () => {
-		let cells = ss.cells.filter((c) => c.row === row && c.col > 1 && c.col !== col);
-		cells = cells.filter((c) => c.op);
+	const canBuyOp = () => {
+		const cells1 = ss.cells.filter((c) => c.row === row && c.col > 1 && c.col !== col);
+		const cells2 = ss.cells.filter((c) => c.col === col && c.row > 1 && c.row !== row);
+		const cells = [...cells1, ...cells2].filter((c) => c.op);
 
-		if (cells.length === 3) {
-			return false;
-		}
-
-		cells = ss.cells.filter((c) => c.col === col && c.row > 1 && c.row !== row);
-		cells = cells.filter((c) => c.op);
-
-		if (cells.length === 3) {
-			return false;
-		}
-
-		return true;
+		const set = new Set(cells.map((c) => c.op));
+		return set.size < 3;
 	};
 </script>
 
@@ -117,7 +108,7 @@
 			<span class="number">{value}</span>
 			<span class="op-result">{op}</span>
 		</div>
-	{:else if canOp()}
+	{:else if canBuyOp()}
 		<div class="buy-op-button" out:fade>
 			<TextButton id={bid} text={['buy', 'operator']} style={opStyle} onClick={onBuyOp} />
 		</div>

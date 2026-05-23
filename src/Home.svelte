@@ -27,7 +27,7 @@
 			<span class="item">Eight unique numbers between 1 and 9 are hidden along the edges of a grid. A ninth number is set aside, unused.</span>
 			<span class="item">Reveal a cell by buying an operator — the result of applying it to that row and column is shown.</span>
 			<span class="item">No two cells in the same row or column can share the same operator.</span>
-			<span class="item">When you've seen enough, enter your guesses for all eight edge numbers and hit Call.</span>
+			<span class="item">When you've seen enough, enter your guesses for all eight edge numbers and hit Done.</span>
 			<span class="financial">{`You start with $${BANK}. Multiplication costs $${COST_MULTIPLY}, addition $${COST_ADD}, subtraction $${COST_SUBTRACT}. Revealing the unused number costs $${COST_UNUSED}. Finish in the black — or break the bank trying.`}</span>
 		</div>
 		<div class='buttons'>
