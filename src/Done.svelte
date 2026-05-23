@@ -1,10 +1,10 @@
 <script>
 	import { fade } from 'svelte/transition';
 	import TextButton from './Text Button.svelte';
-	import { guessedAll, ss } from './shared.svelte';
+	import { guessedAll, isSolved, onOver, ss } from './shared.svelte';
 
 	const onDone = () => {
-		//
+		onOver(isSolved() ? 'won' : 'lost');
 	};
 
 	const style = 'letter-spacing: 0.12em; font-size: 14px;';

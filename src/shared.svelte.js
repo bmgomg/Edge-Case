@@ -58,9 +58,7 @@ export const loadGame = () => {
     }
 };
 
-export const isSolved = () => {
-    return false;
-};
+export const isSolved = () => edgeCells().every((c) => c.guess === c.value);
 
 export const rowCol = (i) => {
     const row = Math.floor(i / 5) + 1;
@@ -115,7 +113,7 @@ export const onRestart = () => {
 };
 
 export const onOver = (over) => {
-    post(() => _sound.play(over === 'surrender' ? 'draw' : over), 400);
+    _sound.play(over === 'surrender' ? 'draw' : over);
     ss.over = over;
 
     if (over === 'lost') {
@@ -149,6 +147,6 @@ export const aveScore = () => stats.plays ? (stats.total / stats.plays).toFixed(
 
 export const opCost = (op) => op ? op === OP_MULTIPLY ? COST_MULTIPLY : op === OP_ADD ? COST_ADD : COST_SUBTRACT : 0;
 
-export const edgeCells = () => ss.cells ? ss.cells.filter((c,i) => i > 0 && (c.row === 1 || c.col === 1)) : [];
+export const edgeCells = () => ss.cells ? ss.cells.filter((c, i) => i > 0 && (c.row === 1 || c.col === 1)) : [];
 
 export const guessedAll = () => edgeCells().every((c) => c.guess);
