@@ -94,6 +94,9 @@
 	{#if edge}
 		{#if guess || ss.over}
 			<span class="number" in:fade>{ss.over ? value : guess}</span>
+			{#if ss.over && value !== guess}
+				<div class="bad-guess" in:fade>{guess}</div>
+			{/if}
 		{/if}
 		{#if !ss.over}
 			<div class="guess {guess ? 'hidden' : ''}" in:fade>
@@ -146,6 +149,17 @@
 	.guess {
 		grid-area: 1/1;
 		transition: opacity 0.5s;
+	}
+
+	.bad-guess {
+		grid-area: 1/1;
+		place-self: center;
+		font-family: LB;
+		font-size: 18px;
+		font-weight: bold;
+		color: var(--red);
+		filter: hue-rotate(150deg);
+		translate: -23px -23px;
 	}
 
 	.op-content {
