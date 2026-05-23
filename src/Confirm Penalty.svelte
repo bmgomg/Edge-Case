@@ -15,13 +15,13 @@
 		delete ss.showPenalty;
 	};
 
-	const style = 'letter-spacing: 0.12em; font-size: 14px';
+	const style = 'letter-spacing: 0.12em; font-size: 14px;';
 </script>
 
 {#if ss.showPenalty && !ss.over}
 	<div class="prompt" transition:fade={{ duration: 150 }}>
-		<TextButton id="tb-buy-unused" text={[`Pay $${PENALTY + ss.balance} penalty?`]} framed onClick={onPay} {style} />
-		<TextButton id="tb-no" text={['Never mind']} framed onClick={onCancel} {style}/>
+		<TextButton id="tb-penalty" text={[`Pay $${PENALTY + ss.balance} penalty?`]} framed onClick={onPay} {style} />
+		<TextButton id="tb-nm" text={['Never mind']} framed onClick={onCancel} {style}/>
 	</div>
 {/if}
 

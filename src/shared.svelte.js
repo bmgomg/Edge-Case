@@ -148,3 +148,7 @@ export const onPlayOrResume = () => {
 export const aveScore = () => stats.plays ? (stats.total / stats.plays).toFixed(2) : 0;
 
 export const opCost = (op) => op ? op === OP_MULTIPLY ? COST_MULTIPLY : op === OP_ADD ? COST_ADD : COST_SUBTRACT : 0;
+
+export const edgeCells = () => ss.cells ? ss.cells.filter((c,i) => i > 0 && (c.row === 1 || c.col === 1)) : [];
+
+export const guessedAll = () => edgeCells().every((c) => c.guess);

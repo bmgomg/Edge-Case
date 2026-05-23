@@ -1,10 +1,10 @@
 <script>
 	import MusicControl from './Music Control.svelte';
 	import SfxControl from './SFX Control.svelte';
-	import { resetStats, ss, stats } from './shared.svelte';
+	import { guessedAll, resetStats, ss, stats } from './shared.svelte';
 	import TextButton from './Text Button.svelte';
 
-	const noRestart = $derived(ss.buy || ss.over || ss.showPenalty);
+	const noRestart = $derived(ss.buy || ss.over || ss.showPenalty || guessedAll());
 
 	const onHome = () => {
 		delete ss.from;
