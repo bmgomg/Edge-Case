@@ -2,6 +2,7 @@
 	import { fade } from 'svelte/transition';
 	import { opCost, ss } from './shared.svelte';
 	import TextButton from './Text Button.svelte';
+	import { COST_UNUSED } from './const';
 
 	const { cell } = $props();
 	const { id, row, col, value, guess, op } = $derived(cell);
@@ -103,6 +104,7 @@
 		{/if}
 	{:else if unused}
 		{#if ss.showUnused}
+			<span class="cost" in:fade>{'$' + COST_UNUSED}</span>
 			<span class="number" in:fade>{value}</span>
 		{:else}
 			<div in:fade>
