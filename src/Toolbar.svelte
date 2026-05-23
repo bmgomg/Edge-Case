@@ -25,7 +25,7 @@
 		<TextButton id="tb-home" text={['home']} disabled={noHome} onClick={onHome} />
 		<TextButton id="tb-restart" text={['give up']} disabled={noRestart} onClick={onRestart} />
 		<TextButton id="tb-stats" text={['reset stats']} disabled={stats.plays === 0} onClick={resetStats} />
-		<TextButton id="tb-clear" text={['clear all guesses']} disabled={ss.cells.every((c) => !c.guess)} onClick={onClear} />
+		<TextButton id="tb-clear" text={['clear all guesses']} disabled={ss.cells?.every((c) => !c.guess)} onClick={onClear} />
 	</div>
 	<div class="sound-controls">
 		<MusicControl />

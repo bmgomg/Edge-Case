@@ -21,7 +21,7 @@
 			cls += ' edge';
 		}
 
-		if (ss.over || (unused && ss.showUnused) || op) {
+		if (ss.over || (unused && ss.showUnused) || op || !canOp()) {
 			cls += ' nope';
 		}
 
@@ -71,6 +71,24 @@
 
 		ss.buyOp = id;
 	};
+
+	const canOp = () => {
+		let cells = ss.cells.filter((c) => c.row === row && c.col > 1 && c.col !== col);
+		cells = cells.filter((c) => c.op);
+
+		if (cells.length === 3) {
+			return false;
+		}
+
+		cells = ss.cells.filter((c) => c.col === col && c.row > 1 && c.row !== row);
+		cells = cells.filter((c) => c.op);
+
+		if (cells.length === 3) {
+			return false;
+		}
+
+		return true;
+	};
 </script>
 
 <div class={classes} style="grid-area: {row}/{col}">
@@ -92,11 +110,15 @@
 			</div>
 		{/if}
 	{:else if op}
+		<div class="op-content" in:fade>
 			<span class="cost">{'$' + opCost(op)}</span>
 			<span class="number">{value}</span>
-			<span class='op-result'>{op}</span>
-	{:else}
-		<TextButton id={bid} text={['buy', 'operator']} style={opStyle} onClick={onBuyOp} />
+			<span class="op-result">{op}</span>
+		</div>
+	{:else if canOp()}
+		<div class="buy-op-button" out:fade>
+			<TextButton id={bid} text={['buy', 'operator']} style={opStyle} onClick={onBuyOp} />
+		</div>
 	{/if}
 </div>
 
@@ -122,6 +144,15 @@
 	.guess {
 		grid-area: 1/1;
 		transition: opacity 0.5s;
+	}
+
+	.op-content {
+		grid-area: 1/1;
+		display: grid;
+	}
+
+	.buy-op-button {
+		grid-area: 1/1;
 	}
 
 	.hidden {
