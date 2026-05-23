@@ -1,6 +1,6 @@
 <script>
 	import { fade } from 'svelte/transition';
-	import { ss } from './shared.svelte';
+	import { opCost, ss } from './shared.svelte';
 	import TextButton from './Text Button.svelte';
 
 	const { cell } = $props();
@@ -92,10 +92,9 @@
 			</div>
 		{/if}
 	{:else if op}
-		<div class="op-container" in:fade>
-			<span class="number">{42}</span>
-			<span>{op}</span>
-		</div>
+			<span class="cost">{'$' + opCost(op)}</span>
+			<span class="number">{value}</span>
+			<span class='op-result'>{op}</span>
 	{:else}
 		<TextButton id={bid} text={['buy', 'operator']} style={opStyle} onClick={onBuyOp} />
 	{/if}
@@ -138,9 +137,19 @@
 		color: var(--water);
 	}
 
-	.op-container {
-		display: grid;
-		place-items: center;
+	.cost {
+		grid-area: 1/1;
+		place-self: center;
+		font-family: LB;
+		font-size: 14px;
+		color: var(--water);
+		translate: -23px -26px;
+	}
+
+	.op-result {
+		grid-area: 1/1;
+		place-self: center;
+		translate: 0 25px;
 	}
 
 	.op {

@@ -1,13 +1,11 @@
 <script>
 	import { fade } from 'svelte/transition';
-	import { aveScore, bankBalance, ss, stats } from './shared.svelte';
-
-	const balance = $derived(bankBalance());
+	import { aveScore, ss, stats } from './shared.svelte';
 
 	const message = $derived.by(() => {
 		if (ss.over === 'won') {
 			if (stats.plays > 1) {
-				if (stats.best === balance) {
+				if (stats.best === ss.balance) {
 					return 'Best score!';
 				}
 
@@ -16,7 +14,7 @@
 				}
 			}
 
-			return balance < 0 ? 'Bank broken' : 'All decked out!';
+			return ss.balance < 0 ? 'Bank broken' : 'All decked out!';
 		}
 
 		if (ss.over === 'lost') {

@@ -1,4 +1,4 @@
-import { APP_STATE, BANK } from './const';
+import { APP_STATE, BANK, COST_ADD, COST_MULTIPLY, COST_SUBTRACT, OP_ADD, OP_MULTIPLY } from './const';
 import { _sound } from './sound.svelte';
 import { _range, post, shuffleInPlace } from './utils';
 
@@ -31,7 +31,6 @@ export const loadCommon = () => {
 
     if (job) {
         _sound.sfx = job.sfx;
-        _log(_sound.music);
         _sound.music = job.music;
     }
 };
@@ -88,6 +87,8 @@ const makePuzzle = () => {
     delete ss.guess;
     delete ss.buyOp;
 
+ss.balance = BANK;
+
     const nums = shuffleInPlace(_range(1, 9));
     ss.cells = Array(25).fill(null).map((_, i) => makeCell(i, nums));
 };
@@ -123,11 +124,10 @@ export const onOver = (over) => {
     ss.prevAverage = aveScore();
     stats.plays += 1;
 
-    const balance = bankBalance();
-    stats.total += balance;
+    stats.total += ss.balance;
 
-    if (balance > stats.best) {
-        stats.best = balance;
+    if (ss.balance > stats.best) {
+        stats.best = ss.balance;
     }
 };
 
@@ -145,4 +145,4 @@ export const onPlayOrResume = () => {
 
 export const aveScore = () => stats.plays ? (stats.total / stats.plays).toFixed(2) : 0;
 
-export const bankBalance = () => BANK;
+export const opCost = (op) => op ? op === OP_MULTIPLY ? COST_MULTIPLY : op === OP_ADD ? COST_ADD : COST_SUBTRACT : 0;

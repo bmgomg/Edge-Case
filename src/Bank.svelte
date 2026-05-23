@@ -1,13 +1,11 @@
 <script>
 	import Money from './Money.svelte';
-	import { bankBalance } from './shared.svelte';
-
-	const bank = $derived(bankBalance());
+	import { ss } from './shared.svelte';
 </script>
 
-<div class="bank {bank < 0 ? 'red' : ''}">
+<div class="bank {ss.balance < 0 ? 'red' : ''}">
 	<div class="label">balance</div>
-	<div class="value"><Money value={bank} /></div>
+	<div class="value"><Money value={ss.balance} /></div>
 </div>
 
 <style>

@@ -25,7 +25,7 @@
 			--separator: #6a5424; /* now a faded-gold rule */
 			--button-background: linear-gradient(180deg, #f3d27a 0%, #d6b264 50%, #a07e36 100%);
 			--button-color: #051710; /* new — text on the brass button */
-			--background: #0e3a2c;
+			--background: #160E3A;
 			--slider-track: #a07e3680;
 			--card-glow: #f3d27a; /* brighter gold halo on solved cards */
 			--red: #c1302a;

@@ -458,6 +458,6 @@
   "id": "/",
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#610000",
-  "background_color": "#610000"
+  "theme_color": "#160E3A",
+  "background_color": "#160E3A"
 }
