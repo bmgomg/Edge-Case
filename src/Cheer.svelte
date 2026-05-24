@@ -30,11 +30,11 @@
 </script>
 
 {#if ss.over && !ss.home}
-	<div class="message" in:fade={{ delay: 200 }} out:fade>{message}</div>
+	<div class="cheer" in:fade={{ delay: 200 }} out:fade>{message}</div>
 {/if}
 
 <style>
-	.message {
+	.cheer {
 		grid-area: 1/1;
 		place-self: center;
 		z-index: 1;
