@@ -5,6 +5,7 @@
 	import TextButton from './Text Button.svelte';
 
 	const noRestart = $derived(ss.buy || ss.over || ss.showPenalty || guessedAll());
+	const noClear = $derived(ss.over || ss.cells?.every((c) => !c.guess));
 
 	const onHome = () => {
 		delete ss.from;
@@ -32,7 +33,7 @@
 		<TextButton id="tb-home" text={['home']} onClick={onHome} />
 		<TextButton id="tb-restart" text={['give up']} disabled={noRestart} onClick={onGiveUp} />
 		<TextButton id="tb-stats" text={['reset stats']} disabled={stats.plays === 0} onClick={resetStats} />
-		<TextButton id="tb-clear" text={['clear all guesses']} disabled={ss.cells?.every((c) => !c.guess)} onClick={onClear} />
+		<TextButton id="tb-clear" text={['clear all guesses']} disabled={noClear} onClick={onClear} />
 	</div>
 	<div class="sound-controls">
 		<MusicControl />

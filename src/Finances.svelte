@@ -7,7 +7,7 @@
 <div class="panel">
 	<Article label="Bank" value={BANK} />
 	<span class="sign">-</span>
-	<Article label="Cost" value={BANK - ss.balance} />
+	<Article label={ss.over === 'surrender' ? 'Penalty' : 'Cost'} value={BANK - ss.balance} />
 	<span class="sign eq">=</span>
 	<Article label="Balance" value={ss.balance} />
 </div>

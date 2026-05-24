@@ -106,7 +106,7 @@
 		{/if}
 	{:else if unused}
 		{#if ss.showUnused || ss.over}
-			{#if ss.over !== 'surrender' && ss.showUnused}
+			{#if ss.showUnused}
 				<span class="cost" in:fade>{'$' + COST_UNUSED}</span>
 			{/if}
 			<span class="number" in:fade>{value}</span>
