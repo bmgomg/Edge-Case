@@ -8,9 +8,9 @@
 	const noClear = $derived(ss.over || ss.cells?.every((c) => !c.guess));
 
 	const onHome = () => {
-		delete ss.from;
-		delete ss.to;
-		delete ss.targets;
+		delete ss.buyUnused;
+		delete ss.buyOp;
+		delete ss.guessing;
 
 		ss.home = true;
 	};
