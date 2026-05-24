@@ -1,4 +1,4 @@
-import music from '$lib/sounds/music.mp3';
+import music from '$lib/sounds/music.ogg';
 import sounds from '$lib/sounds/sfx.mp3';
 import { Howl } from 'howler/dist/howler.core.min';
 
