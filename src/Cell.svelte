@@ -14,7 +14,7 @@
 	const edgeStyle = `${buttonStyle} font-family: RC; color: var(--water);`;
 	const unusedStyle = `${edgeStyle}`;
 	const opStyle = `${buttonStyle} font-family: RC; letter-spacing: 0; color: var(--gold-dim);`;
-	const pulse = $derived((unused && ss.buyUnused) || ss.guess === id || ss.buyOp === id);
+	const pulse = $derived((unused && ss.buyUnused) || ss.guessing === id || ss.buyOp === id);
 
 	const classes = $derived.by(() => {
 		let cls = 'cell';
@@ -44,7 +44,7 @@
 			return;
 		}
 
-		delete ss.guess;
+		delete ss.guessing;
 		delete ss.buyOp;
 		delete ss.showPenalty;
 
@@ -52,8 +52,8 @@
 	};
 
 	const onGuess = () => {
-		if (ss.guess === id) {
-			delete ss.guess;
+		if (ss.guessing === id) {
+			delete ss.guessing;
 			return;
 		}
 
@@ -61,7 +61,7 @@
 		delete ss.buyOp;
 		delete ss.showPenalty;
 
-		ss.guess = id;
+		ss.guessing = id;
 	};
 
 	const onBuyOp = () => {
@@ -71,7 +71,7 @@
 		}
 
 		delete ss.buyUnused;
-		delete ss.guess;
+		delete ss.guessing;
 		delete ss.showPenalty;
 
 		ss.buyOp = id;
@@ -201,6 +201,7 @@
 		color: var(--water);
 		font-size: 12px;
 		font-weight: 500;
+		border: none;
 	}
 
 	.product {

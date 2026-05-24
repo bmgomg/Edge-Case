@@ -14,15 +14,15 @@
 		<span class="label">SOLVED</span>
 		<div class="value"><NumberFlow value={stats.solved} /></div>
 	</div>
-	{#snippet score(label, value)}
+	{#snippet score(label, value, cents)}
 		<div class="item">
 			<span class="label">{label}</span>
 			<div class="value {value < 0 ? 'red' : ''}" in:fade>
-				<Money {value} />
+				<Money {value} {cents}/>
 			</div>
 		</div>
 	{/snippet}
-	{@render score('AVERAGE', aveScore())}
+	{@render score('AVERAGE', aveScore(), true)}
 	{@render score('BEST', stats.best)}
 </div>
 

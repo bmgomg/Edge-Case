@@ -10,15 +10,15 @@
 	const style = 'letter-spacing: 0.12em; font-size: 14px;';
 </script>
 
-{#if guessedAll() && !ss.over && !ss.buyUnused && !ss.buyOp && !ss.guess}
-	<div class="prompt" transition:fade={{ duration: 150 }}>
+{#if guessedAll() && !ss.over && !ss.buyUnused && !ss.buyOp && !ss.guessing}
+	<div class="prompt" in:fade={{ delay: 500 }} out:fade>
 		<TextButton id="tb-done" text={['Done — check my guesses']} framed onClick={onDone} {style} />
 	</div>
 {/if}
 
 <style>
 	.prompt {
-		grid-area: 31;
+		grid-area: 3/1;
 		place-self: center;
 		display: grid;
 		grid-auto-flow: column;

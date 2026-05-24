@@ -6,7 +6,7 @@
 
 <div class="article">
 	<div class="label">{label}</div>
-	<div class="value {value < 0 ? 'red' : ''}"><Money value={value} /></div>
+	<div class="value {label === 'Balance' ? 'balance' : ''} {value < 0 ? 'red' : ''}"><Money {value} /></div>
 </div>
 
 <style>
@@ -28,8 +28,12 @@
 		font-family: LB;
 		font-size: 40px;
 		letter-spacing: -0.5px;
-		color: var(--gold-dim);
+		color: var(--gold-deep);
 		text-shadow: 0 2px 0 #000;
+	}
+
+	.balance {
+		color: var(--gold);
 	}
 
 	.red {

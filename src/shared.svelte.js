@@ -1,4 +1,4 @@
-import { APP_STATE, BANK, COST_ADD, COST_MULTIPLY, COST_SUBTRACT, OP_ADD, OP_MULTIPLY } from './const';
+import { APP_STATE, BANK, COST_ADD, COST_MULTIPLY, COST_SUBTRACT, OP_ADD, OP_MULTIPLY, PENALTY } from './const';
 import { _sound } from './sound.svelte';
 import { _range, post, shuffleInPlace } from './utils';
 
@@ -58,8 +58,6 @@ export const loadGame = () => {
     }
 };
 
-export const isSolved = () => edgeCells().every((c) => c.guess === c.value);
-
 export const rowCol = (i) => {
     const row = Math.floor(i / 5) + 1;
     const col = (i % 5) + 1;
@@ -83,7 +81,7 @@ const makePuzzle = () => {
     delete ss.over;
     delete ss.buyUnused;
     delete ss.showUnused;
-    delete ss.guess;
+    delete ss.guessing;
     delete ss.buyOp;
     delete ss.showPenalty;
 
@@ -116,13 +114,14 @@ export const onOver = (over) => {
     _sound.play(over === 'surrender' ? 'draw' : over);
     ss.over = over;
 
-    if (over === 'lost') {
-        resetStats();
-        return;
-    }
-
     ss.prevAverage = aveScore();
     stats.plays += 1;
+
+    if (over === 'lost' || over === 'surrender') {
+		ss.balance = BANK - PENALTY;
+    } else {
+        stats.solved += 1;
+    }
 
     stats.total += ss.balance;
 
@@ -150,3 +149,5 @@ export const opCost = (op) => op ? op === OP_MULTIPLY ? COST_MULTIPLY : op === O
 export const edgeCells = () => ss.cells ? ss.cells.filter((c, i) => i > 0 && (c.row === 1 || c.col === 1)) : [];
 
 export const guessedAll = () => edgeCells().every((c) => c.guess);
+
+export const isSolved = () => edgeCells().every((c) => c.guess === c.value);

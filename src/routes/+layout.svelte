@@ -106,11 +106,5 @@
 			font-family: RC;
 			src: url('$lib/fonts/Roboto Condensed.ttf');
 		}
-
-		@font-face {
-			font-family: CP;
-			src: url('$lib/fonts/CrimsonPro.ttf');
-			/* font-weight: 100 900; */
-		}
 	}
 </style>

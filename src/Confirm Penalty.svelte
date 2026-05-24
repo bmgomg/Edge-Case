@@ -1,13 +1,11 @@
 <script>
 	import { fade } from 'svelte/transition';
 	import TextButton from './Text Button.svelte';
-	import { BANK, PENALTY } from './const';
-	import { ss, onOver } from './shared.svelte';
+	import { PENALTY } from './const';
+	import { onOver, ss } from './shared.svelte';
 
 	const onPay = () => {
-		ss.balance = BANK - PENALTY;
 		delete ss.showPenalty;
-
 		onOver('surrender');
 	};
 

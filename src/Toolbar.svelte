@@ -24,7 +24,7 @@
 
 		delete ss.buyUnused;
 		delete ss.buyOp;
-		delete ss.guess;
+		delete ss.guessing;
 	};
 </script>
 
@@ -33,7 +33,7 @@
 		<TextButton id="tb-home" text={['home']} onClick={onHome} />
 		<TextButton id="tb-restart" text={['give up']} disabled={noRestart} onClick={onGiveUp} />
 		<TextButton id="tb-stats" text={['reset stats']} disabled={stats.plays === 0} onClick={resetStats} />
-		<TextButton id="tb-clear" text={['clear all guesses']} disabled={noClear} onClick={onClear} />
+		<TextButton id="tb-clear-all" text={['clear all guesses']} disabled={noClear} onClick={onClear} />
 	</div>
 	<div class="sound-controls">
 		<MusicControl />

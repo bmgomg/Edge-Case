@@ -5,17 +5,17 @@
 	import { _range } from './utils';
 
 	const onSelectValue = (n) => {
-		ss.cells[ss.guess - 1].guess = n;
-		delete ss.guess;
+		ss.cells[ss.guessing - 1].guess = n;
+		delete ss.guessing;
 	};
 
 	const onClearValue = () => {
-		delete ss.cells[ss.guess - 1].guess;
-		delete ss.guess;
+		delete ss.cells[ss.guessing - 1].guess;
+		delete ss.guessing;
 	};
 </script>
 
-{#if ss.guess && !ss.over}
+{#if ss.guessing && !ss.over}
 	<div class="selector" transition:fade={{ duration: 150 }}>
 		{#each _range(1, 9) as n (n)}
 			{@const { row, col } = rowCol(n - 1)}
@@ -24,7 +24,7 @@
 		{/each}
 		{#if true}
 			{@const style = 'width: 70px; height: 35px; font-size: 12px; letter-spacing: 0.12em;'}
-			<TextButton id="tb-clear" text={['Clear']} framed onClick={onClearValue} {style} disabled={!ss.cells[ss.guess - 1].guess}/>
+			<TextButton id="tb-clear" text={['Clear']} framed onClick={onClearValue} {style} disabled={!ss.cells[ss.guessing - 1].guess}/>
 		{/if}
 	</div>
 {/if}

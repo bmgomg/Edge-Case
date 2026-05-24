@@ -3,48 +3,46 @@
 	import { aveScore, ss, stats } from './shared.svelte';
 
 	const message = $derived.by(() => {
-		if (ss.over === 'won') {
-			if (stats.plays > 1) {
-				if (stats.best === ss.balance) {
-					return 'Best score!';
-				}
-
-				if (aveScore() > ss.prevAverage) {
-					return 'Average improved!';
-				}
-			}
-
-			return ss.balance < 0 ? 'Bank broken' : 'All decked out!';
+		if (ss.over === 'surrender') {
+			return 'You gave up.';
 		}
 
 		if (ss.over === 'lost') {
-			return 'Too much debt!';
+			return 'Not quite — better luck next time!';
+		}
+
+		if (ss.over === 'won') {
+			if (stats.plays > 1) {
+				if (stats.best === ss.balance) {
+					return 'All correct — best score!';
+				}
+
+				if (aveScore() > ss.prevAverage) {
+					return 'All correct — average improved!';
+				}
+			}
+
+			return ss.balance < 0 ? 'All correct — but bank\'s broken.' : 'All correct!';
 		}
 
 		return null;
 	});
 </script>
 
-{#if message && !ss.home && !ss.gather}
-	<div class="message {ss.over === 'lost' ? 'lost' : ''}" in:fade={{ delay: 500 }} out:fade>{message}</div>
+{#if ss.over && !ss.home}
+	<div class="message" in:fade={{ delay: 200 }} out:fade>{message}</div>
 {/if}
 
 <style>
 	.message {
-		grid-area: 2/1;
+		grid-area: 1/1;
 		place-self: center;
 		z-index: 1;
 		display: grid;
-		font-size: 20px;
-		padding: 0.75rem 2rem;
+		font-size: 28px;
 		letter-spacing: 0.04em;
-		background: var(--deep-purple);
-		border-radius: 10px;
-		border: 1px solid #f5f0e080;
-		opacity: 0.95;
-	}
-
-	.lost {
-		background: #a52222;
+		color: var(--gold-dim);
+		font-family: CG;
+		font-style: italic;
 	}
 </style>
