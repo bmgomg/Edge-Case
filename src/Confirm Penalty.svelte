@@ -1,11 +1,11 @@
 <script>
 	import { fade } from 'svelte/transition';
 	import TextButton from './Text Button.svelte';
-	import { PENALTY } from './const';
+	import { BANK, PENALTY } from './const';
 	import { ss, onOver } from './shared.svelte';
 
 	const onPay = () => {
-		ss.balance = -PENALTY;
+		ss.balance = BANK - PENALTY;
 		delete ss.showPenalty;
 
 		onOver('surrender');
@@ -20,8 +20,8 @@
 
 {#if ss.showPenalty && !ss.over}
 	<div class="prompt" transition:fade={{ duration: 150 }}>
-		<TextButton id="tb-penalty" text={[`Pay $${PENALTY + ss.balance} penalty?`]} framed onClick={onPay} {style} />
-		<TextButton id="tb-nm" text={['Never mind']} framed onClick={onCancel} {style}/>
+		<TextButton id="tb-penalty" text={[`Pay $${PENALTY} penalty?`]} framed onClick={onPay} {style} />
+		<TextButton id="tb-nm" text={['Never mind']} framed onClick={onCancel} {style} />
 	</div>
 {/if}
 

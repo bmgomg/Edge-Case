@@ -3,6 +3,7 @@
 	import { opCost, ss } from './shared.svelte';
 	import TextButton from './Text Button.svelte';
 	import { COST_UNUSED } from './const';
+	import NumberFlow from '@number-flow/svelte';
 
 	const { cell } = $props();
 	const { id, row, col, value, guess, op } = $derived(cell);
@@ -93,7 +94,7 @@
 <div class={classes} style="grid-area: {row}/{col}">
 	{#if edge}
 		{#if guess || ss.over}
-			<span class="number" in:fade>{ss.over ? value : guess}</span>
+			<div class="number" in:fade><NumberFlow value={ss.over ? value : guess} /></div>
 			{#if ss.over && value !== guess}
 				<div class="bad-guess" in:fade>{guess}</div>
 			{/if}
