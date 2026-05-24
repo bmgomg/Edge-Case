@@ -94,35 +94,35 @@
 <div class={classes} style="grid-area: {row}/{col}">
 	{#if edge}
 		{#if guess || ss.over}
-			<div class="number" in:fade><NumberFlow value={ss.over ? value : guess} /></div>
+			<div class="number" transition:fade><NumberFlow value={ss.over ? value : guess} /></div>
 			{#if ss.over && value !== guess}
-				<div class="bad-guess" in:fade>{guess}</div>
+				<div class="bad-guess" transition:fade>{guess}</div>
 			{/if}
 		{/if}
 		{#if !ss.over}
-			<div class="guess {guess ? 'hidden' : ''}" in:fade>
+			<div class="guess {guess ? 'hidden' : ''}" transition:fade>
 				<TextButton id={bid} text={['guess', 'number']} style={edgeStyle} onClick={onGuess} />
 			</div>
 		{/if}
 	{:else if unused}
 		{#if ss.showUnused || ss.over}
 			{#if ss.showUnused}
-				<span class="cost" in:fade>{'$' + COST_UNUSED}</span>
+				<span class="cost" transition:fade>{'$' + COST_UNUSED}</span>
 			{/if}
-			<span class="number" in:fade>{value}</span>
+			<span class="number" transition:fade>{value}</span>
 		{:else if !ss.over}
-			<div in:fade>
+			<div class='ga11' transition:fade>
 				<TextButton id={bid} text={['reveal', 'unused', 'number']} style={unusedStyle} onClick={onBuyUnused} />
 			</div>
 		{/if}
 	{:else if op}
-		<div class="op-content" in:fade>
+		<div class="op-content" transition:fade>
 			<span class="cost">{'$' + opCost(op)}</span>
 			<span class="number">{value}</span>
 			<span class="op-result">{op}</span>
 		</div>
 	{:else if canBuyOp()}
-		<div class="buy-op-button" out:fade>
+		<div class="ga11" transition:fade>
 			<TextButton id={bid} text={['buy', 'operator']} style={opStyle} onClick={onBuyOp} />
 		</div>
 	{/if}
@@ -166,10 +166,6 @@
 	.op-content {
 		grid-area: 1/1;
 		display: grid;
-	}
-
-	.buy-op-button {
-		grid-area: 1/1;
 	}
 
 	.hidden {

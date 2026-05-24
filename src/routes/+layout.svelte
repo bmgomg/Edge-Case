@@ -67,6 +67,10 @@
 			pointer-events: none;
 		}
 
+		.ga11 {
+			grid-area: 1/1;
+		}
+
 		@font-face {
 			font-family: LB;
 			src: url('$lib/fonts/Libre Bodoni.ttf');
