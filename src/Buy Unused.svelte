@@ -2,16 +2,17 @@
 	import { fade } from 'svelte/transition';
 	import TextButton from './Text Button.svelte';
 	import { COST_UNUSED } from './const';
-	import { ss } from './shared.svelte';
+	import { persist, ss } from './shared.svelte';
 	import { _sound } from './sound.svelte';
 
 	const onBuy = () => {
 		_sound.play('coin2');
+		delete ss.buyUnused;
 
 		ss.showUnused = true;
 		ss.balance -= COST_UNUSED;
 
-		delete ss.buyUnused;
+		persist();
 	};
 
 	const style = 'letter-spacing: 0.12em;';

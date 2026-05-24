@@ -2,7 +2,7 @@
 	import { fade } from 'svelte/transition';
 	import TextButton from './Text Button.svelte';
 	import { COST_MULTIPLY, COST_ADD, COST_SUBTRACT, OP_MULTIPLY, OP_ADD, OP_SUBTRACT } from './const';
-	import { opCost, ss } from './shared.svelte';
+	import { opCost, persist, ss } from './shared.svelte';
 	import { _sound } from './sound.svelte';
 
 	const cell = $derived(ss.cells[ss.buyOp - 1]);
@@ -17,7 +17,9 @@
 		const c2 = ss.cells[(cell.row - 1) * 5];
 
 		cell.value = op === OP_MULTIPLY ? c1.value * c2.value : op === OP_ADD ? c1.value + c2.value : Math.abs(c1.value - c2.value);
+
 		ss.balance -= opCost(op);
+		persist();
 
 		delete ss.buyOp;
 	};

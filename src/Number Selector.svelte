@@ -1,13 +1,15 @@
 <script>
 	import { fade } from 'svelte/transition';
 	import TextButton from './Text Button.svelte';
-	import { guessedAll, rowCol, ss } from './shared.svelte';
+	import { guessedAll, persist, rowCol, ss } from './shared.svelte';
 	import { _range, post } from './utils';
 	import { _sound } from './sound.svelte';
 
 	const onSelectValue = (n) => {
 		ss.cells[ss.guessing - 1].guess = n;
 		delete ss.guessing;
+
+		persist();
 
 		if (guessedAll()) {
 			post(() => _sound.play('won', { rate: 3 }), 400);

@@ -4,7 +4,6 @@ import { _range, post, shuffleInPlace } from './utils';
 
 export const ss = $state({
     home: true,
-    balance: 0
 });
 
 export const stats = $state({
@@ -22,7 +21,7 @@ export const persistCommon = () => {
 };
 
 export const persist = () => {
-    const json = JSON.stringify({ ...stats, cells: ss.cells, over: ss.over });
+    const json = JSON.stringify({ ...stats, cells: ss.cells, balance: ss.balance, showUnused: ss.showUnused, over: ss.over });
     localStorage.setItem(ss.appKey, json);
 };
 
@@ -48,8 +47,11 @@ export const loadGame = () => {
         stats.total = job.total;
         stats.best = job.best;
 
-        ss.cells = job.over ? null : job.cells;
-        ss.ticks = job.over ? 0 : job.ticks;
+        if (!job.over) {
+            ss.cells = job.cells;
+            ss.balance = job.balance;
+            ss.showUnused = job.showUnused;
+        }
     } else {
         stats.plays = 0;
         stats.solved = 0;
