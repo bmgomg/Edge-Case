@@ -3,8 +3,11 @@
 	import TextButton from './Text Button.svelte';
 	import { COST_UNUSED } from './const';
 	import { ss } from './shared.svelte';
+	import { _sound } from './sound.svelte';
 
 	const onBuy = () => {
+		_sound.play('coin2');
+
 		ss.showUnused = true;
 		ss.balance -= COST_UNUSED;
 

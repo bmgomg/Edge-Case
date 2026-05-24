@@ -78,6 +78,8 @@ const makeCell = (i, nums) => {
 };
 
 const makePuzzle = () => {
+    _sound.play('dice');
+
     delete ss.over;
     delete ss.buyUnused;
     delete ss.showUnused;
@@ -118,7 +120,7 @@ export const onOver = (over) => {
     stats.plays += 1;
 
     if (over === 'lost' || over === 'surrender') {
-		ss.balance = BANK - PENALTY;
+        ss.balance = BANK - PENALTY;
     } else {
         stats.solved += 1;
     }

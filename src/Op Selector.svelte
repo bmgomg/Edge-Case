@@ -3,11 +3,14 @@
 	import TextButton from './Text Button.svelte';
 	import { COST_MULTIPLY, COST_ADD, COST_SUBTRACT, OP_MULTIPLY, OP_ADD, OP_SUBTRACT } from './const';
 	import { opCost, ss } from './shared.svelte';
+	import { _sound } from './sound.svelte';
 
 	const cell = $derived(ss.cells[ss.buyOp - 1]);
 	const { row, col } = $derived(cell);
 
 	const onApply = (op) => {
+		_sound.play(op === OP_MULTIPLY ? 'coins' : op === OP_ADD ? 'coin2' : 'coin1');
+
 		cell.op = op;
 
 		const c1 = ss.cells[cell.col - 1];

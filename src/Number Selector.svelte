@@ -1,12 +1,17 @@
 <script>
 	import { fade } from 'svelte/transition';
 	import TextButton from './Text Button.svelte';
-	import { rowCol, ss } from './shared.svelte';
-	import { _range } from './utils';
+	import { guessedAll, rowCol, ss } from './shared.svelte';
+	import { _range, post } from './utils';
+	import { _sound } from './sound.svelte';
 
 	const onSelectValue = (n) => {
 		ss.cells[ss.guessing - 1].guess = n;
 		delete ss.guessing;
+
+		if (guessedAll()) {
+			post(() => _sound.play('won', { rate: 3 }), 400);
+		}
 	};
 
 	const onClearValue = () => {
@@ -24,7 +29,7 @@
 		{/each}
 		{#if true}
 			{@const style = 'width: 70px; height: 35px; font-size: 12px; letter-spacing: 0.12em;'}
-			<TextButton id="tb-clear" text={['Clear']} framed onClick={onClearValue} {style} disabled={!ss.cells[ss.guessing - 1].guess}/>
+			<TextButton id="tb-clear" text={['Clear']} framed onClick={onClearValue} {style} disabled={!ss.cells[ss.guessing - 1].guess} />
 		{/if}
 	</div>
 {/if}
