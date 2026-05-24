@@ -67,7 +67,7 @@
 		font-weight: 500;
 		font-size: 85px;
 		line-height: 0.9;
-		color: rgb(214, 178, 100);
+		color: var(--gold-dim);
 		letter-spacing: -2px;
 		text-shadow: 0px 5px 0px #000;
 	}

@@ -24,7 +24,7 @@
 		return cells.every((c) => c.op !== op);
 	};
 
-	const style = 'font-family: LB; width: 130px; height: 35px; font-size: 12px; letter-spacing: 0.12em;';
+	const style = 'width: 134px; height: 35px; font-size: 13.5px; letter-spacing: 0.1em;';
 </script>
 
 {#if ss.buyOp && !ss.over}
@@ -32,7 +32,7 @@
 		<div class="multiply">
 			<TextButton
 				id="tb-multiply"
-				text={[`Multiply   $${COST_MULTIPLY}`]}
+				text={[`Multiply • $${COST_MULTIPLY}`]}
 				onClick={() => onApply(OP_MULTIPLY)}
 				disabled={!canOp(OP_MULTIPLY)}
 				framed
@@ -40,12 +40,12 @@
 			/>
 		</div>
 		<div class="add">
-			<TextButton id="tb-add" text={[`Add   $${COST_ADD}`]} onClick={() => onApply(OP_ADD)} disabled={!canOp(OP_ADD)} framed {style} />
+			<TextButton id="tb-add" text={[`Add • $${COST_ADD}`]} onClick={() => onApply(OP_ADD)} disabled={!canOp(OP_ADD)} framed {style} />
 		</div>
 		<div class="subtract">
 			<TextButton
 				id="tb-subtract"
-				text={[`Subtract   $${COST_SUBTRACT}`]}
+				text={[`Subtract • $${COST_SUBTRACT}`]}
 				onClick={() => onApply(OP_SUBTRACT)}
 				disabled={!canOp(OP_SUBTRACT)}
 				framed
@@ -61,7 +61,7 @@
 		place-self: end center;
 		display: grid;
 		grid-auto-flow: column;
-		gap: 13px;
+		gap: 10px;
 		margin: 30px 0;
 	}
 

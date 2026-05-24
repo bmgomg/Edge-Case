@@ -3,20 +3,30 @@
 	import Stats from './Stats.svelte';
 </script>
 
-<div class="top-panel">
+<div class="scoreboard">
+	<div class="title">Edge Case</div>
 	<Finances />
 	<Stats />
 </div>
 
 <style>
-	.top-panel {
+	.scoreboard {
 		display: grid;
 		align-items: center;
 		grid-auto-flow: column;
-		place-content: center;
-		gap: 80px;
+		place-content: space-between;
 		margin: 30px 40px 0 45px;
+		padding-left: 15px;
 		border: 0px solid rgba(160, 126, 54, 0.333);
 		border-bottom-width: 0.666667px;
+	}
+
+	.title {
+		display: grid;
+		font-family: LBI;
+		font-weight: 500;
+		font-size: 32px;
+		color: var(--gold-dim);
+		text-shadow: 0px 3px 0px #000;
 	}
 </style>

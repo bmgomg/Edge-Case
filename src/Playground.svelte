@@ -9,10 +9,10 @@
 </script>
 
 <div class="playground">
-	<Board/>
-	<BuyUnused/>
-	<NumberSelector/>
-	<OpSelector/>
+	<Board />
+	<BuyUnused />
+	<NumberSelector />
+	<OpSelector />
 	<ConfirmPenalty />
 	<Done />
 	<PlayAgain />
@@ -21,6 +21,6 @@
 <style>
 	.playground {
 		display: grid;
-		margin-left: 40px;
+		grid: auto / 1fr auto;
 	}
 </style>

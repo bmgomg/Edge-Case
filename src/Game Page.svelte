@@ -1,15 +1,15 @@
 <script>
-	import MidPanel from './Mid Panel.svelte';
+	import Playground from './Playground.svelte';
 	import { ss } from './shared.svelte';
 	import Toolbar from './Toolbar.svelte';
-	import TopPanel from './Top Panel.svelte';
+	import Scoreboard from './Scoreboard.svelte';
 
 	const hidden = $derived(ss.home);
 </script>
 
 <div class="game-page {hidden ? 'hidden' : ''}">
-	<TopPanel />
-	<MidPanel />
+	<Scoreboard />
+	<Playground />
 	<Toolbar />
 </div>
 
