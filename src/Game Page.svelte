@@ -3,15 +3,18 @@
 	import { ss } from './shared.svelte';
 	import Toolbar from './Toolbar.svelte';
 	import Scoreboard from './Scoreboard.svelte';
+	import { fade } from 'svelte/transition';
 
 	const hidden = $derived(ss.home);
 </script>
 
-<div class="game-page {hidden ? 'hidden' : ''}">
-	<Scoreboard />
-	<Playground />
-	<Toolbar />
-</div>
+{#if ss.cells}
+	<div class="game-page {hidden ? 'hidden' : ''}" in:fade>
+		<Scoreboard />
+		<Playground />
+		<Toolbar />
+	</div>
+{/if}
 
 <style>
 	.game-page {

@@ -12,10 +12,9 @@
 
 <style>
 	.prompt {
-		grid-area: 1/1;
-		place-self: end center;
+		grid-area: 3/1;
+		place-self: center;
 		display: grid;
-		margin: 30px 0;
 		font-size: 20px;
 	}
 </style>

@@ -22,11 +22,10 @@
 
 <style>
 	.prompt {
-		grid-area: 1/1;
-		place-self: end center;
+		grid-area: 3/1;
+		place-self: center;
 		display: grid;
 		grid-auto-flow: column;
 		gap: 20px;
-		margin: 30px 0;
 	}
 </style>

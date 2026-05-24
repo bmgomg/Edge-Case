@@ -17,25 +17,25 @@
 			padding: 0;
 			height: 100dvh;
 			width: 100%;
-			--bone: #f4ead6; /* bone / card faces / instruction text */
-			--bone-dim: #bfb39a; /* new — sub-emphasis body text */
+			--bone: #f4ead6;
+			--bone-dim: #bfb39a;
 			--dash: #a07e36;
 			--subtitle: #a07e36;
-			--deep-purple: #191b31; /* deeper felt for panels */
-			--separator: #6a5424; /* now a faded-gold rule */
+			--deep-purple: #191b31;
+			--separator: #6a5424;
 			--button-background: linear-gradient(180deg, #f3d27a 0%, #d6b264 50%, #a07e36 100%);
-			--button-color: #051710; /* new — text on the brass button */
+			--button-color: #051710;
 			--background: #160E3A;
 			--slider-track: #a07e3680;
-			--card-glow: #f3d27a; /* brighter gold halo on solved cards */
 			--red: #c1302a;
 			--darkred: #7d2222;
-			--instr-text: #f4ead6; /* was minty; now bone */
+			--instr-text: #f4ead6;
 			--gold: #f3d27a;
-			--gold-dim: #d6b264; /* was light green; now gold */
-			--gold-deep: #a07e36; /* new — frame inset, label color */
-			--water: #082319; /* deck-counter readout (was navy) */
-			background: var(--background);
+			--gold-dim: #d6b264;
+			--gold-deep: #a07e36;
+			--water: #082319;
+			--lavender: #bcb0da
+;			background: var(--background);
 			color: var(--bone);
 			background-size: 350px;
 			font-family: Cinzel;

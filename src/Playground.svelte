@@ -6,13 +6,14 @@
 	import NumberSelector from './Number Selector.svelte';
 	import OpSelector from './Op Selector.svelte';
 	import PlayAgain from './Play Again.svelte';
+
 </script>
 
 <div class="playground">
-	<Board />
-	<BuyUnused />
-	<NumberSelector />
-	<OpSelector />
+	<Board/>
+	<BuyUnused/>
+	<NumberSelector/>
+	<OpSelector/>
 	<ConfirmPenalty />
 	<Done />
 	<PlayAgain />
@@ -21,6 +22,6 @@
 <style>
 	.playground {
 		display: grid;
-		grid: auto / 1fr auto;
+        grid: 1fr 420px 1fr / auto;
 	}
 </style>

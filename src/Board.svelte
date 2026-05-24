@@ -11,7 +11,8 @@
 
 <style>
 	.board {
-		grid-area: 1/1;
+		grid-area: 2/1;
+		place-self: center;
 		display: grid;
 		place-content: center;
 	}
