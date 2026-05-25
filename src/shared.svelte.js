@@ -1,4 +1,4 @@
-import { APP_STATE, BANK, COST_ADD, COST_MULTIPLY, COST_SUBTRACT, OP_ADD, OP_MULTIPLY, PENALTY } from './const';
+import { APP_STATE, BANK, COST_ADD, COST_MULTIPLY, COST_SUBTRACT, OP_ADD, OP_MULTIPLY } from './const';
 import { _sound } from './sound.svelte';
 import { _range, post, shuffleInPlace } from './utils';
 
@@ -118,14 +118,17 @@ export const onOver = (over) => {
     _sound.play(over === 'surrender' ? 'draw' : over);
     ss.over = over;
 
-    ss.prevAverage = aveScore();
-    stats.plays += 1;
+    if (over === 'surrender') {
+        edgeCells().forEach((c) => delete c.incorrect);
+        resetStats();
 
-    if (over === 'lost' || over === 'surrender') {
-        ss.balance = BANK - PENALTY;
-    } else {
-        stats.solved += 1;
+        return;
     }
+
+    ss.prevAverage = aveScore();
+
+    stats.plays += 1;
+    stats.solved += 1;
 
     stats.total += ss.balance;
 
@@ -155,3 +158,17 @@ export const edgeCells = () => ss.cells ? ss.cells.filter((c, i) => i > 0 && (c.
 export const guessedAll = () => edgeCells().every((c) => c.guess);
 
 export const isSolved = () => edgeCells().every((c) => c.guess === c.value);
+
+export const someIncorrect = () => edgeCells().some((c) => c.incorrect);
+
+export const canSubmit = () => {
+    if (ss.over || ss.buyUnused || ss.buyOp || ss.guessing || ss.showPenalty) {
+        return false;
+    }
+
+    if (someIncorrect()) {
+        return false;
+    }
+
+    return guessedAll();
+};

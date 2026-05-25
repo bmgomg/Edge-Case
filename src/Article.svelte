@@ -15,6 +15,7 @@
 		width: 101px;
 		place-content: center;
 		place-items: center;
+		overflow: hidden;
 	}
 
 	.label {

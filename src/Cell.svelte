@@ -6,7 +6,7 @@
 	import NumberFlow from '@number-flow/svelte';
 
 	const { cell } = $props();
-	const { id, row, col, value, guess, op } = $derived(cell);
+	const { id, row, col, value, guess, incorrect, op } = $derived(cell);
 	const bid = $derived('tb-cell-' + id);
 	const unused = $derived(row === 1 && col === 1);
 	const edge = $derived(!unused && (row === 1 || col === 1));
@@ -94,10 +94,10 @@
 <div class={classes} style="grid-area: {row}/{col}">
 	{#if edge}
 		{#if guess || ss.over}
-			<div class="number" transition:fade><NumberFlow value={ss.over ? value : guess} /></div>
-			{#if ss.over && value !== guess}
+			<div class="number {incorrect ? 'incorrect' : ''}" transition:fade><NumberFlow value={ss.over ? value :guess} /></div>
+			<!-- {#if ss.over && value !== guess}
 				<div class="bad-guess" transition:fade>{guess}</div>
-			{/if}
+			{/if} -->
 		{/if}
 		{#if !ss.over}
 			<div class="guess {guess ? 'hidden' : ''}" transition:fade>
@@ -152,17 +152,6 @@
 		transition: opacity 0.5s;
 	}
 
-	.bad-guess {
-		grid-area: 1/1;
-		place-self: center;
-		font-family: LB;
-		font-size: 18px;
-		font-weight: bold;
-		color: firebrick;
-		filter: hue-rotate(150deg) saturate(2);
-		translate: -23px -23px;
-	}
-
 	.op-content {
 		grid-area: 1/1;
 		display: grid;
@@ -179,6 +168,11 @@
 		font-size: 32px;
 		font-weight: bold;
 		color: var(--water);
+	}
+
+	.incorrect {
+		color: firebrick;
+		filter: hue-rotate(150deg) saturate(2);
 	}
 
 	.cost {

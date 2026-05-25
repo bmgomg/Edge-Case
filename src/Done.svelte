@@ -1,16 +1,36 @@
 <script>
 	import { fade } from 'svelte/transition';
 	import TextButton from './Text Button.svelte';
-	import { guessedAll, isSolved, onOver, ss } from './shared.svelte';
+	import { canSubmit, edgeCells, guessedAll, isSolved, onOver, persist, someIncorrect, ss } from './shared.svelte';
+	import { _sound } from './sound.svelte';
+	import { COST_BAD_SUBMIT } from './const';
+
+	const ecells = $derived(edgeCells());
 
 	const onDone = () => {
-		onOver(isSolved() ? 'won' : 'lost');
+		if (isSolved()) {
+			onOver('won');
+			return;
+		}
+
+		_sound.play('lost');
+		ss.balance -= COST_BAD_SUBMIT;
+
+		ecells.forEach((c) => {
+			if (c.guess === c.value) {
+				delete c.incorrect;
+			} else {
+				c.incorrect = true;
+			}
+		});
+
+		persist();
 	};
 
 	const style = 'letter-spacing: 0.12em; font-size: 14px;';
 </script>
 
-{#if guessedAll() && !ss.over && !ss.buyUnused && !ss.buyOp && !ss.guessing}
+{#if canSubmit()}
 	<div class="prompt" in:fade={{ delay: 500 }} out:fade>
 		<TextButton id="tb-done" text={['Done — check my guesses']} framed onClick={onDone} {style} />
 	</div>

@@ -1,24 +1,34 @@
 <script>
 	import { fade } from 'svelte/transition';
 	import TextButton from './Text Button.svelte';
-	import { guessedAll, persist, rowCol, ss } from './shared.svelte';
+	import { guessedAll, persist, rowCol, someIncorrect, ss } from './shared.svelte';
 	import { _range, post } from './utils';
 	import { _sound } from './sound.svelte';
+	import { COST_GUESS } from './const';
+
+	const cell = $derived(ss.cells[ss.guessing - 1]);
 
 	const onSelectValue = (n) => {
-		ss.cells[ss.guessing - 1].guess = n;
+		cell.guess = n;
+
+		delete cell.incorrect;
 		delete ss.guessing;
+
+		ss.balance -= COST_GUESS;
 
 		persist();
 
-		if (guessedAll()) {
+		if (guessedAll() && !someIncorrect()) {
 			post(() => _sound.play('won', { rate: 3 }), 400);
 		}
 	};
 
 	const onClearValue = () => {
-		delete ss.cells[ss.guessing - 1].guess;
+		delete cell.guess;
+		delete cell.incorrect;
 		delete ss.guessing;
+
+		persist();
 	};
 </script>
 

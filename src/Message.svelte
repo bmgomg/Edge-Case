@@ -1,8 +1,19 @@
 <script>
 	import { fade } from 'svelte/transition';
-	import { aveScore, ss, stats } from './shared.svelte';
+	import { aveScore, canSubmit, ss, stats } from './shared.svelte';
+	import { COST_GUESS, COST_BAD_SUBMIT } from './const';
+
+	const showSubmitPenalty = $derived(canSubmit());
 
 	const message = $derived.by(() => {
+		if (ss.guessing) {
+			return `Guessing a number costs $${COST_GUESS}`;
+		}
+
+		if (showSubmitPenalty) {
+			return `Incorrect submission costs $${COST_BAD_SUBMIT}`;
+		}
+
 		if (ss.over === 'surrender') {
 			return 'You gave up.';
 		}
@@ -29,12 +40,14 @@
 	});
 </script>
 
-{#if ss.over && !ss.home}
-	<div class="cheer" in:fade={{ delay: 200 }} out:fade>{message}</div>
+{#if (ss.guessing || ss.over || showSubmitPenalty) && !ss.home}
+	{#key message}
+		<div class="message" in:fade={{ delay: 200 }} out:fade>{message}</div>
+	{/key}
 {/if}
 
 <style>
-	.cheer {
+	.message {
 		grid-area: 1/1;
 		place-self: center;
 		z-index: 1;
