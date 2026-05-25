@@ -87,7 +87,7 @@ const makePuzzle = () => {
     delete ss.showUnused;
     delete ss.guessing;
     delete ss.buyOp;
-    delete ss.showPenalty;
+    delete ss.promptSurrender;
 
     ss.balance = BANK;
 
@@ -162,7 +162,7 @@ export const isSolved = () => edgeCells().every((c) => c.guess === c.value);
 export const someIncorrect = () => edgeCells().some((c) => c.incorrect);
 
 export const canSubmit = () => {
-    if (ss.over || ss.buyUnused || ss.buyOp || ss.guessing || ss.showPenalty) {
+    if (ss.over || ss.buyUnused || ss.buyOp || ss.guessing || ss.promptSurrender) {
         return false;
     }
 

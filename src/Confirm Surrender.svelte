@@ -4,18 +4,18 @@
 	import { onOver, ss } from './shared.svelte';
 
 	const onPay = () => {
-		delete ss.showPenalty;
+		delete ss.promptSurrender;
 		onOver('surrender');
 	};
 
 	const onCancel = () => {
-		delete ss.showPenalty;
+		delete ss.promptSurrender;
 	};
 
 	const style = 'letter-spacing: 0.04em; font-size: 14px; padding: 0.5rem 1rem;';
 </script>
 
-{#if ss.showPenalty && !ss.over}
+{#if ss.promptSurrender && !ss.over}
 	<div class="prompt" transition:fade={{ duration: 150 }}>
 		<TextButton id="tb-penalty" text={['Stats will be reset!  Give up?']} framed onClick={onPay} {style} />
 		<TextButton id="tb-nm" text={['Never mind']} framed onClick={onCancel} {style} />

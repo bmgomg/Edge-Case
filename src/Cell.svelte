@@ -46,7 +46,7 @@
 
 		delete ss.guessing;
 		delete ss.buyOp;
-		delete ss.showPenalty;
+		delete ss.promptSurrender;
 
 		ss.buyUnused = true;
 	};
@@ -59,7 +59,7 @@
 
 		delete ss.buyUnused;
 		delete ss.buyOp;
-		delete ss.showPenalty;
+		delete ss.promptSurrender;
 
 		ss.guessing = id;
 	};
@@ -72,7 +72,7 @@
 
 		delete ss.buyUnused;
 		delete ss.guessing;
-		delete ss.showPenalty;
+		delete ss.promptSurrender;
 
 		ss.buyOp = id;
 	};

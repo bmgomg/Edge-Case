@@ -1,7 +1,7 @@
 <script>
 	import Board from './Board.svelte';
 	import BuyUnused from './Buy Unused.svelte';
-	import ConfirmPenalty from './Confirm Penalty.svelte';
+	import ConfirmSurrender from './Confirm Surrender.svelte';
 	import Done from './Done.svelte';
 	import Message from './Message.svelte';
 	import NumberSelector from './Number Selector.svelte';
@@ -15,7 +15,7 @@
 	<BuyUnused />
 	<NumberSelector />
 	<OpSelector />
-	<ConfirmPenalty />
+	<ConfirmSurrender />
 	<Done />
 	<PlayAgain />
 	<div class="disclaimer">
