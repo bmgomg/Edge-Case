@@ -8,7 +8,6 @@ export const ss = $state({
 
 export const stats = $state({
     plays: 0,
-    solved: 0,
     total: 0,
     best: 0,
 });
@@ -43,7 +42,6 @@ export const loadGame = () => {
 
     if (job) {
         stats.plays = job.plays;
-        stats.solved = job.solved;
         stats.total = job.total;
         stats.best = job.best;
 
@@ -54,7 +52,6 @@ export const loadGame = () => {
         }
     } else {
         stats.plays = 0;
-        stats.solved = 0;
         stats.total = 0;
         stats.best = 0;
     }
@@ -97,7 +94,6 @@ const makePuzzle = () => {
 
 export const resetStats = () => {
     stats.plays = 0;
-    stats.solved = 0;
     stats.total = 0;
     stats.best = 0;
 
@@ -124,10 +120,7 @@ export const onOver = (over) => {
     }
 
     ss.prevAverage = aveScore();
-
     stats.plays += 1;
-    stats.solved += 1;
-
     stats.total += ss.balance;
 
     if (ss.balance > stats.best) {

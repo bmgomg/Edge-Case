@@ -10,10 +10,6 @@
 		<span class="label">PLAYS</span>
 		<div class="value"><NumberFlow value={stats.plays} /></div>
 	</div>
-	<div class="item">
-		<span class="label">SOLVED</span>
-		<div class="value"><NumberFlow value={stats.solved} /></div>
-	</div>
 	{#snippet score(label, value, cents)}
 		<div class="item">
 			<span class="label">{label}</span>
@@ -22,6 +18,7 @@
 			</div>
 		</div>
 	{/snippet}
+	{@render score('TOTAL', stats.total)}
 	{@render score('AVERAGE', aveScore(), true)}
 	{@render score('BEST', stats.best)}
 </div>

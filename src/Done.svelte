@@ -14,6 +14,7 @@
 		}
 
 		_sound.play('lost');
+		_sound.play('coins');
 		ss.balance -= COST_BAD_SUBMIT;
 
 		ecells.forEach((c) => {

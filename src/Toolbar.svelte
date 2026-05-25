@@ -1,10 +1,10 @@
 <script>
 	import MusicControl from './Music Control.svelte';
 	import SfxControl from './SFX Control.svelte';
-	import { resetStats, ss, stats } from './shared.svelte';
+	import { persist, resetStats, ss, stats } from './shared.svelte';
 	import TextButton from './Text Button.svelte';
 
-	const noRestart = $derived(ss.buy || ss.over || ss.promptSurrender/*  || allGuessesEntered() */);
+	const noRestart = $derived(ss.buy || ss.over || ss.promptSurrender);
 	const noClear = $derived(ss.over || ss.cells?.every((c) => !c.guess));
 
 	const onHome = () => {
@@ -17,6 +17,7 @@
 
 	const onClear = () => {
 		ss.cells.forEach((c) => delete c.guess);
+		persist();
 	};
 
 	const onGiveUp = () => {

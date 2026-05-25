@@ -9,6 +9,8 @@
 	const cell = $derived(ss.cells[ss.guessing - 1]);
 
 	const onSelectValue = (n) => {
+		_sound.play('coin1');
+
 		cell.guess = n;
 		cell.cost = (cell.cost || 0) + COST_GUESS;
 
