@@ -95,15 +95,13 @@ const makePuzzle = () => {
     ss.cells = Array(25).fill(null).map((_, i) => makeCell(i, nums));
 };
 
-export const onStart = () => {
-    //
-};
-
 export const resetStats = () => {
     stats.plays = 0;
     stats.solved = 0;
     stats.total = 0;
     stats.best = 0;
+
+    persist();
 };
 
 export const onRestart = () => {
@@ -135,6 +133,8 @@ export const onOver = (over) => {
     if (ss.balance > stats.best) {
         stats.best = ss.balance;
     }
+
+    persist();
 };
 
 export const onPlayOrResume = () => {
@@ -155,7 +155,7 @@ export const opCost = (op) => op ? op === OP_MULTIPLY ? COST_MULTIPLY : op === O
 
 export const edgeCells = () => ss.cells ? ss.cells.filter((c, i) => i > 0 && (c.row === 1 || c.col === 1)) : [];
 
-export const guessedAll = () => edgeCells().every((c) => c.guess);
+export const allGuessesEntered = () => edgeCells().every((c) => c.guess);
 
 export const isSolved = () => edgeCells().every((c) => c.guess === c.value);
 
@@ -170,5 +170,5 @@ export const canSubmit = () => {
         return false;
     }
 
-    return guessedAll();
+    return allGuessesEntered();
 };

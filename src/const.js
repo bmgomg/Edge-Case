@@ -7,7 +7,6 @@ export const COST_SUBTRACT = 1;
 export const COST_GUESS = 1;
 export const COST_UNUSED = 3;
 export const COST_BAD_SUBMIT = 5;
-export const PENALTY = 35;
 export const OP_MULTIPLY = 'product';
 export const OP_ADD = 'sum';
 export const OP_SUBTRACT = 'delta';

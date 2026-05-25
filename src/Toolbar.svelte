@@ -4,7 +4,7 @@
 	import { resetStats, ss, stats } from './shared.svelte';
 	import TextButton from './Text Button.svelte';
 
-	const noRestart = $derived(ss.buy || ss.over || ss.showPenalty/*  || guessedAll() */);
+	const noRestart = $derived(ss.buy || ss.over || ss.showPenalty/*  || allGuessesEntered() */);
 	const noClear = $derived(ss.over || ss.cells?.every((c) => !c.guess));
 
 	const onHome = () => {

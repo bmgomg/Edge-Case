@@ -1,7 +1,7 @@
 <script>
 	import { fade } from 'svelte/transition';
 	import TextButton from './Text Button.svelte';
-	import { guessedAll, persist, rowCol, someIncorrect, ss } from './shared.svelte';
+	import { allGuessesEntered, persist, rowCol, someIncorrect, ss } from './shared.svelte';
 	import { _range, post } from './utils';
 	import { _sound } from './sound.svelte';
 	import { COST_GUESS } from './const';
@@ -18,7 +18,7 @@
 
 		persist();
 
-		if (guessedAll() && !someIncorrect()) {
+		if (allGuessesEntered() && !someIncorrect()) {
 			post(() => _sound.play('won', { rate: 3 }), 400);
 		}
 	};

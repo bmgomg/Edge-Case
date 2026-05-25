@@ -1,9 +1,9 @@
 <script>
 	import { fade } from 'svelte/transition';
 	import TextButton from './Text Button.svelte';
-	import { canSubmit, edgeCells, guessedAll, isSolved, onOver, persist, someIncorrect, ss } from './shared.svelte';
-	import { _sound } from './sound.svelte';
 	import { COST_BAD_SUBMIT } from './const';
+	import { canSubmit, edgeCells, isSolved, onOver, persist, ss } from './shared.svelte';
+	import { _sound } from './sound.svelte';
 
 	const ecells = $derived(edgeCells());
 
