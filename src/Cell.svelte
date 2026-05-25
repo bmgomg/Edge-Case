@@ -4,9 +4,10 @@
 	import TextButton from './Text Button.svelte';
 	import { COST_UNUSED } from './const';
 	import NumberFlow from '@number-flow/svelte';
+	import Money from './Money.svelte';
 
 	const { cell } = $props();
-	const { id, row, col, value, guess, incorrect, op } = $derived(cell);
+	const { id, row, col, value, guess, incorrect, cost, op } = $derived(cell);
 	const bid = $derived('tb-cell-' + id);
 	const unused = $derived(row === 1 && col === 1);
 	const edge = $derived(!unused && (row === 1 || col === 1));
@@ -93,11 +94,13 @@
 
 <div class={classes} style="grid-area: {row}/{col}">
 	{#if edge}
+		{#if cost}
+			<div class="cost" transition:fade>
+				<Money value={cost} />
+			</div>
+		{/if}
 		{#if guess || ss.over}
-			<div class="number {incorrect ? 'incorrect' : ''}" transition:fade><NumberFlow value={ss.over ? value :guess} /></div>
-			<!-- {#if ss.over && value !== guess}
-				<div class="bad-guess" transition:fade>{guess}</div>
-			{/if} -->
+			<div class="number {incorrect ? 'incorrect' : ''}" transition:fade><NumberFlow value={ss.over ? value : guess} /></div>
 		{/if}
 		{#if !ss.over}
 			<div class="guess {guess ? 'hidden' : ''}" transition:fade>
@@ -111,7 +114,7 @@
 			{/if}
 			<span class="number" transition:fade>{value}</span>
 		{:else if !ss.over}
-			<div class='ga11' transition:fade>
+			<div class="ga11" transition:fade>
 				<TextButton id={bid} text={['reveal', 'unused', 'number']} style={unusedStyle} onClick={onBuyUnused} />
 			</div>
 		{/if}

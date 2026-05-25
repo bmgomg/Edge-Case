@@ -10,6 +10,7 @@
 
 	const onSelectValue = (n) => {
 		cell.guess = n;
+		cell.cost = (cell.cost || 0) + COST_GUESS;
 
 		delete cell.incorrect;
 		delete ss.guessing;
