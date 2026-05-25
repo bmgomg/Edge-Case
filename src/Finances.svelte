@@ -5,11 +5,11 @@
 </script>
 
 <div class="panel">
-	<Article label="Bank" value={BANK} />
+	<Article label="bank" value={BANK} />
 	<span class="sign">-</span>
-	<Article label='Cost' value={BANK - ss.balance} />
+	<Article label='cost' value={BANK - ss.balance} />
 	<span class="sign eq">=</span>
-	<Article label="Balance" value={ss.balance} />
+	<Article label="balance" value={ss.balance} />
 </div>
 
 <style>

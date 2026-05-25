@@ -2,11 +2,12 @@
 	import Money from './Money.svelte';
 
 	const { label, value } = $props();
+	const balance = $derived(label === 'balance');
 </script>
 
 <div class="article">
 	<div class="label">{label}</div>
-	<div class="value {label === 'Balance' ? 'balance' : ''} {value < 0 ? 'red' : ''}"><Money {value} /></div>
+	<div class="value {balance ? 'balance' : ''} {value < 0 ? 'red' : ''}"><Money {value} trend={balance ? -1 : 1} /></div>
 </div>
 
 <style>

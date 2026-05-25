@@ -1,6 +1,6 @@
 <script>
 	import { fade } from 'svelte/transition';
-	import { aveScore, canSubmit, ss, stats } from './shared.svelte';
+	import { aveScore, canSubmit, someIncorrect, ss, stats } from './shared.svelte';
 	import { COST_GUESS, COST_BAD_SUBMIT } from './const';
 
 	const showSubmitPenalty = $derived(canSubmit());
@@ -36,11 +36,15 @@
 			return ss.balance < 0 ? 'All correct — but bank\'s broken.' : 'All correct!';
 		}
 
+		if (someIncorrect()) {
+			return 'Bad guesses highlighted in red.';
+		}
+
 		return null;
 	});
 </script>
 
-{#if (ss.guessing || ss.over || showSubmitPenalty) && !ss.home}
+{#if (ss.guessing || ss.over || showSubmitPenalty || ss.explainRed) && !ss.home}
 	{#key message}
 		<div class="message" in:fade={{ delay: 200 }} out:fade>{message}</div>
 	{/key}
