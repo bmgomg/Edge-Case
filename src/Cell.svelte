@@ -24,6 +24,10 @@
 			cls += ' edge';
 		}
 
+		if (edge && ss.over === 'won') {
+			cls += ' dance';
+		}
+
 		if (ss.over || (unused && ss.showUnused) || op || (!unused && !edge && !canBuyOp())) {
 			cls += ' nope';
 		}
@@ -211,6 +215,10 @@
 
 	.delta {
 		filter: hue-rotate(150deg);
+	}
+
+	.dance {
+		animation: pulse 0.2s alternate 6 ease-in-out;
 	}
 
 	.pulse {

@@ -22,6 +22,7 @@
 				delete c.incorrect;
 			} else {
 				c.incorrect = true;
+				ss.explainRed = true;
 			}
 		});
 

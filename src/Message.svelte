@@ -18,10 +18,6 @@
 			return 'You gave up.';
 		}
 
-		if (ss.over === 'lost') {
-			return 'Not quite — better luck next time!';
-		}
-
 		if (ss.over === 'won') {
 			if (stats.plays > 1) {
 				if (stats.best === ss.balance) {
