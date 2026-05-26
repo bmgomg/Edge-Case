@@ -31,7 +31,7 @@
 			<span class="financial">{`You start with $${BANK}. Each operation costs money — multiplication the most, subtraction the least. Guessing a number costs $${COST_GUESS}. Revealing the unused number has a price too. Finish in the black — or break the bank trying.`}</span>
 		</div>
 		<div class='buttons'>
-		<TextButton id="tb-play" text={[ss.ticks && !ss.over ? 'Resume' : 'Play']} framed style="width: 150px;" onClick={onPlayOrResume} />
+		<TextButton id="tb-play" text={[ss.cells && !ss.over ? 'Resume' : 'Play']} framed style="width: 150px;" onClick={onPlayOrResume} />
 		</div>
 	</div>
 {/if}

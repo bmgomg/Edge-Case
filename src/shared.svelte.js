@@ -90,6 +90,8 @@ const makePuzzle = () => {
 
     const nums = shuffleInPlace(_range(1, 9));
     ss.cells = Array(25).fill(null).map((_, i) => makeCell(i, nums));
+
+    persist();
 };
 
 export const resetStats = () => {
