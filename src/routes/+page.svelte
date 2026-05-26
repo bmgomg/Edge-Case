@@ -137,7 +137,7 @@
 		width: 0.85em;
 		aspect-ratio: 1;
 		rotate: 45deg;
-		background: var(--gold-dim);
+		background: linear-gradient(135deg, var(--gold), var(--gold-dim) 50%, var(--gold-deep));
 	}
 
 	.tl {
