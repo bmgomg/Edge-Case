@@ -23,9 +23,9 @@
 
 	.title {
 		display: grid;
-		font-family: LBI;
-		font-weight: 500;
-		font-size: 32px;
+		font-family: CG;
+		font-style: italic;
+		font-size: 40px;
 		color: var(--gold-dim);
 		text-shadow: 0px 3px 0px #000;
 	}

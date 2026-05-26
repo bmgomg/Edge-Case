@@ -12,12 +12,12 @@
 		delete ss.promptSurrender;
 	};
 
-	const style = 'letter-spacing: 0.04em; font-size: 14px; padding: 0.5rem 1rem;';
+	const style = 'letter-spacing: 0.04em; font-size: 14px; padding: 0.5rem 0.9rem;';
 </script>
 
 {#if ss.promptSurrender && !ss.over}
 	<div class="prompt" transition:fade={{ duration: 150 }}>
-		<TextButton id="tb-confirm-surrender" text={['Stats will be reset!  Give up?']} framed onClick={onPay} {style} />
+		<TextButton id="tb-confirm-surrender" text={['Stats will be reset — give up?']} framed onClick={onPay} {style} />
 		<TextButton id="tb-nm" text={['Never mind']} framed onClick={onCancel} {style} />
 	</div>
 {/if}

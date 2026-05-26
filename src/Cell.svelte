@@ -12,7 +12,7 @@
 	const unused = $derived(row === 1 && col === 1);
 	const edge = $derived(!unused && (row === 1 || col === 1));
 	const buttonStyle = 'height: 78px; aspect-ratio: 1;';
-	const edgeStyle = `${buttonStyle} font-family: RC; color: var(--water);`;
+	const edgeStyle = `${buttonStyle} font-family: RC; color: var(--water); line-height: 1.1;`;
 	const unusedStyle = `${edgeStyle}`;
 	const opStyle = `${buttonStyle} font-family: RC; letter-spacing: 0; color: var(--gold-dim);`;
 	const pulse = $derived((unused && ss.buyUnused) || ss.guessing === id || ss.buyOp === id);
@@ -107,8 +107,8 @@
 			<div class="number {incorrect ? 'incorrect' : ''}" transition:fade><NumberFlow value={ss.over ? value : guess} /></div>
 		{/if}
 		{#if !ss.over}
-			<div class="guess {guess ? 'hidden' : ''}" transition:fade>
-				<TextButton id={bid} text={['guess', 'number']} style={edgeStyle} onClick={onGuess} />
+			<div class="guess {guess ? 'hidden' : ''}">
+				<TextButton id={bid} text={['guess', cost === 0 && !guess ? 'again' : 'number']} style={edgeStyle} onClick={onGuess} />
 			</div>
 		{/if}
 	{:else if unused}
@@ -213,7 +213,7 @@
 		filter: hue-rotate(60deg);
 	}
 
-	.delta {
+	.difference {
 		filter: hue-rotate(150deg);
 	}
 

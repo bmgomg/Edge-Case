@@ -28,7 +28,7 @@
 			<span class="item">Reveal a cell by buying an operator — the result of applying it to that row and column is shown.</span>
 			<span class="item">No two cells in the same row or column can share the same operator.</span>
 			<span class="item">When you've seen enough, enter your guesses for all eight edge numbers and hit Done.</span>
-			<span class="financial">You start with ${BANK}. Each operation costs money, and revealing the unused number has a price too. Guessing a number is free, but changing your mind costs ${COST_GUESS}. Every incorrect submission costs ${COST_BAD_SUBMIT}. Finish in the black — or break the bank trying.</span>
+			<span class="financial">You start with ${BANK}. Each operation costs money, and revealing the unused number has a price too. Guessing a number is free, but changing your mind is not. Every incorrect submission incurs a penalty . Finish in the black — or break the bank trying.</span>
 		</div>
 		<div class='buttons'>
 		<TextButton id="tb-play" text={[ss.cells && !ss.over ? 'Resume' : 'Play']} framed style="width: 150px;" onClick={onPlayOrResume} />
@@ -62,9 +62,9 @@
 	}
 
 	.title {
-		font-family: LBI;
-		font-weight: 500;
-		font-size: 85px;
+		font-family: CG;
+		font-style: italic;
+		font-size: 90px;
 		line-height: 0.9;
 		color: var(--gold-dim);
 		letter-spacing: -2px;
@@ -82,7 +82,7 @@
 		font-family: DMS;
 		color: rgb(244, 234, 214);
 		font-size: 19px;
-		line-height: 1.6;
+		line-height: 1.4;
 		display: grid;
 		gap: 12px;
 	}

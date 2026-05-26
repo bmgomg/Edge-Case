@@ -9,4 +9,4 @@ export const COST_UNUSED = 3;
 export const COST_BAD_SUBMIT = 5;
 export const OP_MULTIPLY = 'product';
 export const OP_ADD = 'sum';
-export const OP_SUBTRACT = 'delta';
+export const OP_SUBTRACT = 'difference';
