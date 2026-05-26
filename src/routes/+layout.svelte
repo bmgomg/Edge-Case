@@ -71,6 +71,16 @@
 			grid-area: 1/1;
 		}
 
+	.grad-text {
+		background: -webkit-linear-gradient(-90deg, var(--bone), var(--gold-dim) 70%);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		text-shadow: none;
+		background-size: cover;
+		background-position: center;
+	}
+
 		@font-face {
 			font-family: LB;
 			src: url('$lib/fonts/Libre Bodoni.ttf');

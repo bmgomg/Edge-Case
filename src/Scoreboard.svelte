@@ -4,7 +4,7 @@
 </script>
 
 <div class="scoreboard">
-	<div class="title">Edge Case</div>
+	<div class="title grad-text">Edge Case</div>
 	<Finances />
 	<Stats />
 </div>
@@ -26,7 +26,5 @@
 		font-family: CG;
 		font-style: italic;
 		font-size: 40px;
-		color: var(--gold-dim);
-		text-shadow: 0px 3px 0px #000;
 	}
 </style>

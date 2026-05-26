@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
-	import { APP_STATE, BANK, COST_BAD_SUBMIT, COST_GUESS } from './const';
+	import { APP_STATE, BANK } from './const';
 	import { loadCommon, loadGame, onPlayOrResume, ss } from './shared.svelte';
 	import TextButton from './Text Button.svelte';
 
@@ -21,17 +21,25 @@
 	<div class="home" in:fade={{ duration: 200 }}>
 		<div class="title-panel">
 			<div class="tagline">what you don't know will cost you</div>
-			<div class="title">Edge Case</div>
+			<div class="title">
+				<div class="shadow"> Edge Case </div>
+				<div class="ga11 grad-text"> Edge Case </div>
+			</div>
 		</div>
 		<div class="instructions">
-			<span class="item">Eight unique numbers between 1 and 9 are hidden along the edges of a grid. A ninth number is set aside, unused.</span>
+			<span class="item"
+				>Eight unique numbers between 1 and 9 are hidden along the edges of a grid. A ninth number is set aside, unused.</span
+			>
 			<span class="item">Reveal a cell by buying an operator — the result of applying it to that row and column is shown.</span>
 			<span class="item">No two cells in the same row or column can share the same operator.</span>
 			<span class="item">When you've seen enough, enter your guesses for all eight edge numbers and hit Done.</span>
-			<span class="financial">You start with ${BANK}. Each operation costs money, and revealing the unused number has a price too. Guessing a number is free, but changing your mind is not. Every incorrect submission incurs a penalty . Finish in the black — or break the bank trying.</span>
+			<span class="financial"
+				>You start with ${BANK}. Each operation costs money, and revealing the unused number has a price too. Guessing a number is free, but
+				changing your mind is not. Every incorrect submission incurs a penalty . Finish in the black — or break the bank trying.</span
+			>
 		</div>
-		<div class='buttons'>
-		<TextButton id="tb-play" text={[ss.cells && !ss.over ? 'Resume' : 'Play']} framed style="width: 150px;" onClick={onPlayOrResume} />
+		<div class="buttons">
+			<TextButton id="tb-play" text={[ss.cells && !ss.over ? 'Resume' : 'Play']} framed style="width: 150px;" onClick={onPlayOrResume} />
 		</div>
 	</div>
 {/if}
@@ -58,21 +66,24 @@
 		color: var(--bone-dim);
 		text-shadow: 0 3px 0 #000;
 		text-transform: uppercase;
-		margin-bottom: 14px;
 	}
 
 	.title {
+		display: grid;
 		font-family: CG;
 		font-style: italic;
 		font-size: 90px;
-		line-height: 0.9;
-		color: var(--gold-dim);
+		line-height: 1.2;
 		letter-spacing: -2px;
-		text-shadow: 0px 5px 0px #000;
+	}
+
+	.shadow {
+		grid-area: 1/1;
+		text-shadow: 0 3px 0 #000;
 	}
 
 	.instructions {
-		margin: 50px 0 15px;
+		margin: 40px 0 15px;
 		padding: 24px 32px;
 		max-width: 610px;
 		background: linear-gradient(rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.55) 100%);

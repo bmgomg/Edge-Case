@@ -7,7 +7,7 @@
 
 	const message = $derived.by(() => {
 		if (ss.guessing) {
-			return `Guessing a number is free, but changing your mind costs $${COST_GUESS}`;
+			return `Think twice — changing your mind costs $${COST_GUESS}`;
 		}
 
 		if (showSubmitPenalty) {
