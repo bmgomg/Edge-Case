@@ -7,7 +7,7 @@
 
 	const message = $derived.by(() => {
 		if (ss.guessing) {
-			return `Guessing a number costs $${COST_GUESS}`;
+			return `Guessing a number is free, but changing your mind costs $${COST_GUESS}`;
 		}
 
 		if (showSubmitPenalty) {
@@ -40,7 +40,7 @@
 	});
 </script>
 
-{#if (ss.guessing || ss.over || showSubmitPenalty || ss.explainRed) && !ss.home}
+{#if message}
 	{#key message}
 		<div class="message" in:fade={{ delay: 200 }} out:fade>{message}</div>
 	{/key}
@@ -57,5 +57,7 @@
 		color: var(--gold-dim);
 		font-family: CG;
 		font-style: italic;
+		width: 420px;
+		text-align: center;
 	}
 </style>
