@@ -24,7 +24,7 @@
 			cls += ' edge';
 		}
 
-		if (edge && ss.over === 'won') {
+		if (edge && ss.over) {
 			cls += ' dance';
 		}
 
