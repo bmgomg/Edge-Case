@@ -27,8 +27,8 @@
 			<span class="item">Eight unique numbers between 1 and 9 are hidden along the edges of a grid. A ninth number is set aside, unused.</span>
 			<span class="item">Reveal a cell by buying an operator — the result of applying it to that row and column is shown.</span>
 			<span class="item">No two cells in the same row or column can share the same operator.</span>
-			<span class="item">When you've seen enough, enter your guesses for all eight edge numbers and hit Done — but every incorrect submission costs $${COST_BAD_SUBMIT}.</span>
-			<span class="financial">{`You start with $${BANK}. Each operation costs money — multiplication the most, subtraction the least. Guessing a number costs $${COST_GUESS}. Revealing the unused number has a price too. Finish in the black — or break the bank trying.`}</span>
+			<span class="item">When you've seen enough, enter your guesses for all eight edge numbers and hit Done — but every incorrect submission costs ${COST_BAD_SUBMIT}.</span>
+			<span class="financial">You start with ${BANK}. Each operation costs money. Guessing a number is free, but changing your mind costs ${COST_GUESS}. Revealing the unused number has a price too. Finish in the black — or break the bank trying.</span>
 		</div>
 		<div class='buttons'>
 		<TextButton id="tb-play" text={[ss.cells && !ss.over ? 'Resume' : 'Play']} framed style="width: 150px;" onClick={onPlayOrResume} />
