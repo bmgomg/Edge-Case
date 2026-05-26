@@ -40,11 +40,9 @@
 	});
 </script>
 
-{#if message}
-	{#key message}
-		<div class="message" in:fade={{ delay: 200 }} out:fade>{message}</div>
-	{/key}
-{/if}
+{#key message}
+	<div class="message" in:fade={{ delay: 200 }} out:fade>{message}</div>
+{/key}
 
 <style>
 	.message {
