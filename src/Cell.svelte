@@ -18,7 +18,7 @@
 	const pulse = $derived((unused && ss.buyUnused) || ss.guessing === id || ss.buyOp === id);
 
 	const classes = $derived.by(() => {
-		let cls = 'cell';
+		let cls = 'cell no-highlight';
 
 		if (edge || unused ? 'edge' : '') {
 			cls += ' edge';
