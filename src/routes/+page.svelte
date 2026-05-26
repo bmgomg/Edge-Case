@@ -1,4 +1,5 @@
 <script>
+	import { fade } from 'svelte/transition';
 	import GamePage from '../Game Page.svelte';
 	import Home from '../Home.svelte';
 	import { ss } from '../shared.svelte';
@@ -78,6 +79,12 @@
 			<div class="corner tr"></div>
 			<div class="corner br"></div>
 			<div class="corner bl"></div>
+			{#if ss.home}
+				<div class="corner-mark cm-tl" transition:fade></div>
+				<div class="corner-mark cm-tr" transition:fade></div>
+				<div class="corner-mark cm-br" transition:fade></div>
+				<div class="corner-mark cm-bl" transition:fade></div>
+			{/if}
 		</div>
 		<div class="content" style="scale: {ss.scale};">
 			<GamePage />
@@ -130,6 +137,40 @@
 		width: calc(1080px - 2 * var(--off));
 		height: calc(810px - 2 * var(--off));
 		opacity: 0.5;
+	}
+
+	.corner-mark {
+		--off: 0.8em;
+		grid-area: 1/1;
+		height: 32px;
+		aspect-ratio: 1;
+		opacity: 0.7;
+		box-sizing: border-box;
+		border: solid var(--gold);
+	}
+
+	.cm-tl {
+		place-self: start;
+		border-width: 2px 0 0 2px;
+		translate: var(--off) var(--off);
+	}
+
+	.cm-tr {
+		place-self: start end;
+		border-width: 2px 2px 0 0;
+		translate: calc(-1 * var(--off)) var(--off);
+	}
+
+	.cm-br {
+		place-self: end;
+		border-width: 0 2px 2px 0;
+		translate: calc(-1 * var(--off)) calc(-1 * var(--off));
+	}
+
+	.cm-bl {
+		place-self: end start;
+		border-width: 0 0 2px 2px;
+		translate: var(--off) calc(-1 * var(--off));
 	}
 
 	.corner {
