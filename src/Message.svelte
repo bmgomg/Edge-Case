@@ -59,5 +59,6 @@
 		font-style: italic;
 		width: 420px;
 		text-align: center;
+		line-height: 1;
 	}
 </style>

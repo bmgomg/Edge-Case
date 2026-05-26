@@ -14,12 +14,11 @@
 
 		if (cell.cost > 0) {
 			_sound.play('coin1');
+			ss.balance -= COST_GUESS;
 		}
 
 		delete cell.incorrect;
 		delete ss.guessing;
-
-		ss.balance -= COST_GUESS;
 
 		persist();
 

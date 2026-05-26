@@ -17,7 +17,7 @@
 
 {#if ss.promptSurrender && !ss.over}
 	<div class="prompt" transition:fade={{ duration: 150 }}>
-		<TextButton id="tb-penalty" text={['Stats will be reset!  Give up?']} framed onClick={onPay} {style} />
+		<TextButton id="tb-confirm-surrender" text={['Stats will be reset!  Give up?']} framed onClick={onPay} {style} />
 		<TextButton id="tb-nm" text={['Never mind']} framed onClick={onCancel} {style} />
 	</div>
 {/if}

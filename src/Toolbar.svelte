@@ -4,7 +4,7 @@
 	import { persist, resetStats, ss, stats } from './shared.svelte';
 	import TextButton from './Text Button.svelte';
 
-	const noRestart = $derived(ss.buy || ss.over || ss.promptSurrender);
+	const noSurrender = $derived(ss.buy || ss.over || ss.promptSurrender);
 	const noClear = $derived(ss.over || ss.cells?.every((c) => !c.guess));
 
 	const onHome = () => {
@@ -32,7 +32,7 @@
 <div class="toolbar">
 	<div class="buttons">
 		<TextButton id="tb-home" text={['home']} onClick={onHome} />
-		<TextButton id="tb-restart" text={['give up']} disabled={noRestart} onClick={onGiveUp} />
+		<TextButton id="tb-surrender" text={['give up']} disabled={noSurrender} onClick={onGiveUp} />
 		<TextButton id="tb-stats" text={['reset stats']} disabled={stats.plays === 0} onClick={resetStats} />
 		<TextButton id="tb-clear-all" text={['clear all guesses']} disabled={noClear} onClick={onClear} />
 	</div>
