@@ -4,7 +4,7 @@
 	import { aveScore, ss, stats } from './shared.svelte';
 	import Money from './Money.svelte';
 
-	const classes = ss.mobile ? 'item-m' : 'item';
+	const classes = $derived(ss.mobile ? 'item-m' : 'item');
 </script>
 
 <div class={ss.mobile ? 'stats-m mobile-scale' : 'stats'}>
@@ -37,13 +37,14 @@
 
 	.stats-m {
 		grid-area: 1/1;
-		grid: initial;
+		grid: auto/auto;
 		grid-auto-flow: column;
 		place-self: center;
 		gap: 25px;
 	}
 
-	.item, .item-m {
+	.item,
+	.item-m {
 		display: grid;
 		place-items: center;
 		gap: 3px;
@@ -58,7 +59,7 @@
 	.label {
 		color: var(--subtitle);
 		letter-spacing: 0.22em;
-		font-size: 13px;
+		font-size: 17px;
 	}
 
 	.value {

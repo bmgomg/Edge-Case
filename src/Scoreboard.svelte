@@ -18,7 +18,7 @@
 		align-items: center;
 		grid-auto-flow: column;
 		place-content: space-between;
-		margin: 30px 40px 0 45px;
+		margin: 40px 40px 0 45px;
 		padding-left: 15px;
 		border: 0px solid rgba(160, 126, 54, 0.333);
 		border-bottom-width: 0.666667px;
@@ -27,7 +27,9 @@
 	.scoreboard-m {
 		grid-auto-flow: initial;
 		padding: 0;
-
+		border: none;
+		place-self: center;
+		margin: 40px 0 0;
 	}
 
 	.title {

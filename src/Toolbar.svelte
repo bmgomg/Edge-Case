@@ -40,9 +40,9 @@
 		<MusicControl />
 		<SfxControl/>
 	</div>
-	<div class={ss.mobile ? 'disclaimer-m' : 'disclaimer'}>
+	<!-- <div class={ss.mobile ? 'disclaimer-m' : 'disclaimer'}>
 		<span>by Eric Matyas  •  www.soundimage.org</span>
-	</div>
+	</div> -->
 </div>
 
 <style>
@@ -60,6 +60,8 @@
 
 	.toolbar-m {
 		margin: 0 0 40px;
+		border: none;
+		padding: 0;
 	}
 
 	.buttons {
@@ -87,7 +89,7 @@
 
 	.sound-controls-m {
 		grid-area: 2/1;
-		margin-top: 20px;
+		margin-top: 10px;
 		gap: 20px;
 		translate: 18px;
 	}

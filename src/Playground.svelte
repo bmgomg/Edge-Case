@@ -28,6 +28,6 @@
 	}
 
 	.playground-m {
-		grid: 1fr 378px 1fr / auto;
+		grid: 0.6fr 378px 1fr / auto;
 	}
 </style>

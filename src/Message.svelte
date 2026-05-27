@@ -41,16 +41,16 @@
 </script>
 
 {#key message}
-	<div class="message {ss.mobile ? 'mobile-scale' : ''}" in:fade={{ delay: 200 }} out:fade>{message}</div>
+	<div class={ss.mobile ? 'message-m' : 'message'} in:fade={{ delay: 200 }} out:fade>{message}</div>
 {/key}
 
 <style>
-	.message {
+	.message, .message-m {
 		grid-area: 1/1;
 		place-self: center;
 		z-index: 1;
 		display: grid;
-		font-size: 28px;
+		font-size: 26px;
 		letter-spacing: 0.04em;
 		color: var(--gold-dim);
 		font-family: CG;
@@ -58,5 +58,10 @@
 		width: 420px;
 		text-align: center;
 		line-height: 1;
+	}
+
+	.message-m {
+		width: 360px;
+		font-size: 22px;
 	}
 </style>

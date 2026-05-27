@@ -24,6 +24,7 @@
 
 	.panel-m {
 		grid-area: 2/1;
+		grid: auto / 70px auto 70px;
 	}
 
 	.sign {

@@ -37,7 +37,7 @@
 </script>
 
 {#if ss.guessing && !ss.over}
-	<div class="selector {ss.mobile ? 'mobile-scale' : ''}" transition:fade={{ duration: 150 }}>
+	<div class={ss.mobile ? 'selector-m' : 'selector'} transition:fade={{ duration: 150 }}>
 		{#each _range(1, 9) as n (n)}
 			{@const { row, col } = rowCol(n - 1)}
 			{@const style = `grid-area: ${row}/${col}; font-family: LB; width: 70px; height: 35px;`}
@@ -51,10 +51,14 @@
 {/if}
 
 <style>
-	.selector {
+	.selector, .selector-m {
 		grid-area: 3/1;
 		place-self: center;
 		display: grid;
 		gap: 8px;
+	}
+
+	.selector-m {
+		scale: 0.8;
 	}
 </style>
