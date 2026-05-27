@@ -7,8 +7,8 @@
 	import Splash from '../Splash.svelte';
 	import { clientRect, post } from '../utils';
 
-	const width = 1080;
-	const height = 810;
+	const DX = 1080;
+	const DY = 810;
 
 	$effect(() => {
 		const disable = (e) => {
@@ -21,12 +21,12 @@
 
 			const r = clientRect('.app');
 
-			if (r.width < width) {
-				scx = r.width / width;
+			if (r.width < DX) {
+				scx = r.width / DX;
 			}
 
-			if (r.height < height) {
-				scy = r.height / height;
+			if (r.height < DY) {
+				scy = r.height / DY;
 			}
 
 			ss.scale = Math.min(scx, scy);
@@ -103,8 +103,8 @@
 		box-sizing: border-box;
 		overflow: hidden;
 		place-content: center;
-		--width: 1080px;
-		--height: 810px;
+		--dx: 1080px;
+		--dy: 810px;
 	}
 
 	.home {
@@ -130,8 +130,8 @@
 		grid-area: 1/1;
 		border: 1px solid var(--gold-dim);
 		--off: 1em;
-		width: calc(var(--width) - 2 * var(--off));
-		height: calc(var(--height) - 2 * var(--off));
+		width: calc(var(--dx) - 2 * var(--off));
+		height: calc(var(--dy) - 2 * var(--off));
 		opacity: 0.7;
 	}
 
@@ -139,8 +139,8 @@
 		grid-area: 1/1;
 		border: 0.5px solid var(--gold-dim);
 		--off: 1.5em;
-		width: calc(var(--width) - 2 * var(--off));
-		height: calc(var(--height) - 2 * var(--off));
+		width: calc(var(--dx) - 2 * var(--off));
+		height: calc(var(--dy) - 2 * var(--off));
 		opacity: 0.5;
 	}
 
@@ -216,8 +216,8 @@
 		display: grid;
 		touch-action: none;
 		box-sizing: border-box;
-		width: var(--width);
-		height: var(--height);
+		width: var(--dx);
+		height: var(--dy);
 		/* border: 1px dotted #ffffff40; */
 	}
 </style>
