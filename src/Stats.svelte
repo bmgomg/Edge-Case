@@ -1,11 +1,11 @@
 <script>
 	import NumberFlow from '@number-flow/svelte';
 	import { fade } from 'svelte/transition';
-	import { aveScore, stats } from './shared.svelte';
+	import { aveScore, ss, stats } from './shared.svelte';
 	import Money from './Money.svelte';
 </script>
 
-<div class="stats">
+<div class={ss.mobile ? 'stats-m' : 'stats'}>
 	<div class="item">
 		<span class="label">PLAYS</span>
 		<div class="value"><NumberFlow value={stats.plays} /></div>
@@ -23,12 +23,18 @@
 </div>
 
 <style>
-	.stats {
+	.stats, .stats-m {
+		grid-area: 1/3;
 		display: grid;
 		grid: auto / 70px 90px 90px;
 		grid-auto-flow: column;
 		align-items: baseline;
 		cursor: initial;
+	}
+
+	.stats-m {
+		grid-area: 1/1;
+		place-self: center;
 	}
 
 	.item {

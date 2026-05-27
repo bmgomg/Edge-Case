@@ -25,7 +25,8 @@
 	}
 
 	.scoreboard-m {
-		grid-auto-flow: row;
+		grid-auto-flow: initial;
+		padding: 0;
 
 	}
 
