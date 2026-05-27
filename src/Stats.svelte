@@ -13,7 +13,7 @@
 	{#snippet score(label, value, cents)}
 		<div class="item">
 			<span class="label">{label}</span>
-			<div class="value {value < 0 ? 'red' : label === 'TOTAL' ? 'gold' : ''}" in:fade>
+			<div class="value {value < 0 ? 'red' : ''}" in:fade>
 				<Money {value} {cents} />
 			</div>
 		</div>
