@@ -40,6 +40,9 @@
 		<MusicControl />
 		<SfxControl/>
 	</div>
+	<div class={ss.mobile ? 'disclaimer-m' : 'disclaimer'}>
+		<span>by Eric Matyas  •  www.soundimage.org</span>
+	</div>
 </div>
 
 <style>
@@ -57,7 +60,6 @@
 
 	.toolbar-m {
 		margin: 0 0 40px;
-		gap: 15px;
 	}
 
 	.buttons {
@@ -70,13 +72,13 @@
 
 	.buttons-m {
 		place-self: center;
-		/* gap: 20px; */
 	}
 
 	.sound-controls, .sound-controls-m {
 		grid-area: 1/1;
 		justify-self: end;
 		translate: 20px;
+		margin-top: 20px;
 		display: grid;
 		grid-auto-flow: column;
 		gap: 20px;
@@ -86,5 +88,18 @@
 	.sound-controls-m {
 		grid-area: 2/1;
 		translate: 18px;
+	}
+
+	.disclaimer, .disclaimer-m {
+		grid-area: 3/1;
+		place-self: end;
+		font-size: 10px;
+		text-transform: uppercase;
+		margin: 5px 105px 0 0;
+		color: var(--gold-deep);
+	}
+
+	.disclaimer-m {
+		margin-right: 167px;
 	}
 </style>

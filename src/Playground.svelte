@@ -18,23 +18,11 @@
 	<ConfirmSurrender />
 	<Done />
 	<PlayAgain />
-	<div class="disclaimer">
-		<span>music by Eric Matyas  •  www.soundimage.org</span>
-	</div>
 </div>
 
 <style>
 	.playground {
 		display: grid;
 		grid: 1fr 420px 1fr / auto;
-	}
-
-	.disclaimer {
-		grid-area: 3/1;
-		place-self: end;
-		font-size: 10px;
-		text-transform: uppercase;
-		margin: 0 45px 5px 0;
-		color: var(--gold-deep);
 	}
 </style>
