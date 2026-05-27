@@ -5,7 +5,7 @@
 </script>
 
 {#if ss.over}
-	<div class="prompt" in:fade={{ delay: 1000 }}>
+	<div class="prompt {ss.mobile ? 'mobile-scale' : ''}" in:fade={{ delay: 1000 }}>
 		<TextButton id="tb-play-again" text={['Play again?']} framed onClick={onRestart} style="letter-spacing: 0.12em;" />
 	</div>
 {/if}

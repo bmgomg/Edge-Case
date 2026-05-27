@@ -25,7 +25,7 @@
 			--separator: #6a5424;
 			--button-background: linear-gradient(180deg, #f3d27a 0%, #d6b264 50%, #a07e36 100%);
 			--button-color: #051710;
-			--background: #160E3A;
+			--background: #160e3a;
 			--slider-track: #a07e3680;
 			--red: #c1302a;
 			--darkred: #7d2222;
@@ -34,8 +34,8 @@
 			--gold-dim: #d6b264;
 			--gold-deep: #a07e36;
 			--water: #082319;
-			--lavender: #bcb0da
-;			background: var(--background);
+			--lavender: #bcb0da;
+			background: var(--background);
 			color: var(--bone);
 			background-size: 350px;
 			font-family: Cinzel;
@@ -71,15 +71,19 @@
 			grid-area: 1/1;
 		}
 
-	.grad-text {
-		background: -webkit-linear-gradient(-90deg, var(--bone), var(--gold-dim) 70%);
-		background-clip: text;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		text-shadow: none;
-		background-size: cover;
-		background-position: center;
-	}
+		.grad-text {
+			background: -webkit-linear-gradient(-90deg, var(--bone), var(--gold-dim) 70%);
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			text-shadow: none;
+			background-size: cover;
+			background-position: center;
+		}
+
+		.mobile-scale {
+			scale: 0.9;
+		}
 
 		@font-face {
 			font-family: LB;

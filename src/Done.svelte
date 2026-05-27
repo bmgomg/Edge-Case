@@ -33,7 +33,7 @@
 </script>
 
 {#if canSubmit()}
-	<div class="prompt" in:fade={{ delay: 500 }} out:fade>
+	<div class="prompt {ss.mobile ? 'mobile-scale' : ''}" in:fade={{ delay: 500 }} out:fade>
 		<TextButton id="tb-done" text={['Done — check my guesses']} framed onClick={onDone} {style} />
 	</div>
 {/if}

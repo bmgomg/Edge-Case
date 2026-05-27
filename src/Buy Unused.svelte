@@ -19,7 +19,7 @@
 </script>
 
 {#if ss.buyUnused && !ss.over}
-	<div class="prompt" transition:fade={{ duration: 150 }}>
+	<div class="prompt {ss.mobile ? 'mobile-scale' : ''}" transition:fade={{ duration: 150 }}>
 		<TextButton id="tb-buy-unused" text={[`Pay $${COST_UNUSED}?`]} framed onClick={onBuy} {style} />
 	</div>
 {/if}

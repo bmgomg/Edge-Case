@@ -51,7 +51,7 @@
 		align-self: center;
 		display: grid;
 		padding: 0 10px;
-		place-items: center;
+		align-items: center;
 		margin: 0 40px 40px;
 		padding-top: 20px;
 		border: 0px solid rgba(160, 126, 54, 0.333);
@@ -72,13 +72,13 @@
 
 	.buttons-m {
 		place-self: center;
+		gap: 30px;
 	}
 
 	.sound-controls, .sound-controls-m {
 		grid-area: 1/1;
 		justify-self: end;
 		translate: 20px;
-		margin-top: 20px;
 		display: grid;
 		grid-auto-flow: column;
 		gap: 20px;
@@ -87,19 +87,22 @@
 
 	.sound-controls-m {
 		grid-area: 2/1;
+		margin-top: 20px;
+		gap: 20px;
 		translate: 18px;
 	}
 
 	.disclaimer, .disclaimer-m {
-		grid-area: 3/1;
+		grid-area: 2/1;
 		place-self: end;
 		font-size: 10px;
-		text-transform: uppercase;
-		margin: 5px 105px 0 0;
+		text-transform: lowercase;
+		margin: 5px 117px 0 0;
 		color: var(--gold-deep);
 	}
 
 	.disclaimer-m {
-		margin-right: 167px;
+		grid-area: 3/1;
+		margin: 5px 179px 0 0;
 	}
 </style>

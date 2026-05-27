@@ -16,7 +16,7 @@
 </script>
 
 {#if ss.promptSurrender && !ss.over}
-	<div class="prompt" transition:fade={{ duration: 150 }}>
+	<div class="prompt {ss.mobile ? 'mobile-scale' : ''}" transition:fade={{ duration: 150 }}>
 		<TextButton id="tb-confirm-surrender" text={['Stats will be reset — give up?']} framed onClick={onPay} {style} />
 		<TextButton id="tb-nm" text={['Never mind']} framed onClick={onCancel} {style} />
 	</div>

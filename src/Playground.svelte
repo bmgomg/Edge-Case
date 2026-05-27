@@ -7,9 +7,10 @@
 	import NumberSelector from './Number Selector.svelte';
 	import OpSelector from './Op Selector.svelte';
 	import PlayAgain from './Play Again.svelte';
+	import { ss } from './shared.svelte';
 </script>
 
-<div class="playground">
+<div class="playground {ss.mobile ? 'playground-m' : ''}">
 	<Message />
 	<Board />
 	<BuyUnused />
@@ -24,5 +25,9 @@
 	.playground {
 		display: grid;
 		grid: 1fr 420px 1fr / auto;
+	}
+
+	.playground-m {
+		grid: 1fr 378px 1fr / auto;
 	}
 </style>

@@ -41,7 +41,7 @@
 </script>
 
 {#key message}
-	<div class="message" in:fade={{ delay: 200 }} out:fade>{message}</div>
+	<div class="message {ss.mobile ? 'mobile-scale' : ''}" in:fade={{ delay: 200 }} out:fade>{message}</div>
 {/key}
 
 <style>

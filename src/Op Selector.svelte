@@ -33,7 +33,7 @@
 </script>
 
 {#if ss.buyOp && !ss.over}
-	<div class="selector" transition:fade={{ duration: 150 }}>
+	<div class="selector {ss.mobile ? 'mobile-scale' : ''}" transition:fade={{ duration: 150 }}>
 		<div class="multiply">
 			<TextButton
 				id="tb-multiply"
