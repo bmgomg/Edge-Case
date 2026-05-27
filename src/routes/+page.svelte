@@ -9,8 +9,8 @@
 
 	const DX = 1080;
 	const DY = 810;
-	const DXM = 450;
-	const DYM = 800;
+	const DXM = 468;
+	const DYM = 836;
 
 	$effect(() => {
 		const disable = (e) => {
@@ -22,7 +22,7 @@
 			let scy = 1;
 
 			const r = clientRect('.app');
-			ss.mobile = r.width < r.height && r.width < 600;
+			ss.mobile = r.width < r.height && r.width < 700;
 			const dx = ss.mobile ? DXM : DX;
 			const dy = ss.mobile ? DYM : DY;
 
@@ -81,8 +81,8 @@
 	{:else}
 		<div class="grad"></div>
 		<div class="frame-box" style="scale: {ss.scale};">
-			<div class="frame"></div>
-			<div class="frame-inner"></div>
+			<div class={ss.mobile ? 'frame-m' : 'frame'}></div>
+			<div class={ss.mobile ? 'frame-inner-m' : 'frame-inner'}></div>
 			<div class="corner tl"></div>
 			<div class="corner tr"></div>
 			<div class="corner br"></div>
@@ -110,8 +110,8 @@
 		place-content: center;
 		--dx: 1080px;
 		--dy: 810px;
-		--dxm: 450px;
-		--dym: 800px;
+		--dxm: 468px;
+		--dym: 836px;
 	}
 
 	.home {
@@ -133,26 +133,40 @@
 		display: grid;
 	}
 
-	.frame {
+	.frame,
+	.frame-m {
 		grid-area: 1/1;
 		border: 1px solid var(--gold-dim);
-		--off: 1em;
+		--off: 15px;
 		width: calc(var(--dx) - 2 * var(--off));
 		height: calc(var(--dy) - 2 * var(--off));
 		opacity: 0.7;
 	}
 
-	.frame-inner {
+	.frame-m {
+		--off: 15px;
+		width: calc(var(--dxm) - 2 * var(--off));
+		height: calc(var(--dym) - 2 * var(--off));
+	}
+
+	.frame-inner,
+	.frame-inner-m {
 		grid-area: 1/1;
 		border: 0.5px solid var(--gold-dim);
-		--off: 1.5em;
+		--off: 22.5px;
 		width: calc(var(--dx) - 2 * var(--off));
 		height: calc(var(--dy) - 2 * var(--off));
 		opacity: 0.5;
 	}
 
+	.frame-inner-m {
+		--off: 22.5px;
+		width: calc(var(--dxm) - 2 * var(--off));
+		height: calc(var(--dym) - 2 * var(--off));
+	}
+
 	.corner-mark {
-		--off: 0.8em;
+		--off: 12px;
 		grid-area: 1/1;
 		height: 32px;
 		aspect-ratio: 1;
@@ -186,8 +200,8 @@
 	}
 
 	.corner {
-		--off: 0.15em;
-		width: 0.85em;
+		--off: 2.25px;
+		width: 12.75px;
 		aspect-ratio: 1;
 		rotate: 45deg;
 		background: linear-gradient(135deg, var(--gold), var(--gold-dim) 50%, var(--gold-deep));

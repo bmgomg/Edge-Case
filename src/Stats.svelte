@@ -50,11 +50,6 @@
 		color: var(--gold-dim);
 	}
 
-	.gold {
-		opacity: 1;
-		color: var(--gold);
-	}
-
 	.red {
 		opacity: 1;
 		color: var(--red);

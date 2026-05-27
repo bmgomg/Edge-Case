@@ -29,42 +29,51 @@
 	};
 </script>
 
-<div class="toolbar">
-	<div class="buttons">
+<div class={ss.mobile ? 'toolbar-m' : 'toolbar'}>
+	<div class="buttons {ss.mobile ? 'buttons-m' : ''}">
 		<TextButton id="tb-home" text={['home']} onClick={onHome} />
 		<TextButton id="tb-surrender" text={['give up']} disabled={noSurrender} onClick={onGiveUp} />
-		<TextButton id="tb-stats" text={['reset stats']} disabled={stats.plays === 0} onClick={resetStats} />
-		<TextButton id="tb-clear-all" text={['clear all guesses']} disabled={noClear} onClick={onClear} />
+		<TextButton id="tb-stats" text={ss.mobile ? ['reset', 'stats'] : ['reset stats']} disabled={stats.plays === 0} onClick={resetStats} />
+		<TextButton id="tb-clear-all" text={ss.mobile ? ['clear all', 'guesses'] : ['clear all guesses']} disabled={noClear} onClick={onClear} />
 	</div>
-	<div class="sound-controls">
+	<div class={ss.mobile ? 'sound-controls-m' : 'sound-controls'}>
 		<MusicControl />
 		<SfxControl/>
 	</div>
 </div>
 
 <style>
-	.toolbar {
+	.toolbar, .toolbar-m {
 		grid-area: 3/1;
 		align-self: center;
 		display: grid;
 		padding: 0 10px;
-		align-items: center;
-		gap: 35px;
+		place-items: center;
 		margin: 0 40px 40px;
 		padding-top: 20px;
 		border: 0px solid rgba(160, 126, 54, 0.333);
 		border-top-width: 0.666667px;
 	}
 
+	.toolbar-m {
+		margin: 0 0 40px;
+		gap: 15px;
+	}
+
 	.buttons {
 		grid-area: 1/1;
-		justify-self: start;
+		place-self: start;
 		display: grid;
 		grid-auto-flow: column;
 		gap: 30px;
 	}
 
-	.sound-controls {
+	.buttons-m {
+		place-self: center;
+		/* gap: 20px; */
+	}
+
+	.sound-controls, .sound-controls-m {
 		grid-area: 1/1;
 		justify-self: end;
 		translate: 20px;
@@ -72,5 +81,10 @@
 		grid-auto-flow: column;
 		gap: 20px;
 		color: var(--gold-deep);
+	}
+
+	.sound-controls-m {
+		grid-area: 2/1;
+		translate: 18px;
 	}
 </style>

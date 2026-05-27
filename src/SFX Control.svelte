@@ -1,6 +1,6 @@
 <script>
 	import SoundSlider from './Sound Slider.svelte';
-	import { persistCommon } from './shared.svelte';
+	import { persistCommon, ss } from './shared.svelte';
 	import { _sound } from './sound.svelte';
 
 	const onInput = (e) => {
@@ -14,18 +14,22 @@
 	};
 </script>
 
-<div class="selector no-highlight">
+<div class="{ss.mobile ? 'selector-m' : 'selector'} no-highlight">
 	<div class="label">SFX</div>
 	<SoundSlider max={1} value={_sound.sfx} {onInput} style="width: 35%" />
 </div>
 
 <style>
-	.selector {
+	.selector, .selector-m {
 		display: grid;
 		grid-auto-flow: column;
 		gap: 12px;
 		align-items: center;
 		translate: 60px 0;
+	}
+
+	.selector-m {
+		translate: 0;
 	}
 
 	.label {

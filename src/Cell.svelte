@@ -18,7 +18,7 @@
 	const pulse = $derived((unused && ss.buyUnused) || ss.guessing === id || ss.buyOp === id);
 
 	const classes = $derived.by(() => {
-		let cls = 'cell no-highlight';
+		let cls = (ss.mobile ? 'cell-m' : 'cell') + ' no-highlight';
 
 		if (edge || unused ? 'edge' : '') {
 			cls += ' edge';
@@ -136,9 +136,9 @@
 </div>
 
 <style>
-	.cell {
+	.cell, .cell-m {
 		display: grid;
-		width: 80px;
+		height: 80px;
 		aspect-ratio: 1;
 		background: linear-gradient(180deg, #2c2d51 0%, #20223e 65%, #1e2039 85%, var(--deep-purple) 100%);
 		border: 1px dotted #a07e36c0;

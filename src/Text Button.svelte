@@ -1,4 +1,5 @@
 <script>
+	import { ss } from './shared.svelte';
 	import { _sound } from './sound.svelte';
 	import { post } from './utils';
 
@@ -7,9 +8,10 @@
 	let scale = $state(1);
 	let timer = $state(false);
 
-	const classes = $derived(
-		`button-base no-highlight button ' ${framed ? 'framed' : 'text-only'} ${onClick ? '' : 'nope'} ${disabled ? (framed ? 'disabled' : 'text-only-disabled') : ''}`
-	);
+	const classes = $derived.by(() => {
+		const textOnly = ss.mobile ? 'text-only-m' : 'text-only';
+		return `button-base no-highlight button ${framed ? 'framed' : textOnly} ${onClick ? '' : 'nope'} ${disabled ? (framed ? 'disabled' : 'text-only-disabled') : ''}`;
+	});
 
 	const _style = $derived(`${style}; transform: scale(${scale})`);
 
@@ -69,12 +71,17 @@
 		white-space: nowrap;
 	}
 
-	.text-only {
+	.text-only,
+	.text-only-m {
 		font-size: 14px;
 		letter-spacing: 0.12em;
 		text-transform: uppercase;
 		color: var(--gold);
 		opacity: 0.85;
+	}
+
+	.text-only-m {
+		letter-spacing: 0.06em;
 	}
 
 	.text-only:hover {
