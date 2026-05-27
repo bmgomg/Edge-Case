@@ -18,7 +18,6 @@
 			</div>
 		</div>
 	{/snippet}
-	<!-- {@render score('TOTAL', stats.total)} -->
 	{@render score('AVERAGE', aveScore(), true)}
 	{@render score('BEST', stats.best)}
 </div>
