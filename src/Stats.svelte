@@ -18,7 +18,7 @@
 			</div>
 		</div>
 	{/snippet}
-	{@render score('TOTAL', stats.total)}
+	<!-- {@render score('TOTAL', stats.total)} -->
 	{@render score('AVERAGE', aveScore(), true)}
 	{@render score('BEST', stats.best)}
 </div>
@@ -26,7 +26,7 @@
 <style>
 	.stats {
 		display: grid;
-		grid: auto / 70px 90px 90px 90px;
+		grid: auto / 70px 90px 90px;
 		grid-auto-flow: column;
 		align-items: baseline;
 		cursor: initial;
