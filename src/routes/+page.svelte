@@ -7,6 +7,9 @@
 	import Splash from '../Splash.svelte';
 	import { clientRect, post } from '../utils';
 
+	const width = 1080;
+	const height = 810;
+
 	$effect(() => {
 		const disable = (e) => {
 			e.preventDefault();
@@ -18,12 +21,12 @@
 
 			const r = clientRect('.app');
 
-			if (r.width < 1080) {
-				scx = r.width / 1080;
+			if (r.width < width) {
+				scx = r.width / width;
 			}
 
-			if (r.height < 810) {
-				scy = r.height / 810;
+			if (r.height < height) {
+				scy = r.height / height;
 			}
 
 			ss.scale = Math.min(scx, scy);
@@ -100,6 +103,8 @@
 		box-sizing: border-box;
 		overflow: hidden;
 		place-content: center;
+		--width: 1080px;
+		--height: 810px;
 	}
 
 	.home {
@@ -125,8 +130,8 @@
 		grid-area: 1/1;
 		border: 1px solid var(--gold-dim);
 		--off: 1em;
-		width: calc(1080px - 2 * var(--off));
-		height: calc(810px - 2 * var(--off));
+		width: calc(var(--width) - 2 * var(--off));
+		height: calc(var(--height) - 2 * var(--off));
 		opacity: 0.7;
 	}
 
@@ -134,8 +139,8 @@
 		grid-area: 1/1;
 		border: 0.5px solid var(--gold-dim);
 		--off: 1.5em;
-		width: calc(1080px - 2 * var(--off));
-		height: calc(810px - 2 * var(--off));
+		width: calc(var(--width) - 2 * var(--off));
+		height: calc(var(--height) - 2 * var(--off));
 		opacity: 0.5;
 	}
 
@@ -211,8 +216,8 @@
 		display: grid;
 		touch-action: none;
 		box-sizing: border-box;
-		width: 1080px;
-		height: 810px;
+		width: var(--width);
+		height: var(--height);
 		/* border: 1px dotted #ffffff40; */
 	}
 </style>
