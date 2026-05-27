@@ -1,5 +1,4 @@
 <script>
-	import { ss } from './shared.svelte';
 	import { _sound } from './sound.svelte';
 	import { post } from './utils';
 

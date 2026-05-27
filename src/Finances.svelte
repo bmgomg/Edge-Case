@@ -4,7 +4,7 @@
 	import { ss } from './shared.svelte';
 </script>
 
-<div class={ss.mobile ? 'panel-m' : 'panel'}>
+<div class={ss.mobile ? 'panel-m mobile-scale' : 'panel'}>
 	<Article label="bank" value={BANK} />
 	<span class="sign">-</span>
 	<Article label="cost" value={BANK - ss.balance} />
