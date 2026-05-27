@@ -9,6 +9,8 @@
 
 	const DX = 1080;
 	const DY = 810;
+	const DXM = 450;
+	const DYM = 800;
 
 	$effect(() => {
 		const disable = (e) => {
@@ -20,13 +22,16 @@
 			let scy = 1;
 
 			const r = clientRect('.app');
+			ss.mobile = r.width < r.height && r.width < 600;
+			const dx = ss.mobile ? DXM : DX;
+			const dy = ss.mobile ? DYM : DY;
 
-			if (r.width < DX) {
-				scx = r.width / DX;
+			if (r.width < dx) {
+				scx = r.width / dx;
 			}
 
-			if (r.height < DY) {
-				scy = r.height / DY;
+			if (r.height < dy) {
+				scy = r.height / dy;
 			}
 
 			ss.scale = Math.min(scx, scy);
@@ -89,7 +94,7 @@
 				<div class="corner-mark cm-bl" transition:fade></div>
 			{/if}
 		</div>
-		<div class="content" style="scale: {ss.scale};">
+		<div class="content {ss.mobile ? 'content-m' : ''}" style="scale: {ss.scale};">
 			<GamePage />
 			<Home />
 		</div>
@@ -105,6 +110,8 @@
 		place-content: center;
 		--dx: 1080px;
 		--dy: 810px;
+		--dxm: 450px;
+		--dym: 800px;
 	}
 
 	.home {
@@ -218,6 +225,10 @@
 		box-sizing: border-box;
 		width: var(--dx);
 		height: var(--dy);
-		/* border: 1px dotted #ffffff40; */
+	}
+
+	.content-m {
+		width: var(--dxm);
+		height: var(--dym);
 	}
 </style>
