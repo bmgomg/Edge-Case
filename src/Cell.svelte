@@ -20,12 +20,12 @@
 	const classes = $derived.by(() => {
 		let cls = (ss.vert ? 'cell-v' : 'cell') + ' no-highlight';
 
-		if (edge || unused ? 'edge' : '') {
+		if (edge || unused) {
 			cls += ' edge';
-		}
 
-		if (edge && ss.over) {
-			cls += ' dance';
+			if (ss.over) {
+				cls += ' dance';
+			}
 		}
 
 		if (ss.over || (unused && ss.showUnused) || op || (!unused && !edge && !canBuyOp())) {
@@ -227,7 +227,7 @@
 	}
 
 	.dance {
-		animation: pulse 0.2s alternate 6 ease-in-out;
+		animation: pulse 0.2s 1s alternate 6 ease-in-out;
 	}
 
 	.pulse {
