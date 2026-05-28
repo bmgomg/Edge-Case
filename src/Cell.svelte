@@ -11,7 +11,7 @@
 	const bid = $derived('tb-cell-' + id);
 	const unused = $derived(row === 1 && col === 1);
 	const edge = $derived(!unused && (row === 1 || col === 1));
-	const buttonStyle = 'height: 78px; aspect-ratio: 1;';
+	const buttonStyle = 'height: 108px; aspect-ratio: 1; font-size: 18px;';
 	const edgeStyle = `${buttonStyle} font-family: RC; color: var(--water); line-height: 1.1;`;
 	const unusedStyle = `${edgeStyle}`;
 	const opStyle = `${buttonStyle} font-family: RC; letter-spacing: 0; color: var(--gold-dim);`;
@@ -181,7 +181,7 @@
 		grid-area: 1/1;
 		place-self: center;
 		font-family: LB;
-		font-size: 32px;
+		font-size: 48px;
 		font-weight: bold;
 		color: var(--water);
 	}
@@ -195,21 +195,21 @@
 		grid-area: 1/1;
 		place-self: center;
 		font-family: LB;
-		font-size: 14px;
+		font-size: 20px;
 		color: var(--water);
-		translate: -23px -26px;
+		translate: -30px -36px;
 	}
 
 	.op-result {
 		grid-area: 1/1;
 		place-self: center;
-		translate: 0 25px;
+		translate: 0 35px;
 	}
 
 	.op {
 		background: var(--button-background);
 		color: var(--water);
-		font-size: 12px;
+		font-size: 16px;
 		font-weight: 500;
 		border: none;
 	}

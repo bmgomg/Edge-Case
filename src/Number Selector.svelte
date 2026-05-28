@@ -39,7 +39,7 @@
 {#if ss.guessing && !ss.over}
 	<div class='selector {ss.vert ? 'v-scale' : ''}' transition:fade={{ duration: 150 }}>
 		{#each _range(1, 9) as n (n)}
-			{@const style = 'font-family: LB; width: 50px; height: 40px; padding: 10px 0;'}
+			{@const style = 'font-family: LB; width: 51px; height: 40px; padding: 10px 0;'}
 			<TextButton id={'tb-n' + n} text={[n]} framed onClick={() => onSelectValue(n)} {style} />
 		{/each}
 		{#if true}
