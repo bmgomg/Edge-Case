@@ -29,7 +29,6 @@
 			--slider-track: #a07e3680;
 			--red: #c1302a;
 			--darkred: #7d2222;
-			--instr-text: #f4ead6;
 			--gold: #f3d27a;
 			--gold-dim: #d6b264;
 			--gold-deep: #a07e36;

@@ -27,15 +27,13 @@
 			</div>
 		</div>
 		<div class={ss.vert ? 'instr-v' : 'instr'}>
-			<span class="item"
-				>Eight unique numbers between 1 and 9 are hidden along the edges of a grid. A ninth number is set aside, unused.</span
-			>
-			<span class="item">Reveal a cell by buying an operator — the result of applying it to that row and column is shown.</span>
-			<span class="item">No two cells in the same row or column can share the same operator.</span>
-			<span class="item">When you've seen enough, enter your guesses for all eight edge numbers and hit Done.</span>
+			<span>Eight unique numbers between 1 and 9 are hidden along the edges of a grid. A ninth number is set aside, unused.</span>
+			<span>Reveal a cell by buying an operator — the result of applying it to that row and column is shown.</span>
+			<span>No two cells in the same row or column can share the same operator.</span>
+			<span>When you've seen enough, enter your guesses for all eight edge numbers and hit Done.</span>
 			<span class="financial"
 				>You start with ${BANK}. Each operation costs money, and revealing the unused number has a price too. Guessing a number is free, but
-				changing your mind is not. Every incorrect submission incurs a penalty . Finish in the black — or break the bank trying.</span
+				changing your mind is not. Every incorrect submission incurs a penalty. Finish in the black — or break the bank trying.</span
 			>
 		</div>
 		<div class="buttons">
@@ -68,7 +66,8 @@
 		text-transform: uppercase;
 	}
 
-	.title, .title-v {
+	.title,
+	.title-v {
 		display: grid;
 		font-family: CG;
 		font-style: italic;
@@ -86,7 +85,8 @@
 		text-shadow: 0 3px 0 #000;
 	}
 
-	.instr, .instr-v {
+	.instr,
+	.instr-v {
 		margin: 40px 0 15px;
 		padding: 24px 32px;
 		width: 610px;
@@ -110,10 +110,6 @@
 		line-height: 1.4;
 		background: none;
 		border: none;
-	}
-
-	.item {
-		color: var(--instr-text);
 	}
 
 	.financial {
