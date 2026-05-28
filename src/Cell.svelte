@@ -147,7 +147,7 @@
 	.cell,
 	.cell-v {
 		display: grid;
-		height: 80px;
+		height: 110px;
 		aspect-ratio: 1;
 		background: linear-gradient(180deg, #2c2d51 0%, #20223e 65%, #1e2039 85%, var(--deep-purple) 100%);
 		border: 1px dotted #a07e36c0;

@@ -10,9 +10,9 @@
 
 {#if ss.cells}
 	<div class="game-page {hidden ? 'hidden' : ''}" in:fade>
-		<Scoreboard />
+		<!-- <Scoreboard /> -->
 		<Playground />
-		<Toolbar />
+		<!-- <Toolbar /> -->
 	</div>
 {/if}
 
@@ -20,11 +20,12 @@
 	.game-page {
 		grid-area: 1/1;
 		display: grid;
-		grid: auto 1fr auto / auto;
+		/* grid: auto 1fr auto / auto; */
 		width: 100%;
 		transition: opacity 0.2s;
 		box-sizing: border-box;
 		user-select: none;
+		padding: 35px;
 	}
 
 	.hidden {

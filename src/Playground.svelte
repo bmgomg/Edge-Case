@@ -24,7 +24,7 @@
 <style>
 	.playground {
 		display: grid;
-		grid: 1fr 420px 1fr / auto;
+		grid: 1fr auto 1fr / auto;
 	}
 
 	.playground-v {

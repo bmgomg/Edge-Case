@@ -39,11 +39,11 @@
 {#if ss.guessing && !ss.over}
 	<div class='selector {ss.vert ? 'v-scale' : ''}' transition:fade={{ duration: 150 }}>
 		{#each _range(1, 9) as n (n)}
-			{@const style = 'font-family: LB; width: 35px; height: 35px; padding: 10px;'}
+			{@const style = 'font-family: LB; width: 50px; height: 40px; padding: 10px 0;'}
 			<TextButton id={'tb-n' + n} text={[n]} framed onClick={() => onSelectValue(n)} {style} />
 		{/each}
 		{#if true}
-			{@const style = 'width: 70px; height: 35px; font-size: 12px; letter-spacing: 0.12em;'}
+			{@const style = 'width: 70px; height: 40px; font-size: 12px; letter-spacing: 0.12em;'}
 			<TextButton id="tb-clear" text={['Clear']} framed onClick={onClearValue} {style} disabled={!ss.cells[ss.guessing - 1].guess} />
 		{/if}
 	</div>
@@ -56,6 +56,6 @@
 		display: grid;
 		grid-auto-flow: column;
 		place-content: space-between;
-		width: 420px;
+		width: 570px;
 	}
 </style>
