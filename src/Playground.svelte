@@ -24,10 +24,10 @@
 <style>
 	.playground {
 		display: grid;
-		grid: 0.6fr 420px 1fr / auto;
+		grid: 1fr 420px 1fr / auto;
 	}
 
 	.playground-v {
-		grid: 0.6fr 378px 1fr / auto;
+		grid: 1fr 378px 1fr / auto;
 	}
 </style>

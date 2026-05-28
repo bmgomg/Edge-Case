@@ -1,10 +1,10 @@
 <script>
 	import { fade } from 'svelte/transition';
 	import TextButton from './Text Button.svelte';
-	import { allGuessesEntered, persist, rowCol, someIncorrect, ss } from './shared.svelte';
-	import { _range, post } from './utils';
-	import { _sound } from './sound.svelte';
 	import { COST_GUESS } from './const';
+	import { allGuessesEntered, persist, someIncorrect, ss } from './shared.svelte';
+	import { _sound } from './sound.svelte';
+	import { _range, post } from './utils';
 
 	const cell = $derived(ss.cells[ss.guessing - 1]);
 
@@ -37,10 +37,9 @@
 </script>
 
 {#if ss.guessing && !ss.over}
-	<div class={ss.vert ? 'selector-v' : 'selector'} transition:fade={{ duration: 150 }}>
+	<div class='selector {ss.vert ? 'v-scale' : ''}' transition:fade={{ duration: 150 }}>
 		{#each _range(1, 9) as n (n)}
-			{@const { row, col } = rowCol(n - 1)}
-			{@const style = `grid-area: ${row}/${col}; font-family: LB; width: 70px; height: 35px;`}
+			{@const style = 'font-family: LB; width: 35px; height: 35px; padding: 10px;'}
 			<TextButton id={'tb-n' + n} text={[n]} framed onClick={() => onSelectValue(n)} {style} />
 		{/each}
 		{#if true}
@@ -51,14 +50,12 @@
 {/if}
 
 <style>
-	.selector, .selector-v {
+	.selector {
 		grid-area: 3/1;
 		place-self: center;
 		display: grid;
-		gap: 8px;
-	}
-
-	.selector-v {
-		scale: 0.8;
+		grid-auto-flow: column;
+		place-content: space-between;
+		width: 420px;
 	}
 </style>
