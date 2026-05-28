@@ -21,7 +21,7 @@
 		</div>
 	{/snippet}
 	{@render score('plays', stats.plays)}
-	{@render score(ss.vert ? 'ave' : 'average', aveScore(), true)}
+	{@render score('average', aveScore(), true)}
 	{@render score('best', stats.best)}
 </div>
 
@@ -32,29 +32,17 @@
 		gap: 15px;
 	}
 
-	.item,
-	.item-v {
+	.item {
 		display: grid;
 		place-items: center;
 		gap: 3px;
 	}
 
-	.item-v {
-		grid-auto-flow: column;
-		gap: 10px;
-		align-items: center;
-	}
-
-	.label,
-	.label-v {
+	.label {
 		color: var(--subtitle);
 		letter-spacing: 0.22em;
 		font-size: 17px;
 		text-transform: uppercase;
-	}
-
-	.label-v {
-		letter-spacing: normal;
 	}
 
 	.value {

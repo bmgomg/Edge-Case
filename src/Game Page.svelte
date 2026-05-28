@@ -10,7 +10,7 @@
 
 {#if ss.cells}
 	<div class="game-page {hidden ? 'hidden' : ''}" in:fade>
-		<!-- <Toolbar /> -->
+		<Toolbar />
 		<Playground />
 		<Scoreboard />
 	</div>

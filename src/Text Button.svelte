@@ -70,7 +70,7 @@
 	}
 
 	.text-only {
-		font-size: 14px;
+		font-size: 17px;
 		letter-spacing: 0.12em;
 		text-transform: uppercase;
 		color: var(--gold);
