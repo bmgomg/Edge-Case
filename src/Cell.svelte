@@ -119,7 +119,7 @@
 			<span class="number" transition:fade>{value}</span>
 		{:else if !ss.over}
 			<div class="ga11" transition:fade>
-				<TextButton id={bid} text={['reveal', 'unused', 'number', 'for $' + COST_GUESS']} style={unusedStyle} onClick={onBuyUnused} />
+				<TextButton id={bid} text={['reveal', 'unused', 'number', 'for $' + COST_UNUSED]} style={unusedStyle} onClick={onBuyUnused} />
 			</div>
 		{/if}
 	{:else if op}
