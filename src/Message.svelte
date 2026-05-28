@@ -29,11 +29,15 @@
 				}
 			}
 
-			return ss.balance < 0 ? 'All correct — but bank\'s broken.' : 'All correct!';
+			return ss.balance < 0 ? "All correct — but bank's broken." : 'All correct!';
 		}
 
 		if (someIncorrect()) {
 			return 'Incorrect guesses highlighted in red.';
+		}
+
+		if (!ss.showUnused) {
+			return 'Revealing the unused number adds its value to your bank.';
 		}
 
 		return null;
@@ -41,7 +45,8 @@
 </script>
 
 {#key message}
-	{@const classes = ss.vert ? 'message-v ' + (ss.guessing ? 'long-v' : '') : 'message ' + (ss.guessing ? 'long' : '')}
+	{@const long = message?.length > 40}
+	{@const classes = ss.vert ? 'message-v ' + (long ? 'long-v' : '') : 'message ' + (long ? 'long' : '')}
 	<div class={classes} in:fade={{ delay: 200 }} out:fade>
 		{message}
 	</div>

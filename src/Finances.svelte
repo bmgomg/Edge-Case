@@ -1,13 +1,12 @@
 <script>
 	import Article from './Article.svelte';
-	import { BANK } from './const';
 	import { ss } from './shared.svelte';
 </script>
 
 <div class={ss.vert ? 'panel-v v-scale' : 'panel'}>
-	<Article label="bank" value={BANK} />
+	<Article label="bank" value={ss.bank} />
 	<span class="sign">-</span>
-	<Article label="cost" value={BANK - ss.balance} />
+	<Article label="cost" value={ss.bank - ss.balance} />
 	<span class="sign eq">=</span>
 	<Article label="balance" value={ss.balance} />
 </div>

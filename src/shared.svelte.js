@@ -86,7 +86,7 @@ const makePuzzle = () => {
     delete ss.buyOp;
     delete ss.promptSurrender;
 
-    ss.balance = BANK;
+    ss.bank = ss.balance = BANK;
 
     const nums = shuffleInPlace(_range(1, 9));
     ss.cells = Array(25).fill(null).map((_, i) => makeCell(i, nums));

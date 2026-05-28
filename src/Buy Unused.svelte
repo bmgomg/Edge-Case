@@ -10,7 +10,10 @@
 		delete ss.buyUnused;
 
 		ss.showUnused = true;
-		ss.balance -= COST_UNUSED;
+
+		const bonus = ss.cells[0].value;
+		ss.bank += bonus;
+		ss.balance += bonus - COST_UNUSED;
 
 		persist();
 	};

@@ -131,7 +131,7 @@
 			</div>
 		{/if}
 	{:else if op}
-		<div class="op-content" transition:fade>
+		<div class="op-content" in:fade>
 			<span class="cost">{'$' + opCost(op)}</span>
 			<span class="number">{value}</span>
 			<span class="op-result">{op}</span>
