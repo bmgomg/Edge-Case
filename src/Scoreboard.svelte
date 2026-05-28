@@ -44,6 +44,7 @@
 		font-family: CG;
 		font-style: italic;
 		font-size: 40px;
+		translate: 0 -5px;
 	}
 
 	.divider {

@@ -15,7 +15,7 @@
 		persist();
 	};
 
-	const style = 'letter-spacing: 0.12em;';
+	const style = 'font-size: 16px; letter-spacing: 0.12em;';
 </script>
 
 {#if ss.buyUnused && !ss.over}

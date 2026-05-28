@@ -112,7 +112,7 @@
 			</div>
 		{/if}
 		{#if guess || ss.over}
-			<div class="number {incorrect ? 'incorrect' : ''}" transition:fade><NumberFlow value={ss.over ? value : guess} /></div>
+			<div class="number {incorrect ? 'incorrect' : ''}" in:fade><NumberFlow value={ss.over ? value : guess} /></div>
 		{/if}
 		{#if !ss.over}
 			<div class="guess {guess ? 'hidden' : ''}">
@@ -165,7 +165,7 @@
 
 	.guess {
 		grid-area: 1/1;
-		transition: opacity 0.5s;
+		/* transition: opacity 0.5s; */
 	}
 
 	.op-content {

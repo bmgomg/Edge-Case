@@ -6,7 +6,7 @@
 
 {#if ss.over}
 	<div class="prompt {ss.vert ? 'v-scale' : ''}" in:fade={{ delay: 1000 }}>
-		<TextButton id="tb-play-again" text={['Play again?']} framed onClick={onRestart} style="letter-spacing: 0.12em;" />
+		<TextButton id="tb-play-again" text={['Play again?']} framed onClick={onRestart} style="font-size: 16px; letter-spacing: 0.12em;" />
 	</div>
 {/if}
 
