@@ -5,12 +5,12 @@
 	import Stats from './Stats.svelte';
 </script>
 
-<div class={ss.mobile ? 'scoreboard-m' : 'scoreboard'}>
-	{#if !ss.mobile}
+<div class={ss.vert ? 'scoreboard-v' : 'scoreboard'}>
+	{#if !ss.vert}
 		<div class="title grad-text">Edge Case</div>
 	{/if}
 	<Finances />
-	{#if ss.mobile}
+	{#if ss.vert}
 		<div class="divider">
 			<Divider />
 		</div>
@@ -20,7 +20,7 @@
 
 <style>
 	.scoreboard,
-	.scoreboard-m {
+	.scoreboard-v {
 		display: grid;
 		align-items: center;
 		grid-auto-flow: column;
@@ -31,7 +31,7 @@
 		border-bottom-width: 0.666667px;
 	}
 
-	.scoreboard-m {
+	.scoreboard-v {
 		grid-auto-flow: initial;
 		padding: 0;
 		border: none;

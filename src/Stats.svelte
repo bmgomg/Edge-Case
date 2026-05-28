@@ -4,29 +4,30 @@
 	import { aveScore, ss, stats } from './shared.svelte';
 	import Money from './Money.svelte';
 
-	const classes = $derived(ss.mobile ? 'item-m' : 'item');
+	const classes = $derived(ss.vert ? 'item-v' : 'item');
 </script>
 
-<div class={ss.mobile ? 'stats-m mobile-scale' : 'stats'}>
-	<div class={classes}>
-		<span class="label">PLAYS</span>
-		<div class="value"><NumberFlow value={stats.plays} /></div>
-	</div>
+<div class={ss.vert ? 'stats-v v-scale' : 'stats'}>
 	{#snippet score(label, value, cents)}
 		<div class={classes}>
-			<span class="label">{label}</span>
+			<span class="label {ss.vert ? 'label-v' : 'label'}">{label}</span>
 			<div class="value {value < 0 ? 'red' : ''}" in:fade>
-				<Money {value} {cents} />
+				{#if label === 'plays'}
+					<NumberFlow value={stats.plays} />
+				{:else}
+					<Money {value} {cents} />
+				{/if}
 			</div>
 		</div>
 	{/snippet}
-	{@render score(ss.mobile ? 'AVE' : 'AVERAGE', aveScore(), true)}
-	{@render score('BEST', stats.best)}
+	{@render score('plays', stats.plays)}
+	{@render score(ss.vert ? 'ave' : 'average', aveScore(), true)}
+	{@render score('best', stats.best)}
 </div>
 
 <style>
 	.stats,
-	.stats-m {
+	.stats-v {
 		grid-area: 1/3;
 		display: grid;
 		grid: auto / 70px 90px 90px;
@@ -36,31 +37,37 @@
 		gap: 20px;
 	}
 
-	.stats-m {
+	.stats-v {
 		grid-area: 1/1;
 		grid: auto/auto;
 		grid-auto-flow: column;
 		place-self: center;
-		gap: 35px;
+		gap: 30px;
 	}
 
 	.item,
-	.item-m {
+	.item-v {
 		display: grid;
 		place-items: center;
 		gap: 3px;
 	}
 
-	.item-m {
+	.item-v {
 		grid-auto-flow: column;
 		gap: 10px;
 		align-items: center;
 	}
 
-	.label {
+	.label,
+	.label-v {
 		color: var(--subtitle);
 		letter-spacing: 0.22em;
 		font-size: 17px;
+		text-transform: uppercase;
+	}
+
+	.label-v {
+		letter-spacing: normal;
 	}
 
 	.value {

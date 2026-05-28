@@ -12,7 +12,7 @@
 		cell.guess = n;
 		cell.cost = cell.cost === undefined ? 0 : cell.cost + COST_GUESS;
 
-		if (cell.cost > 0) {
+		if (cell.cost) {
 			_sound.play('coin1');
 			ss.balance -= COST_GUESS;
 		}
@@ -37,7 +37,7 @@
 </script>
 
 {#if ss.guessing && !ss.over}
-	<div class={ss.mobile ? 'selector-m' : 'selector'} transition:fade={{ duration: 150 }}>
+	<div class={ss.vert ? 'selector-v' : 'selector'} transition:fade={{ duration: 150 }}>
 		{#each _range(1, 9) as n (n)}
 			{@const { row, col } = rowCol(n - 1)}
 			{@const style = `grid-area: ${row}/${col}; font-family: LB; width: 70px; height: 35px;`}
@@ -51,14 +51,14 @@
 {/if}
 
 <style>
-	.selector, .selector-m {
+	.selector, .selector-v {
 		grid-area: 3/1;
 		place-self: center;
 		display: grid;
 		gap: 8px;
 	}
 
-	.selector-m {
+	.selector-v {
 		scale: 0.8;
 	}
 </style>

@@ -22,9 +22,9 @@
 			let scy = 1;
 
 			const r = clientRect('.app');
-			ss.mobile = r.width < r.height && r.width < 700;
-			const dx = ss.mobile ? DXM : DX;
-			const dy = ss.mobile ? DYM : DY;
+			ss.vert = r.height / r.width > 0.85;
+			const dx = ss.vert ? DXM : DX;
+			const dy = ss.vert ? DYM : DY;
 
 			if (r.width < dx) {
 				scx = r.width / dx;
@@ -81,8 +81,8 @@
 	{:else}
 		<div class="grad"></div>
 		<div class="frame-box" style="scale: {ss.scale};">
-			<div class={ss.mobile ? 'frame-m' : 'frame'}></div>
-			<div class={ss.mobile ? 'frame-inner-m' : 'frame-inner'}></div>
+			<div class={ss.vert ? 'frame-v' : 'frame'}></div>
+			<div class={ss.vert ? 'frame-inner-v' : 'frame-inner'}></div>
 			<div class="corner tl"></div>
 			<div class="corner tr"></div>
 			<div class="corner br"></div>
@@ -94,7 +94,7 @@
 				<div class="corner-mark cm-bl" transition:fade></div>
 			{/if}
 		</div>
-		<div class="content {ss.mobile ? 'content-m' : ''}" style="scale: {ss.scale};">
+		<div class="content {ss.vert ? 'content-v' : ''}" style="scale: {ss.scale};">
 			<GamePage />
 			<Home />
 		</div>
@@ -134,7 +134,7 @@
 	}
 
 	.frame,
-	.frame-m {
+	.frame-v {
 		grid-area: 1/1;
 		border: 1px solid var(--gold-dim);
 		--off: 15px;
@@ -143,14 +143,14 @@
 		opacity: 0.7;
 	}
 
-	.frame-m {
+	.frame-v {
 		--off: 15px;
 		width: calc(var(--dxm) - 2 * var(--off));
 		height: calc(var(--dym) - 2 * var(--off));
 	}
 
 	.frame-inner,
-	.frame-inner-m {
+	.frame-inner-v {
 		grid-area: 1/1;
 		border: 0.5px solid var(--gold-dim);
 		--off: 22.5px;
@@ -159,7 +159,7 @@
 		opacity: 0.5;
 	}
 
-	.frame-inner-m {
+	.frame-inner-v {
 		--off: 22.5px;
 		width: calc(var(--dxm) - 2 * var(--off));
 		height: calc(var(--dym) - 2 * var(--off));
@@ -241,7 +241,7 @@
 		height: var(--dy);
 	}
 
-	.content-m {
+	.content-v {
 		width: var(--dxm);
 		height: var(--dym);
 	}

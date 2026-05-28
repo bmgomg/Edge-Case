@@ -30,35 +30,35 @@
 	};
 </script>
 
-<div class={ss.mobile ? 'toolbar-m' : 'toolbar'}>
-	{#if ss.mobile}
+<div class={ss.vert ? 'toolbar-v' : 'toolbar'}>
+	{#if ss.vert}
 		<div class="divider">
 			<Divider />
 		</div>
 	{/if}
-	<div class="buttons {ss.mobile ? 'buttons-m' : ''}">
+	<div class="buttons {ss.vert ? 'buttons-v' : ''}">
 		<TextButton id="tb-home" text={['home']} onClick={onHome} />
 		<TextButton id="tb-surrender" text={['give up']} disabled={noSurrender} onClick={onGiveUp} />
-		<TextButton id="tb-stats" text={ss.mobile ? ['reset', 'stats'] : ['reset stats']} disabled={stats.plays === 0} onClick={resetStats} />
+		<TextButton id="tb-stats" text={ss.vert ? ['reset', 'stats'] : ['reset stats']} disabled={stats.plays === 0} onClick={resetStats} />
 		<TextButton
 			id="tb-clear-all"
-			text={ss.mobile ? ['clear all', 'guesses'] : ['clear all guesses']}
+			text={ss.vert ? ['clear all', 'guesses'] : ['clear all guesses']}
 			disabled={noClear}
 			onClick={onClear}
 		/>
 	</div>
-	<div class={ss.mobile ? 'sound-controls-m' : 'sound-controls'}>
+	<div class={ss.vert ? 'sound-controls-v' : 'sound-controls'}>
 		<MusicControl />
 		<SfxControl />
 	</div>
-	<div class={ss.mobile ? 'disclaimer-m' : 'disclaimer'}>
+	<div class={ss.vert ? 'disclaimer-v' : 'disclaimer'}>
 		<span>by Eric Matyas  •  www.soundimage.org</span>
 	</div>
 </div>
 
 <style>
 	.toolbar,
-	.toolbar-m {
+	.toolbar-v {
 		grid-area: 3/1;
 		align-self: center;
 		display: grid;
@@ -70,7 +70,7 @@
 		border-top-width: 0.666667px;
 	}
 
-	.toolbar-m {
+	.toolbar-v {
 		margin: 0 0 40px;
 		border: none;
 		padding: 0;
@@ -89,14 +89,14 @@
 		gap: 30px;
 	}
 
-	.buttons-m {
+	.buttons-v {
 		grid-area: 2/1;
 		place-self: center;
 		gap: 30px;
 	}
 
 	.sound-controls,
-	.sound-controls-m {
+	.sound-controls-v {
 		grid-area: 1/1;
 		justify-self: end;
 		translate: 20px;
@@ -106,7 +106,7 @@
 		color: var(--gold-deep);
 	}
 
-	.sound-controls-m {
+	.sound-controls-v {
 		grid-area: 3/1;
 		margin-top: 10px;
 		gap: 20px;
@@ -114,7 +114,7 @@
 	}
 
 	.disclaimer,
-	.disclaimer-m {
+	.disclaimer-v {
 		grid-area: 2/1;
 		place-self: end;
 		font-size: 10px;
@@ -123,7 +123,7 @@
 		color: var(--gold-deep);
 	}
 
-	.disclaimer-m {
+	.disclaimer-v {
 		display: none;
 		grid-area: 3/1;
 		margin: 5px 179px 0 0;

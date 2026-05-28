@@ -18,7 +18,7 @@
 	const pulse = $derived((unused && ss.buyUnused) || ss.guessing === id || ss.buyOp === id);
 
 	const classes = $derived.by(() => {
-		let cls = (ss.mobile ? 'cell-m' : 'cell') + ' no-highlight';
+		let cls = (ss.vert ? 'cell-v' : 'cell') + ' no-highlight';
 
 		if (edge || unused ? 'edge' : '') {
 			cls += ' edge';
@@ -94,6 +94,14 @@
 		const set = new Set(cells.map((c) => c.op));
 		return set.size < 3;
 	};
+
+	const guessLabel = () => {
+		if (cost === 0 && !guess) {
+			return ['guess', 'again', 'for $' + COST_GUESS];
+		}
+
+		return ['guess', 'number'];
+	};
 </script>
 
 <div class={classes} style="grid-area: {row}/{col}">
@@ -108,7 +116,7 @@
 		{/if}
 		{#if !ss.over}
 			<div class="guess {guess ? 'hidden' : ''}">
-				<TextButton id={bid} text={['guess', cost === 0 && !guess ? 'again' : 'number']} style={edgeStyle} onClick={onGuess} />
+				<TextButton id={bid} text={guessLabel()} style={edgeStyle} onClick={onGuess} />
 			</div>
 		{/if}
 	{:else if unused}
@@ -136,7 +144,8 @@
 </div>
 
 <style>
-	.cell, .cell-m {
+	.cell,
+	.cell-v {
 		display: grid;
 		height: 80px;
 		aspect-ratio: 1;

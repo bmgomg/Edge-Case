@@ -21,12 +21,12 @@
 	<div class="home" in:fade={{ duration: 200 }}>
 		<div class="title-panel">
 			<div class="tagline">what you don't know will cost you</div>
-			<div class={ss.mobile ? 'title-m' : 'title'}>
+			<div class={ss.vert ? 'title-v' : 'title'}>
 				<div class="shadow"> Edge Case </div>
 				<div class="ga11 grad-text"> Edge Case </div>
 			</div>
 		</div>
-		<div class={ss.mobile ? 'instr-m' : 'instr'}>
+		<div class={ss.vert ? 'instr-v' : 'instr'}>
 			<span class="item"
 				>Eight unique numbers between 1 and 9 are hidden along the edges of a grid. A ninth number is set aside, unused.</span
 			>
@@ -68,7 +68,7 @@
 		text-transform: uppercase;
 	}
 
-	.title, .title-m {
+	.title, .title-v {
 		display: grid;
 		font-family: CG;
 		font-style: italic;
@@ -77,7 +77,7 @@
 		letter-spacing: -2px;
 	}
 
-	.title-m {
+	.title-v {
 		font-size: 75px;
 	}
 
@@ -86,7 +86,7 @@
 		text-shadow: 0 3px 0 #000;
 	}
 
-	.instr, .instr-m {
+	.instr, .instr-v {
 		margin: 40px 0 15px;
 		padding: 24px 32px;
 		width: 610px;
@@ -102,7 +102,7 @@
 		gap: 12px;
 	}
 
-	.instr-m {
+	.instr-v {
 		width: 380px;
 		margin: 40px 0 20px;
 		padding: 0;

@@ -14,13 +14,13 @@
 	};
 </script>
 
-<div class="{ss.mobile ? 'selector-m' : 'selector'} no-highlight">
+<div class="{ss.vert ? 'selector-v' : 'selector'} no-highlight">
 	<div class="label">SFX</div>
 	<SoundSlider max={1} value={_sound.sfx} {onInput} style="width: 35%" />
 </div>
 
 <style>
-	.selector, .selector-m {
+	.selector, .selector-v {
 		display: grid;
 		grid-auto-flow: column;
 		gap: 12px;
@@ -28,7 +28,7 @@
 		translate: 60px 0;
 	}
 
-	.selector-m {
+	.selector-v {
 		translate: 0;
 	}
 

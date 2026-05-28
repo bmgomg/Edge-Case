@@ -81,7 +81,7 @@
 			background-position: center;
 		}
 
-		.mobile-scale {
+		.v-scale {
 			scale: 0.9;
 		}
 

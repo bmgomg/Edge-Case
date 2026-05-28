@@ -4,7 +4,7 @@
 	import { ss } from './shared.svelte';
 </script>
 
-<div class={ss.mobile ? 'panel-m mobile-scale' : 'panel'}>
+<div class={ss.vert ? 'panel-v v-scale' : 'panel'}>
 	<Article label="bank" value={BANK} />
 	<span class="sign">-</span>
 	<Article label="cost" value={BANK - ss.balance} />
@@ -14,7 +14,7 @@
 
 <style>
 	.panel,
-	.panel-m {
+	.panel-v {
 		grid-area: 1/2;
 		display: grid;
 		grid-auto-flow: column;
@@ -22,7 +22,7 @@
 		align-items: center;
 	}
 
-	.panel-m {
+	.panel-v {
 		grid-area: 3/1;
 	}
 

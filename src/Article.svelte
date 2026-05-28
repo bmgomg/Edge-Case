@@ -6,13 +6,13 @@
 	const balance = $derived(label === 'balance');
 </script>
 
-<div class={ss.mobile ? 'article-m' : 'article'}>
+<div class={ss.vert ? 'article-v' : 'article'}>
 	<div class="label">{label}</div>
 	<div class="value {balance ? 'balance' : ''} {value < 0 ? 'red' : ''}"><Money {value} trend={balance ? -1 : 1} /></div>
 </div>
 
 <style>
-	.article, .article-m {
+	.article, .article-v {
 		display: grid;
 		width: 101px;
 		place-content: center;
@@ -20,7 +20,7 @@
 		overflow: hidden;
 	}
 
-	.article-m {
+	.article-v {
 		width: auto;
 	}
 

@@ -1,7 +1,7 @@
 <script>
 	import { fade } from 'svelte/transition';
+	import { COST_BAD_SUBMIT, COST_GUESS } from './const';
 	import { aveScore, canSubmit, someIncorrect, ss, stats } from './shared.svelte';
-	import { COST_GUESS, COST_BAD_SUBMIT } from './const';
 
 	const showSubmitPenalty = $derived(canSubmit());
 
@@ -33,7 +33,7 @@
 		}
 
 		if (someIncorrect()) {
-			return 'Bad guesses highlighted in red.';
+			return 'Incorrect guesses highlighted in red.';
 		}
 
 		return null;
@@ -41,18 +41,22 @@
 </script>
 
 {#key message}
-	<div class={ss.mobile ? 'message-m ' + (ss.guessing ? 'long' : '') : 'message'} in:fade={{ delay: 200 }} out:fade>{message}</div>
+	{@const classes = ss.vert ? 'message-v ' + (ss.guessing ? 'long-v' : '') : 'message ' + (ss.guessing ? 'long' : '')}
+	<div class={classes} in:fade={{ delay: 200 }} out:fade>
+		{message}
+	</div>
 {/key}
 
 <style>
-	.message, .message-m {
+	.message,
+	.message-v {
 		grid-area: 1/1;
 		place-self: center;
 		z-index: 1;
 		display: grid;
 		font-size: 26px;
 		letter-spacing: 0.04em;
-		color: var(--gold-dim);
+		color: var(--bone-dim);
 		font-family: CG;
 		font-style: italic;
 		width: 420px;
@@ -60,12 +64,16 @@
 		line-height: 1;
 	}
 
-	.message-m {
+	.message-v {
 		width: 360px;
 		font-size: 22px;
 	}
 
 	.long {
+		font-size: 22px;
+	}
+
+	.long-v {
 		font-size: 19px;
 	}
 </style>
