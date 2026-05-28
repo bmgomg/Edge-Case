@@ -104,7 +104,7 @@
 
 	.instr-v {
 		width: 380px;
-		margin: 40px 0 20px;
+		margin: 40px 0 10px;
 		padding: 0;
 		font-size: 17px;
 		line-height: 1.4;

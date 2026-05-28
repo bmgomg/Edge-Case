@@ -61,10 +61,9 @@
 		display: grid;
 		font-size: 26px;
 		letter-spacing: 0.04em;
-		color: var(--bone-dim);
+		color: var(--bone);
 		font-family: CG;
 		font-style: italic;
-		width: 420px;
 		text-align: center;
 		line-height: 1;
 	}

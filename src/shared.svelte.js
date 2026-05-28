@@ -4,6 +4,7 @@ import { _range, post, shuffleInPlace } from './utils';
 
 export const ss = $state({
     home: true,
+    bank: BANK,
 });
 
 export const stats = $state({

@@ -78,7 +78,7 @@
 
 	.divider {
 		grid-area: 1/1;
-		margin: 10px auto 20px;
+		margin: 5px auto 20px;
 	}
 
 	.buttons {
