@@ -29,7 +29,7 @@
 		return cells.every((c) => c.op !== op);
 	};
 
-	const style = 'width: 134px; height: 35px; font-size: 13.5px; letter-spacing: 0.1em;';
+	const style = 'width: 160px; height: 40px; font-size: 15px; letter-spacing: 0.1em;';
 </script>
 
 {#if ss.buyOp && !ss.over}
@@ -67,6 +67,8 @@
 		display: grid;
 		grid-auto-flow: column;
 		gap: 10px;
+		width: 500px;
+		place-content: space-between;
 	}
 
 	.multiply {
