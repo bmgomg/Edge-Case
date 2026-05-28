@@ -1,22 +1,27 @@
 <script>
 	import Money from './Money.svelte';
+	import { ss } from './shared.svelte';
 
 	const { label, value } = $props();
 	const balance = $derived(label === 'balance');
 </script>
 
-<div class="article">
+<div class={ss.mobile ? 'article-m' : 'article'}>
 	<div class="label">{label}</div>
 	<div class="value {balance ? 'balance' : ''} {value < 0 ? 'red' : ''}"><Money {value} trend={balance ? -1 : 1} /></div>
 </div>
 
 <style>
-	.article {
+	.article, .article-m {
 		display: grid;
 		width: 101px;
 		place-content: center;
 		place-items: center;
 		overflow: hidden;
+	}
+
+	.article-m {
+		width: auto;
 	}
 
 	.label {

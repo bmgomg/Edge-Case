@@ -1,4 +1,5 @@
 <script>
+	import Divider from './Divider.svelte';
 	import Finances from './Finances.svelte';
 	import { ss } from './shared.svelte';
 	import Stats from './Stats.svelte';
@@ -9,11 +10,17 @@
 		<div class="title grad-text">Edge Case</div>
 	{/if}
 	<Finances />
+	{#if ss.mobile}
+		<div class="divider">
+			<Divider />
+		</div>
+	{/if}
 	<Stats />
 </div>
 
 <style>
-	.scoreboard, .scoreboard-m {
+	.scoreboard,
+	.scoreboard-m {
 		display: grid;
 		align-items: center;
 		grid-auto-flow: column;
@@ -37,5 +44,9 @@
 		font-family: CG;
 		font-style: italic;
 		font-size: 40px;
+	}
+
+	.divider {
+		grid-area: 2/1;
 	}
 </style>

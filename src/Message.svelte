@@ -41,7 +41,7 @@
 </script>
 
 {#key message}
-	<div class={ss.mobile ? 'message-m' : 'message'} in:fade={{ delay: 200 }} out:fade>{message}</div>
+	<div class={ss.mobile ? 'message-m ' + (ss.guessing ? 'long' : '') : 'message'} in:fade={{ delay: 200 }} out:fade>{message}</div>
 {/key}
 
 <style>
@@ -63,5 +63,9 @@
 	.message-m {
 		width: 360px;
 		font-size: 22px;
+	}
+
+	.long {
+		font-size: 19px;
 	}
 </style>

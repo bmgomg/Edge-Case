@@ -94,7 +94,7 @@
 		translate: 18px;
 	}
 
-	.disclaimer, .disclaimer-m {
+	/* .disclaimer, .disclaimer-m {
 		grid-area: 2/1;
 		place-self: end;
 		font-size: 10px;
@@ -106,5 +106,5 @@
 	.disclaimer-m {
 		grid-area: 3/1;
 		margin: 5px 179px 0 0;
-	}
+	} */
 </style>
