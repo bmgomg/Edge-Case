@@ -110,7 +110,7 @@
 		grid-area: 3/1;
 		margin-top: 10px;
 		gap: 20px;
-		translate: 18px;
+		translate: 10px;
 	}
 
 	.disclaimer,
