@@ -82,8 +82,8 @@
 	}
 
 	.buttons {
-		grid-area: 1/1;
-		place-self: start;
+		grid-area: 1/1/span 2/1;
+		place-self: center start;
 		display: grid;
 		grid-auto-flow: column;
 		gap: 30px;
