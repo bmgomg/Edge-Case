@@ -2,7 +2,7 @@
 	import { fade } from 'svelte/transition';
 	import { opCost, ss } from './shared.svelte';
 	import TextButton from './Text Button.svelte';
-	import { COST_UNUSED } from './const';
+	import { COST_GUESS, COST_UNUSED } from './const';
 	import NumberFlow from '@number-flow/svelte';
 	import Money from './Money.svelte';
 
@@ -119,7 +119,7 @@
 			<span class="number" transition:fade>{value}</span>
 		{:else if !ss.over}
 			<div class="ga11" transition:fade>
-				<TextButton id={bid} text={['reveal', 'unused', 'number']} style={unusedStyle} onClick={onBuyUnused} />
+				<TextButton id={bid} text={['reveal', 'unused', 'number', 'for $' + COST_GUESS']} style={unusedStyle} onClick={onBuyUnused} />
 			</div>
 		{/if}
 	{:else if op}
