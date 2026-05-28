@@ -5,7 +5,6 @@
 
 <style>
 	.divider {
-		margin: 15px auto 15px;
 		width: 260px;
 		height: 1px;
 		background: linear-gradient(

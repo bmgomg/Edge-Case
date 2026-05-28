@@ -48,5 +48,6 @@
 
 	.divider {
 		grid-area: 2/1;
+		margin: 15px auto 15px;
 	}
 </style>
