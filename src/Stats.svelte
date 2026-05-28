@@ -33,6 +33,7 @@
 		grid-auto-flow: column;
 		align-items: baseline;
 		cursor: initial;
+		gap: 20px;
 	}
 
 	.stats-m {

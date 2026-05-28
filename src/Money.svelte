@@ -4,7 +4,11 @@
 	const mfd = $derived(cents ? 2 : 0);
 </script>
 
-<NumberFlow {value} {trend} format={{ style: 'currency', currency: 'USD', minimumFractionDigits: mfd, maximumFractionDigits: mfd }} />
+<NumberFlow
+	{value}
+	{trend}
+	format={{ style: 'currency', currency: 'USD', minimumFractionDigits: Number.isInteger(value) ? 0 : 2, maximumFractionDigits: mfd }}
+/>
 
 <style>
 </style>
