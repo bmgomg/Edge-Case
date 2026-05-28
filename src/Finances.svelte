@@ -24,6 +24,7 @@
 
 	.panel-v {
 		grid-area: 3/1;
+		gap: 15px;
 	}
 
 	.sign {
