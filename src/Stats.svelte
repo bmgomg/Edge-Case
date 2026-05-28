@@ -41,7 +41,7 @@
 		grid: auto/auto;
 		grid-auto-flow: column;
 		place-self: center;
-		gap: 25px;
+		gap: 30px;
 	}
 
 	.item,
