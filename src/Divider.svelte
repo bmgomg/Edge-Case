@@ -5,7 +5,7 @@
 
 <style>
 	.divider {
-		width: 260px;
+		width: 160px;
 		height: 1px;
 		background: linear-gradient(
 			90deg,

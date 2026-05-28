@@ -5,34 +5,15 @@
 
 <div class={ss.vert ? 'panel-v v-scale' : 'panel'}>
 	<Article label="bank" value={ss.bank} />
-	<span class="sign">-</span>
 	<Article label="cost" value={ss.bank - ss.balance} />
-	<span class="sign eq">=</span>
 	<Article label="balance" value={ss.balance} />
 </div>
 
 <style>
-	.panel,
-	.panel-v {
-		grid-area: 1/2;
+	.panel {
+		/* place-self: start center; */
 		display: grid;
-		grid-auto-flow: column;
-		gap: 5px;
-		align-items: center;
-	}
-
-	.panel-v {
-		grid-area: 3/1;
-		gap: 15px;
-	}
-
-	.sign {
-		font-family: LB;
-		font-size: 40px;
-		color: var(--subtitle);
-	}
-
-	.eq {
-		translate: 0 5px;
+		gap: 10px;
+		justify-items: center;
 	}
 </style>

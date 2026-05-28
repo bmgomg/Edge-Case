@@ -26,23 +26,10 @@
 </div>
 
 <style>
-	.stats,
-	.stats-v {
-		grid-area: 1/3;
+	.stats {
 		display: grid;
-		grid: auto / 70px 90px 90px;
-		grid-auto-flow: column;
-		align-items: baseline;
 		cursor: initial;
-		gap: 20px;
-	}
-
-	.stats-v {
-		grid-area: 1/1;
-		grid: auto/auto;
-		grid-auto-flow: column;
-		place-self: center;
-		gap: 30px;
+		gap: 15px;
 	}
 
 	.item,

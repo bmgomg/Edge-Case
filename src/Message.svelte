@@ -59,7 +59,7 @@
 		place-self: center;
 		z-index: 1;
 		display: grid;
-		font-size: 26px;
+		font-size: 30px;
 		letter-spacing: 0.04em;
 		color: var(--bone);
 		font-family: CG;
@@ -74,7 +74,7 @@
 	}
 
 	.long {
-		font-size: 22px;
+		/* font-size: 22px; */
 	}
 
 	.long-v {

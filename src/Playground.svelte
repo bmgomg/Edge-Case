@@ -23,6 +23,7 @@
 
 <style>
 	.playground {
+		grid-area: 1/1;
 		display: grid;
 		grid: 1fr auto 1fr / auto;
 	}
