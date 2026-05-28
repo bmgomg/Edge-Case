@@ -122,7 +122,7 @@
 		padding-top: 20px;
 		font-family: CG;
 		font-style: italic;
-		font-size: 20px;
+		font-size: 20.5px;
 		color: rgb(214, 178, 100);
 		letter-spacing: 0.3px;
 		line-height: initial;
