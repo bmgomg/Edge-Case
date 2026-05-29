@@ -10,7 +10,7 @@
 	import { ss } from './shared.svelte';
 </script>
 
-<div class="playground {ss.vert ? 'playground-v' : ''}">
+<div class={ss.vert ? 'playground-v' : 'playground'}>
 	<Message />
 	<Board />
 	<BuyUnused />
@@ -29,6 +29,7 @@
 	}
 
 	.playground-v {
+		display: grid;
 		grid: 1fr 378px 1fr / auto;
 	}
 </style>

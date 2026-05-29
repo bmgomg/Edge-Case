@@ -11,10 +11,10 @@
 	const bid = $derived('tb-cell-' + id);
 	const unused = $derived(row === 1 && col === 1);
 	const edge = $derived(!unused && (row === 1 || col === 1));
-	const buttonStyle = 'height: 108px; aspect-ratio: 1; font-size: 18px; place-items: center;';
-	const edgeStyle = `${buttonStyle} font-family: RC; color: var(--water); line-height: 1.1;`;
-	const unusedStyle = `${edgeStyle}`;
-	const opStyle = `${buttonStyle} font-family: RC; letter-spacing: 0; color: var(--gold-dim);`;
+	const buttonStyle = $derived('aspect-ratio: 1; place-items: center; ' + (ss.vert ? 'height: 78px;' : 'height: 108px; font-size: 18px;'));
+	const edgeStyle = $derived(`${buttonStyle} font-family: RC; color: var(--water); line-height: 1.1;`);
+	const unusedStyle = $derived(`${edgeStyle}`);
+	const opStyle = $derived(`${buttonStyle} font-family: RC; letter-spacing: 0; color: var(--gold-dim);`);
 	const pulse = $derived((unused && ss.buyUnused) || ss.guessing === id || ss.buyOp === id);
 
 	const classes = $derived.by(() => {
@@ -37,7 +37,7 @@
 		}
 
 		if (op) {
-			cls += ' op ' + op;
+			cls += (ss.vert ? ' op-v ' : ' op ') + op;
 		}
 
 		return cls;
@@ -112,7 +112,9 @@
 			</div>
 		{/if}
 		{#if guess || ss.over}
-			<div class="number {incorrect ? 'incorrect' : ''}" in:fade><NumberFlow value={ss.over ? value : guess} /></div>
+			<div class="{ss.vert ? 'number-v' : 'number'} {incorrect ? 'incorrect' : ''}" in:fade>
+				<NumberFlow value={ss.over ? value : guess} />
+			</div>
 		{/if}
 		{#if !ss.over}
 			<div class="guess {guess ? 'hidden' : ''}">
@@ -124,7 +126,7 @@
 			{#if ss.showUnused}
 				<span class="cost" transition:fade>{'$' + COST_UNUSED}</span>
 			{/if}
-			<span class="number" transition:fade>{value}</span>
+			<span class={ss.vert ? 'number-v' : 'number'} transition:fade>{value}</span>
 		{:else if !ss.over}
 			<div class="ga11" transition:fade>
 				<TextButton id={bid} text={['reveal', 'unused', 'number', 'for $' + COST_UNUSED]} style={unusedStyle} onClick={onBuyUnused} />
@@ -132,9 +134,9 @@
 		{/if}
 	{:else if op}
 		<div class="op-content" in:fade>
-			<span class="cost">{'$' + opCost(op)}</span>
-			<span class="number">{value}</span>
-			<span class="op-result">{op}</span>
+			<span class={ss.vert ? 'cost-v' : 'cost'}>{'$' + opCost(op)}</span>
+			<span class={ss.vert ? 'number-v' : 'number'}>{value}</span>
+			<span class={ss.vert ? 'op-result-v' : 'op-result'}>{op}</span>
 		</div>
 	{:else if canBuyOp()}
 		<div class="ga11" transition:fade>
@@ -157,6 +159,10 @@
 		place-content: center;
 	}
 
+	.cell-v {
+		height: 80px;
+	}
+
 	.edge {
 		background: var(--button-background);
 		filter: hue-rotate(-150deg) saturate(0.5);
@@ -165,7 +171,6 @@
 
 	.guess {
 		grid-area: 1/1;
-		/* transition: opacity 0.5s; */
 	}
 
 	.op-content {
@@ -177,7 +182,7 @@
 		opacity: 0;
 	}
 
-	.number {
+	.number, .number-v {
 		grid-area: 1/1;
 		place-self: center;
 		font-family: LB;
@@ -186,32 +191,52 @@
 		color: var(--water);
 	}
 
+	.number-v {
+		font-size: 32px;
+	}
+
 	.incorrect {
 		color: firebrick;
 		filter: hue-rotate(150deg) saturate(2);
 	}
 
-	.cost {
+	.cost,
+	.cost-v {
 		grid-area: 1/1;
 		place-self: center;
 		font-family: LB;
-		font-size: 20px;
 		color: var(--water);
+		font-size: 20px;
 		translate: -30px -36px;
 	}
 
-	.op-result {
+	.cost-v {
+		font-size: 14px;
+		translate: -23px -26px;
+	}
+
+	.op-result,
+	.op-result-v {
 		grid-area: 1/1;
 		place-self: center;
 		translate: 0 35px;
 	}
 
-	.op {
+	.op-result-v {
+		translate: 0 25px;
+	}
+
+	.op,
+	.op-v {
 		background: var(--button-background);
 		color: var(--water);
 		font-size: 16px;
 		font-weight: 500;
 		border: none;
+	}
+
+	.op-v {
+		font-size: 12px;
 	}
 
 	.product {

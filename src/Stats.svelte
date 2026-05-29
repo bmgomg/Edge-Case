@@ -21,7 +21,7 @@
 		</div>
 	{/snippet}
 	{@render score('plays', stats.plays)}
-	{@render score('average', aveScore(), true)}
+	{@render score(ss.vert ? 'ave' : 'average', aveScore(), true)}
 	{@render score('best', stats.best)}
 </div>
 
@@ -43,6 +43,32 @@
 		letter-spacing: 0.22em;
 		font-size: 17px;
 		text-transform: uppercase;
+	}
+
+	.stats-v {
+		display: grid;
+		align-items: baseline;
+		cursor: initial;
+		grid-area: 1/1;
+		grid: auto/auto;
+		grid-auto-flow: column;
+		place-self: center;
+		gap: 30px;
+	}
+
+	.item-v {
+		display: grid;
+		place-items: center;
+		grid-auto-flow: column;
+		gap: 10px;
+		align-items: center;
+	}
+
+	.label-v {
+		color: var(--subtitle);
+		font-size: 17px;
+		text-transform: uppercase;
+		letter-spacing: normal;
 	}
 
 	.value {

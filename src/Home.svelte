@@ -110,6 +110,7 @@
 		line-height: 1.4;
 		background: none;
 		border: none;
+		box-shadow: none;
 	}
 
 	.financial {

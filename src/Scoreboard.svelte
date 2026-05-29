@@ -7,7 +7,9 @@
 
 <div class={ss.vert ? 'scoreboard-v' : 'scoreboard'}>
 	<Finances />
-	<Divider />
+	<div class="divider">
+		<Divider />
+	</div>
 	<Stats />
 </div>
 
@@ -19,5 +21,23 @@
 		display: grid;
 		justify-items: center;
 		gap: 50px;
+	}
+
+	.scoreboard-v {
+		display: grid;
+		align-items: center;
+		place-content: space-between;
+		padding-left: 15px;
+		border-bottom-width: 0.666667px;
+		grid-auto-flow: initial;
+		padding: 0;
+		border: none;
+		place-self: center;
+		margin: 40px 0 0;
+	}
+
+	.divider {
+		grid-area: 2/1;
+		margin: 15px auto 15px;
 	}
 </style>

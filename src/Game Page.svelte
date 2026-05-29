@@ -9,10 +9,16 @@
 </script>
 
 {#if ss.cells}
-	<div class="game-page {hidden ? 'hidden' : ''}" in:fade>
-		<Toolbar />
-		<Playground />
-		<Scoreboard />
+	<div class="{ss.vert ? 'game-page-v' : 'game-page'} {hidden ? 'hidden' : ''}" in:fade>
+		{#if ss.vert}
+			<Scoreboard />
+			<Playground />
+			<!-- <Toolbar /> -->
+		{:else}
+			<Toolbar />
+			<Playground />
+			<Scoreboard />
+		{/if}
 	</div>
 {/if}
 
@@ -25,6 +31,16 @@
 		box-sizing: border-box;
 		user-select: none;
 		padding: 25px;
+	}
+
+	.game-page-v {
+		grid-area: 1/1;
+		display: grid;
+		grid: auto 1fr auto / auto;
+		width: 100%;
+		transition: opacity 0.2s;
+		box-sizing: border-box;
+		user-select: none;
 	}
 
 	.hidden {
