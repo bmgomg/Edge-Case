@@ -104,6 +104,7 @@
 	};
 
 	const costClass = $derived(ss.vert ? 'cost-v' : 'cost');
+	const numberClass = $derived(ss.vert ? 'number-v' : 'number');
 </script>
 
 <div class={classes} style="grid-area: {row}/{col}">
@@ -114,7 +115,7 @@
 			</div>
 		{/if}
 		{#if guess || ss.over}
-			<div class="{ss.vert ? 'number-v' : 'number'} {incorrect ? 'incorrect' : ''}" in:fade>
+			<div class="{numberClass} {incorrect ? 'incorrect' : ''}" in:fade>
 				<NumberFlow value={ss.over ? value : guess} />
 			</div>
 		{/if}
@@ -128,7 +129,7 @@
 			{#if ss.showUnused}
 				<span class={costClass} transition:fade>{'$' + COST_UNUSED}</span>
 			{/if}
-			<span class={ss.vert ? 'number-v' : 'number'} transition:fade>{value}</span>
+			<span class={numberClass} transition:fade>{value}</span>
 		{:else if !ss.over}
 			<div class="ga11" transition:fade>
 				<TextButton id={bid} text={['reveal', 'unused', 'number', 'for $' + COST_UNUSED]} style={unusedStyle} onClick={onBuyUnused} />
@@ -137,7 +138,7 @@
 	{:else if op}
 		<div class="op-content" in:fade>
 			<span class={costClass}>{'$' + opCost(op)}</span>
-			<span class={ss.vert ? 'number-v' : 'number'}>{value}</span>
+			<span class={numberClass}>{value}</span>
 			<span class={ss.vert ? 'op-result-v' : 'op-result'}>{op}</span>
 		</div>
 	{:else if canBuyOp()}

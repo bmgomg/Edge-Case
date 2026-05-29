@@ -29,11 +29,19 @@
 				}
 			}
 
-			return ss.balance < 0 ? 'All correct — but bank\'s broken.' : 'All correct!';
+			return ss.balance < 0 ? "All correct — but bank's broken." : 'All correct!';
 		}
 
 		if (someIncorrect()) {
 			return 'Incorrect guesses highlighted in red.';
+		}
+
+		if (ss.buyOp) {
+			return 'Each operator can be used only once per row and column.';
+		}
+
+		if (ss.promptSurrender) {
+			return 'Progress will be erased!';
 		}
 
 		if (!ss.showUnused) {

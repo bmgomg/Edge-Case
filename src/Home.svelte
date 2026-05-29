@@ -29,7 +29,7 @@
 		<div class={ss.vert ? 'instr-v' : 'instr'}>
 			<span>Eight unique numbers between 1 and 9 are hidden along the edges of a grid. A ninth number is set aside, unused.</span>
 			<span>Reveal a cell by buying an operator — the result of applying it to that row and column is shown.</span>
-			<span>No two cells in the same row or column can share the same operator.</span>
+			<span>Each operator can be used only once per row and column.</span>
 			<span>When you've seen enough, enter your guesses for all eight edge numbers and hit Done.</span>
 			<span class="economy"
 				>You start with ${BANK}. Each operation costs money. Revealing the unused number gives you a bonus — but at a price. Guessing a number is free, but
