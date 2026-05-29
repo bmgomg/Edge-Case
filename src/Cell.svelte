@@ -1,10 +1,10 @@
 <script>
+	import NumberFlow from '@number-flow/svelte';
 	import { fade } from 'svelte/transition';
+	import { COST_UNUSED } from './const';
+	import Money from './Money.svelte';
 	import { opCost, ss } from './shared.svelte';
 	import TextButton from './Text Button.svelte';
-	import { COST_GUESS, COST_UNUSED } from './const';
-	import NumberFlow from '@number-flow/svelte';
-	import Money from './Money.svelte';
 
 	const { cell } = $props();
 	const { id, row, col, value, guess, incorrect, cost, op } = $derived(cell);
