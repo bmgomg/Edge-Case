@@ -1,6 +1,6 @@
 <script>
 	import SoundSlider from './Sound Slider.svelte';
-	import { persistCommon, ss } from './shared.svelte';
+	import { persistCommon } from './shared.svelte';
 	import { _sound } from './sound.svelte';
 
 	const onInput = (e) => {
