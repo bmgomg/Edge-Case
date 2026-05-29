@@ -14,7 +14,7 @@
 	};
 </script>
 
-<div class="{ss.vert ? 'selector-v' : 'selector'} no-highlight">
+<div class="selector {ss.vert ? 'selector-v' : ''} no-highlight">
 	<div class="label">SFX</div>
 	<SoundSlider max={1} value={_sound.sfx} {onInput} style="width: 35%" />
 </div>
@@ -27,7 +27,7 @@
 	}
 
 	.selector-v {
-		translate: 0;
+		grid-auto-flow: column;
 	}
 
 	.label {

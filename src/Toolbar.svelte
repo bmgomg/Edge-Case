@@ -1,4 +1,5 @@
 <script>
+	import Divider from './Divider.svelte';
 	import MusicControl from './Music Control.svelte';
 	import SfxControl from './SFX Control.svelte';
 	import { persist, resetStats, ss, stats } from './shared.svelte';
@@ -29,17 +30,29 @@
 	};
 </script>
 
-<div class="toolbar">
-	<div class="buttons">
+<div class={ss.vert ? 'toolbar-v' : 'toolbar'}>
+	{#if ss.vert}
+		<div class="divider">
+			<Divider />
+		</div>
+	{/if}
+	<div class={ss.vert ? 'buttons-v' : 'buttons'}>
 		<TextButton id="tb-home" text={['home']} onClick={onHome} />
 		<TextButton id="tb-surrender" text={['give up']} disabled={noSurrender} onClick={onGiveUp} />
 		<TextButton id="tb-clear-all" text={['clear all', 'guesses']} disabled={noClear} onClick={onClear} />
-		<TextButton id="tb-stats" text={['reset stats']} disabled={stats.plays === 0} onClick={resetStats} />
+		<TextButton id="tb-stats" text={ss.vert ? ['reset', 'stats'] : ['reset stats']} disabled={stats.plays === 0} onClick={resetStats} />
 	</div>
-	<div class="sound-controls">
-		<SfxControl />
-		<MusicControl />
-		<div class="disclaimer"><span>by Eric Matyas </span><span>www.soundimage.org</span></div>
+	<div class={ss.vert ? 'sound-controls-v' : 'sound-controls'}>
+		{#if ss.vert}
+			<MusicControl />
+			<SfxControl />
+		{:else}
+			<SfxControl />
+			<MusicControl />
+			{#if !ss.vert}
+				<div class="disclaimer"><span>by Eric Matyas </span><span>www.soundimage.org</span></div>
+			{/if}
+		{/if}
 	</div>
 </div>
 
@@ -53,6 +66,23 @@
 		margin-left: 30px;
 	}
 
+	.toolbar-v {
+		grid-area: 3/1;
+		align-self: center;
+		display: grid;
+		align-items: center;
+		padding-top: 20px;
+		border-top-width: 0.666667px;
+		margin: 0 0 40px;
+		border: none;
+		padding: 0;
+	}
+
+	.divider {
+		grid-area: 1/1;
+		margin: 5px auto 20px;
+	}
+
 	.buttons {
 		display: grid;
 		justify-items: start;
@@ -60,11 +90,29 @@
 		justify-self: start;
 	}
 
+	.buttons-v {
+		display: grid;
+		grid-auto-flow: column;
+		place-self: center;
+		gap: 30px;
+	}
+
 	.sound-controls {
 		display: grid;
 		color: var(--gold-deep);
 		justify-self: start;
 		gap: 30px;
+	}
+
+	.sound-controls-v {
+		grid-area: 3/1;
+		justify-self: end;
+		display: grid;
+		grid-auto-flow: column;
+		color: var(--gold-deep);
+		margin-top: 10px;
+		gap: 20px;
+		translate: 25px;
 	}
 
 	.disclaimer {

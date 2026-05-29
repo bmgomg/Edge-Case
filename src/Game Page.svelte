@@ -13,7 +13,7 @@
 		{#if ss.vert}
 			<Scoreboard />
 			<Playground />
-			<!-- <Toolbar /> -->
+			<Toolbar />
 		{:else}
 			<Toolbar />
 			<Playground />
