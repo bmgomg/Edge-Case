@@ -37,13 +37,13 @@
 </script>
 
 {#if ss.guessing && !ss.over}
-	<div class='selector {ss.vert ? 'v-scale' : ''}' transition:fade={{ duration: 150 }}>
+	<div class="selector {ss.vert ? 'selector-v v-scale' : ''}" transition:fade={{ duration: 150 }}>
 		{#each _range(1, 9) as n (n)}
-			{@const style = 'font-family: LB; width: 51px; height: 40px; padding: 10px 0;'}
+			{@const style = `font-family: LB; width: ${ss.vert ? 35 : 51}px; height: ${ss.vert ? 35 : 40}px; padding: 10px 0;`}
 			<TextButton id={'tb-n' + n} text={[n]} framed onClick={() => onSelectValue(n)} {style} />
 		{/each}
 		{#if true}
-			{@const style = 'width: 70px; height: 40px; font-size: 12px; letter-spacing: 0.12em;'}
+			{@const style = `width: 70px; height: ${ss.vert ? 35 : 40}px; font-size: 12px; letter-spacing: 0.12em;`}
 			<TextButton id="tb-clear" text={['Clear']} framed onClick={onClearValue} {style} disabled={!ss.cells[ss.guessing - 1].guess} />
 		{/if}
 	</div>
@@ -57,5 +57,9 @@
 		grid-auto-flow: column;
 		place-content: space-between;
 		width: 570px;
+	}
+
+	.selector-v {
+		width: 420px;
 	}
 </style>
