@@ -29,7 +29,7 @@
 				}
 			}
 
-			return ss.balance < 0 ? "All correct — but bank's broken." : 'All correct!';
+			return ss.balance < 0 ? 'All correct — but bank\'s broken.' : 'All correct!';
 		}
 
 		if (someIncorrect()) {

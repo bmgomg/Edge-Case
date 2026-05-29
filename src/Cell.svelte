@@ -96,8 +96,12 @@
 	};
 
 	const guessLabel = () => {
-		if (cost === 0 && !guess) {
-			return ['guess', 'again', 'for $' + COST_GUESS];
+		if (guess) {
+			return '';
+		}
+
+		if (Number.isInteger(cost)) {
+			return ['guess', 'again'];
 		}
 
 		return ['guess', 'number'];
@@ -120,9 +124,11 @@
 			</div>
 		{/if}
 		{#if !ss.over}
-			<div class="guess {guess ? 'hidden' : ''}">
-				<TextButton id={bid} text={guessLabel()} style={edgeStyle} onClick={onGuess} />
-			</div>
+			{#key guess}
+				<div class="guess" in:fade>
+					<TextButton id={bid} text={guessLabel()} style={edgeStyle} onClick={onGuess} />
+				</div>
+			{/key}
 		{/if}
 	{:else if unused}
 		{#if ss.showUnused || ss.over}
@@ -185,7 +191,8 @@
 		opacity: 0;
 	}
 
-	.number, .number-v {
+	.number,
+	.number-v {
 		grid-area: 1/1;
 		place-self: center;
 		font-family: LB;
