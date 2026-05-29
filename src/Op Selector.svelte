@@ -29,11 +29,13 @@
 		return cells.every((c) => c.op !== op);
 	};
 
-	const style = 'width: 160px; height: 40px; font-size: 15px; letter-spacing: 0.1em;';
+	const style =
+		'letter-spacing: 0.1em; ' +
+		(ss.vert ? 'width: 134px; height: 35px; font-size: 13.5px;' : 'width: 160px; height: 40px; font-size: 15px;');
 </script>
 
 {#if ss.buyOp && !ss.over}
-	<div class="selector {ss.vert ? 'v-scale' : ''}" transition:fade={{ duration: 150 }}>
+	<div class="selector {ss.vert ? 'selector-v v-scale' : ''}" transition:fade={{ duration: 150 }}>
 		<div class="multiply">
 			<TextButton
 				id="tb-multiply"
@@ -67,8 +69,12 @@
 		display: grid;
 		grid-auto-flow: column;
 		gap: 10px;
-		width: 500px;
 		place-content: space-between;
+		width: 500px;
+	}
+
+	.selector-v {
+		width: 420px;
 	}
 
 	.multiply {
