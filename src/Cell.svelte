@@ -11,7 +11,7 @@
 	const bid = $derived('tb-cell-' + id);
 	const unused = $derived(row === 1 && col === 1);
 	const edge = $derived(!unused && (row === 1 || col === 1));
-	const buttonStyle = $derived('aspect-ratio: 1; place-items: center; ' + (ss.vert ? 'height: 78px;' : 'height: 108px; font-size: 18px;'));
+	const buttonStyle = $derived('aspect-ratio: 1; ' + (ss.vert ? 'height: 78px;' : 'height: 108px; font-size: 18px;'));
 	const edgeStyle = $derived(`${buttonStyle} font-family: RC; color: var(--water); line-height: 1.1;`);
 	const unusedStyle = $derived(`${edgeStyle}`);
 	const opStyle = $derived(`${buttonStyle} font-family: RC; letter-spacing: 0; color: var(--gold-dim);`);

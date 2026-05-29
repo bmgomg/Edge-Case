@@ -28,6 +28,8 @@
 		delete ss.buyOp;
 		delete ss.guessing;
 	};
+
+	const style = $derived(ss.vert ? '' : 'place-self: start; place-items: start;');
 </script>
 
 <div class={ss.vert ? 'toolbar-v' : 'toolbar'}>
@@ -37,10 +39,10 @@
 		</div>
 	{/if}
 	<div class={ss.vert ? 'buttons-v' : 'buttons'}>
-		<TextButton id="tb-home" text={['home']} onClick={onHome} />
-		<TextButton id="tb-surrender" text={['give up']} disabled={noSurrender} onClick={onGiveUp} />
-		<TextButton id="tb-clear-all" text={['clear all', 'guesses']} disabled={noClear} onClick={onClear} />
-		<TextButton id="tb-stats" text={ss.vert ? ['reset', 'stats'] : ['reset stats']} disabled={stats.plays === 0} onClick={resetStats} />
+		<TextButton id="tb-home" text={['home']} onClick={onHome} {style}/>
+		<TextButton id="tb-surrender" text={['give up']} disabled={noSurrender} onClick={onGiveUp}  {style}/>
+		<TextButton id="tb-clear-all" text={['clear all', 'guesses']} disabled={noClear} onClick={onClear}  {style}/>
+		<TextButton id="tb-stats" text={ss.vert ? ['reset', 'stats'] : ['reset stats']} disabled={stats.plays === 0} onClick={resetStats}  {style}/>
 	</div>
 	<div class={ss.vert ? 'sound-controls-v' : 'sound-controls'}>
 		{#if ss.vert}
