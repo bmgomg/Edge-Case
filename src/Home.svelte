@@ -31,7 +31,7 @@
 			<span>Reveal a cell by buying an operator — the result of applying it to that row and column is shown.</span>
 			<span>No two cells in the same row or column can share the same operator.</span>
 			<span>When you've seen enough, enter your guesses for all eight edge numbers and hit Done.</span>
-			<span class="financial"
+			<span class="economy"
 				>You start with ${BANK}. Each operation costs money. Revealing the unused number gives you a bonus — but at a price. Guessing a number is free, but
 				changing your mind is not. Every incorrect submission incurs a penalty. Finish in the black — or break the bank trying.</span
 			>
@@ -96,7 +96,7 @@
 		box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 20px inset;
 		font-family: DMS;
 		color: rgb(244, 234, 214);
-		font-size: 19px;
+		font-size: 19.1px;
 		line-height: 1.4;
 		display: grid;
 		gap: 12px;
@@ -113,13 +113,13 @@
 		box-shadow: none;
 	}
 
-	.financial {
+	.economy {
 		border-top: 0.5px solid rgb(106, 84, 36);
 		margin-top: 10px;
 		padding-top: 20px;
 		font-family: CG;
 		font-style: italic;
-		font-size: 20.5px;
+		font-size: 21.2px;
 		color: rgb(214, 178, 100);
 		letter-spacing: 0.3px;
 		line-height: initial;
