@@ -29,7 +29,7 @@
 				}
 			}
 
-			return ss.balance < 0 ? "All correct — but bank's broken." : 'All correct!';
+			return ss.balance < 0 ? 'All correct — but bank\'s broken.' : 'All correct!';
 		}
 
 		if (someIncorrect()) {
@@ -46,7 +46,7 @@
 
 {#key message}
 	{@const long = message?.length > 40}
-	{@const classes = ss.vert ? 'message-v ' + (long ? 'long-v' : '') : 'message ' + (long ? 'long' : '')}
+	{@const classes = ss.vert ? 'message-v ' + (long ? 'long-v' : '') : 'message '}
 	<div class={classes} in:fade={{ delay: 200 }} out:fade>
 		{message}
 	</div>
@@ -71,10 +71,6 @@
 	.message-v {
 		width: 360px;
 		font-size: 22px;
-	}
-
-	.long {
-		/* font-size: 22px; */
 	}
 
 	.long-v {
