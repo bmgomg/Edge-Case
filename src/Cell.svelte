@@ -102,12 +102,14 @@
 
 		return ['guess', 'number'];
 	};
+
+	const costClass = $derived(ss.vert ? 'cost-v' : 'cost');
 </script>
 
 <div class={classes} style="grid-area: {row}/{col}">
 	{#if edge}
 		{#if cost}
-			<div class="cost" transition:fade>
+			<div class={costClass} transition:fade>
 				<Money value={cost} />
 			</div>
 		{/if}
@@ -124,7 +126,7 @@
 	{:else if unused}
 		{#if ss.showUnused || ss.over}
 			{#if ss.showUnused}
-				<span class="cost" transition:fade>{'$' + COST_UNUSED}</span>
+				<span class={costClass} transition:fade>{'$' + COST_UNUSED}</span>
 			{/if}
 			<span class={ss.vert ? 'number-v' : 'number'} transition:fade>{value}</span>
 		{:else if !ss.over}
@@ -134,7 +136,7 @@
 		{/if}
 	{:else if op}
 		<div class="op-content" in:fade>
-			<span class={ss.vert ? 'cost-v' : 'cost'}>{'$' + opCost(op)}</span>
+			<span class={costClass}>{'$' + opCost(op)}</span>
 			<span class={ss.vert ? 'number-v' : 'number'}>{value}</span>
 			<span class={ss.vert ? 'op-result-v' : 'op-result'}>{op}</span>
 		</div>
