@@ -34,13 +34,13 @@
 	<div class="buttons">
 		<TextButton id="tb-home" text={['home']} onClick={onHome} />
 		<TextButton id="tb-surrender" text={['give up']} disabled={noSurrender} onClick={onGiveUp} />
-		<TextButton id="tb-stats" text={['reset stats']} disabled={stats.plays === 0} onClick={resetStats} />
 		<TextButton
 			id="tb-clear-all"
 			text={['clear all', 'guesses']}
 			disabled={noClear}
 			onClick={onClear}
 		/>
+		<TextButton id="tb-stats" text={['reset stats']} disabled={stats.plays === 0} onClick={resetStats} />
 	</div>
 	<Divider />
 	<!-- <div class='sound-controls'>
@@ -59,6 +59,7 @@
 		display: grid;
 		justify-items: center;
 		gap: 50px;
+		margin-left: 35px;
 	}
 
 	.divider {

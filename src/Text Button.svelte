@@ -75,6 +75,8 @@
 		text-transform: uppercase;
 		color: var(--gold);
 		opacity: 0.85;
+		place-self: start;
+		place-items: start;
 	}
 
 	.text-only:hover {
