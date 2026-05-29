@@ -22,10 +22,8 @@
 <style>
 	.selector, .selector-v {
 		display: grid;
-		grid-auto-flow: column;
 		gap: 12px;
 		align-items: center;
-		translate: 60px 0;
 	}
 
 	.selector-v {

@@ -25,12 +25,14 @@
 		-webkit-appearance: none;
 		appearance: none;
 		height: 3px;
+		width: 160px;
 		border-radius: 1.5px;
 		background: linear-gradient(to right, var(--fill) 0%, var(--fill) var(--value), var(--track) var(--value), var(--track) 100%);
 		outline: none;
 		cursor: pointer;
 		-webkit-transition: 0.2s;
 		transition: opacity 0.2s;
+		z-index: 1;
 	}
 
 	.slider::-webkit-slider-thumb {
