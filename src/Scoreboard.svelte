@@ -17,7 +17,7 @@
 	.scoreboard {
 		grid-area: 1/1;
 		place-self: center end;
-		margin-right: 20px;
+		margin-right: 33px;
 		display: grid;
 		justify-items: center;
 		gap: 50px;

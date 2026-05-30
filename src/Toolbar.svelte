@@ -65,7 +65,7 @@
 		display: grid;
 		justify-items: center;
 		gap: 200px;
-		margin-left: 30px;
+		margin-left: 33px;
 	}
 
 	.toolbar-v {
